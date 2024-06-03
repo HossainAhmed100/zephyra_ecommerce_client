@@ -14,7 +14,7 @@ function Footer() {
         <div className="min-[1130px]:col-span-5 col-span-1 w-full min-[1130px]:max-w-full mx-auto">
           <div className="flex flex-col max-sm:items-center gap-8 w-full ">
             <Link to="/" className="flex items-center gap-2 justify-start">
-              <p className="font-bold text-inherit">Zephyra.</p>
+              <p className="font-bold text-inherit text-xl">Zephyra.</p>
             </Link>
            <div className="flex flex-col min-[470px]:flex-row items-center gap-3 w-full">
             <div className="relative  text-gray-500 focus-within:text-gray-900 max-sm:w-full">
@@ -23,7 +23,7 @@ function Footer() {
               </div>
               <input type="text" id="default-search"
                 className="block w-full max-sm:min-w-full sm:max-w-xs pr-4 pl-12 py-2.5 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-lg placeholder-gray-400 focus:outline-none leading-relaxed"
-                placeholder="mail@smartshoe.com"/>
+                placeholder="mail@zephyra.com"/>
             </div>
             <Button radius="sm" size="lg" color="primary">Subscribe</Button>
            </div>
