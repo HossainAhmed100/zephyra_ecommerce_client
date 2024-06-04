@@ -4,124 +4,134 @@ import { Button, Input, Textarea, Card, CardBody } from "@nextui-org/react";
 import { BdFlags } from "../../assets/icons/BdFlags";
 
 function Contact() {
-// Hook to manage form state, validation, and submission handling
-const { register, handleSubmit, formState: { errors } } = useForm();
+  // Hook to manage form state, validation, and submission handling
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-const onSubmit = (data) => {
-  console.log(data)
+  // Form submission handler
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <section className="w-full min-h-screen py-6">
+      <div className="max-w-[1024px] m-auto p-4">
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Contact Information Card */}
+          <Card className="w-96 min-h-[450px] rounded-sm shadow-sm">
+            <CardBody>
+              {/* Call Us Section */}
+              <div className="p-4 flex flex-col gap-4">
+                <div className="flex items-center justify-start gap-3">
+                  <div className="rounded-lg bg-[#DB4444] p-2 flex items-center justify-center">
+                    <MdOutlineCall color="white" size={24} />
+                  </div>
+                  <h1 className="text-lg font-medium text-gray-800">Call To Us</h1>
+                </div>
+                <h1 className="text-base font-normal text-gray-700">We are available 24/7, 7 days a week.</h1>
+                <h1 className="text-base font-normal text-gray-700">Phone: +8801611112222</h1>
+              </div>
+
+              {/* Write To Us Section */}
+              <div className="p-4 flex flex-col gap-4">
+                <div className="flex items-center justify-start gap-3">
+                  <div className="rounded-lg bg-[#DB4444] p-2 flex items-center justify-center">
+                    <MdOutlineMail color="white" size={24} />
+                  </div>
+                  <h1 className="text-lg font-medium text-gray-800">Write To Us</h1>
+                </div>
+                <h1 className="text-base font-normal text-gray-700">
+                  Fill out our form and we will contact you within 24 hours.
+                </h1>
+                <h1 className="text-base font-normal text-gray-700">Email: customer@exclusive.com</h1>
+                <h1 className="text-base font-normal text-gray-700">Email: support@exclusive.com</h1>
+              </div>
+            </CardBody>
+          </Card>
+
+          {/* Contact Form */}
+          <div className="flex-1 p-4 rounded-sm shadow-sm">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col gap-4">
+              <div className="flex gap-4 md:flex-row flex-col">
+                <div className="flex-1">
+                  <Input
+                    isRequired
+                    radius="sm"
+                    size="md"
+                    type="text"
+                    name="fullName"
+                    label="Full Name"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="Type your Full Name"
+                    {...register("fullName", { required: "Please enter your Name" })}
+                    color={errors.fullName ? "danger" : "default"}
+                  />
+                  {errors.fullName && <span className="text-red-500 text-sm">{errors.fullName.message}</span>}
+                </div>
+                <div className="flex-1">
+                  <Input
+                    startContent={
+                      <div className="border-r-2 pr-2 flex items-center justify-start gap-1">
+                        <BdFlags width="20" height="20" />
+                        <span className="text-[14px] font-medium text-gray-600">+880</span>
+                      </div>
+                    }
+                    isRequired
+                    radius="sm"
+                    size="md"
+                    type="tel"
+                    name="phone"
+                    label="Phone"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="018-0000-0000"
+                    {...register("phone", { required: "Please enter your Phone", pattern: {
+                      value: /^[0-9]{11}$/,
+                      message: "Phone number must be exactly 11 digits"
+                    }})}
+                    color={errors.phone ? "danger" : "default"}
+                  />
+                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+                </div>
+              </div>
+              <Input
+                isRequired
+                radius="sm"
+                size="md"
+                type="email"
+                name="email"
+                label="Email"
+                className="w-full"
+                variant="bordered"
+                labelPlacement="outside"
+                placeholder="Type Your Email"
+                {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
+                color={errors.email ? "danger" : "default"}
+              />
+              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+              <Textarea
+                isRequired
+                label="Your Message"
+                labelPlacement="outside"
+                placeholder="Write something..."
+                className="w-full"
+                variant="bordered"
+                {...register("customerMessage", { required: "Please write something" })}
+                classNames={{ inputWrapper: ["bg-white"] }}
+                isInvalid={!!errors.customerMessage}
+                color={errors.customerMessage ? "danger" : "default"}
+                errorMessage={errors.customerMessage && "Please write your message."}
+              />
+              {errors.customerMessage && <span className="text-red-500 text-sm">{errors.customerMessage.message}</span>}
+              <Button type="submit" className="bg-[#DB4444] text-white">Send Message</Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-return (
-  <section className="w-full min-h-screen py-6">
-  <div className="max-w-[1024px] m-auto p-4">
-  <div className="flex flex-col lg:flex-row gap-6">
-  <Card className="w-96 min-h-[450px] rounded-sm shadow-sm">
-    <CardBody>
-    <div className="p-4 flex flex-col gap-4">
-      <div className="flex items-center justify-start gap-3">
-        <div className="rounded-lg bg-[#DB4444] p-2 flex items-center jus">
-          <MdOutlineCall color="white" size={24}/>
-        </div>
-        <h1 className="text-lg font-medium text-gray-800">Call To US</h1>
-      </div>
-      <h1 className="text-base font-normal text-gray-700">We are available 24/7, 7 days a week.</h1>
-      <h1 className="text-base font-normal text-gray-700">Phone: +8801611112222</h1>
-    </div>
-    <div className="p-4 flex flex-col gap-4">
-      <div className="flex items-center justify-start gap-3">
-        <div className="rounded-lg bg-[#DB4444] p-2 flex items-center jus">
-          <MdOutlineMail color="white" size={24}/>
-        </div>
-        <h1 className="text-lg font-medium text-gray-800">Write To US</h1>
-      </div>
-      <h1 className="text-base font-normal text-gray-700">
-      Fill out our form and we will contact you within 24 hours.
-      </h1>
-      <h1 className="text-base font-normal text-gray-700">Emails: customer@exclusive.com</h1>
-      <h1 className="text-base font-normal text-gray-700">Emails: support@exclusive.com</h1>
-    </div>
-    </CardBody>
-  </Card>
-  <div className="flex-1 p-4 rounded-sm shadow-sm">
-  <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col gap-4">
-    <div className="flex gap-4 md:flex-row flex-col">
-    <div className="flex-1">
-    <Input 
-      isRequired
-      radius="sm" 
-      size={"md"}
-      type="text" 
-      name="fullName"
-      label="Full Name" 
-      className="w-full"
-      variant="bordered" 
-      labelPlacement="outside" 
-      placeholder="Type your Full Name" 
-      {...register("fullName", { required: "Please enter your Name"})}
-      color={errors.fullName ? "danger" : "default"}
-    />
-    {errors.fullName && <span className="text-red-500 text-sm">{errors.email.message}</span>}
-    </div>
-    <div className="flex-1">
-    <Input
-      startContent={
-        <div className="border-r-2 pr-2 flex items-center justify-start gap-1"><BdFlags width="20" height="20"/> <span className="text-[14px] font-medium text-gray-600">+880</span></div>
-      }
-      isRequired
-      radius="sm" 
-      size={"md"}
-      type="tel" 
-      name="phone"
-      label="Phone" 
-      className="w-full"
-      variant="bordered" 
-      labelPlacement="outside" 
-      placeholder="018-0000-0000" 
-      {...register("phone", { required: "Please enter your Phone", pattern: {
-        value: /^[0-9]{11}$/,
-        message: "Phone number must be at least 11 digits"
-      }})}
-      color={errors.phone ? "danger" : "default"}
-    />
-    {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
-    </div>
-    </div>
-    <Input
-      isRequired 
-      radius="sm" 
-      size={"md"}
-      type="email" 
-      name="email"
-      label="Email" 
-      className="w-full"
-      variant="bordered" 
-      labelPlacement="outside" 
-      placeholder="Type Your Email" 
-      {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
-      color={errors.email ? "danger" : "default"}
-    />
-    {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
-    <Textarea
-      isRequired
-      label="Your Message"
-      labelPlacement="outside"
-      placeholder="Write somthing..."
-      className="w-full"
-      variant="bordered"
-      {...register("customerMessage", { required: "Please write somthing" })}
-      classNames={{inputWrapper: ["bg-white"]}}
-      isInvalid={errors.customerMessage ? true : false}
-      color={errors.customerMessage ? "danger" : "default"}
-      errorMessage={errors.customerMessage && "Recipe Details."}
-    />
-    {errors.email && <span className="text-red-500 text-sm">{errors.customerMessage.message}</span>}
-    <Button type="submit" className="bg-[#DB4444] text-white">Send Message</Button>
-  </form> 
-  </div>
-  </div>
-  </div>
-  </section>
-)
-}
-
-export default Contact
+export default Contact;
