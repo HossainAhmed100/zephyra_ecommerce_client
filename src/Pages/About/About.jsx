@@ -1,10 +1,9 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { LiaShippingFastSolid } from "react-icons/lia";
-import { LuShieldCheck, LuCircleDollarSign, LuShoppingBag } from "react-icons/lu";
-import { BiSupport } from "react-icons/bi";
+import { LuCircleDollarSign, LuShoppingBag } from "react-icons/lu";
 import { FaSackDollar } from "react-icons/fa6";
 import { CiTwitter, CiInstagram, CiLinkedin } from "react-icons/ci";
+import TopService from "../../Components/TopService/TopService";
 
 function About() {
   return (
@@ -96,29 +95,8 @@ function About() {
             </div>
           </div>
         </section>
-        
-        {/* Info Cards Section */}
-        <section className="py-20">
-          <div className="m-auto">
-            <div className="grid gap-6 md:grid-cols-3">
-              <InfoCard 
-                icon={<LiaShippingFastSolid size={24} color="white" />} 
-                title={"FREE AND FAST DELIVERY"} 
-                description={"Free delivery for all orders over $140"} 
-              />
-              <InfoCard 
-                icon={<BiSupport size={24} color="white" />} 
-                title={"24/7 CUSTOMER SERVICE"} 
-                description={"Friendly 24/7 customer support"} 
-              />
-              <InfoCard 
-                icon={<LuShieldCheck size={24} color="white" />} 
-                title={"MONEY BACK GUARANTEE"} 
-                description={"We return money within 30 days"} 
-              />
-            </div>
-          </div>
-        </section>
+
+        <TopService />
       </div>
     </div>
   );
@@ -165,19 +143,5 @@ const ReportCard = ({ title, description, icon }) => {
   );
 };
 
-// InfoCard Component: Displays information about a service offered by the company
-const InfoCard = ({ title, description, icon }) => {
-  return (
-    <Card className="shadow-none h-52">
-      <CardBody className="flex flex-col items-center justify-center gap-3 text-center">
-        <div className="border-8 border-gray-300 p-2 bg-gray-800 rounded-full w-16 h-16 items-center justify-center flex">
-          {icon}
-        </div>
-        <div className="text-[20px] font-bold">{title}</div>
-        <p className="text-gray-500 text-[14px]">{description}</p>
-      </CardBody>
-    </Card>
-  );
-};
 
 export default About;
