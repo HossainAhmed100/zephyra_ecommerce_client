@@ -4,10 +4,12 @@ import { LuCircleDollarSign, LuShoppingBag } from "react-icons/lu";
 import { FaSackDollar } from "react-icons/fa6";
 import { CiTwitter, CiInstagram, CiLinkedin } from "react-icons/ci";
 import TopService from "../../Components/TopService/TopService";
+import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
     <div className="p-4">
+      <Helmet title='About | Zephyar Online Shop'/>
       <div className="max-w-[1024px] m-auto">
         {/* Our Story Section */}
         <section className="py-20 min-h-screen">

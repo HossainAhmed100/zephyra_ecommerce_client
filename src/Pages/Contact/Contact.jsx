@@ -2,6 +2,7 @@ import { MdOutlineCall, MdOutlineMail } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { Button, Input, Textarea, Card, CardBody } from "@nextui-org/react";
 import { BdFlags } from "../../assets/icons/BdFlags";
+import { Helmet } from "react-helmet-async";
 
 function Contact() {
   // Hook to manage form state, validation, and submission handling
@@ -14,6 +15,7 @@ function Contact() {
 
   return (
     <section className="w-full min-h-screen py-6">
+      <Helmet title='Contact | Zephyar Online Shop'/>
       <div className="max-w-[1024px] m-auto p-4">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information Card */}
