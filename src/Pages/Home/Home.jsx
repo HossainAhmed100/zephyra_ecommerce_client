@@ -1,9 +1,14 @@
+import { Helmet } from "react-helmet-async"
+import Banner from "./Banner"
 
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <section>
+      <Helmet title='Home | Zephyar Online Shop'/>
+      <div className="m-auto max-w-[1024px]">
+      <Banner />
+      </div>
+    </section>
   )
 }
 
