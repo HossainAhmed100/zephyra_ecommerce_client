@@ -13,8 +13,9 @@ function Footer() {
       <div className="grid grid-cols-1 min-[1130px]:grid-cols-12 gap-8 lg:gap-0 py-10 border-b-2 border-gray-200">
         <div className="min-[1130px]:col-span-5 col-span-1 w-full min-[1130px]:max-w-full mx-auto">
           <div className="flex flex-col max-sm:items-center gap-8 w-full ">
-            <Link to="/" className="flex items-center gap-2 justify-start">
-              <p className="font-bold text-inherit text-xl">Zephyra.</p>
+            <Link to="/" className="flex flex-col items-start gap-2 justify-center">
+              <p className="font-bold text-inherit text-xl">Zephyra</p>
+              <p className="text-inherit text-base text-gray-400">Best Online Shop in Bangladesh</p>
             </Link>
            <div className="flex flex-col min-[470px]:flex-row items-center gap-3 w-full">
             <div className="relative  text-gray-500 focus-within:text-gray-900 max-sm:w-full">

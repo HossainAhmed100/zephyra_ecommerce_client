@@ -10,7 +10,7 @@ function FlashSeles() {
   const {data: products = []} = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-        const res = await axiosPublic.get("/products");
+        const res = await axiosPublic.get("/products/4");
         return res.data
     }
   })
