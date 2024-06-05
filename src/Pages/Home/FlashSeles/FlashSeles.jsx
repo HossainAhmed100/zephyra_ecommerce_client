@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import OfferTimer from "../../../Components/OfferTimer"
 import useAxiosPublic from "../../../hooks/useAxiosPublic"
-import FlashSalesProduct from "./FlashSalesProduct"
-
-
+import { Button } from "@nextui-org/react";
+import { FaArrowRightLong } from "react-icons/fa6";
+import ProductCard from "../../../Components/ProductCard";
 
 function FlashSeles() {
   const axiosPublic = useAxiosPublic();
@@ -14,9 +14,8 @@ function FlashSeles() {
         return res.data
     }
   })
-  console.log(products)
   return (
-    <div className="py-6 sm:py-8 lg:py-12 px-4 md:px-8">
+    <div className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
       <div className="flex md:items-center items-start md:flex-row flex-col md:justify-between gap-6">
       <div className="pt-2 order-last md:-order-last w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
@@ -25,13 +24,18 @@ function FlashSeles() {
       </div>
       <h1 className="text-3xl font-semibold">Flash Sales</h1>
       </div>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center py-6 md:py-0">
       <OfferTimer duration={2 * 24 * 60 * 60 * 1000}/>
       </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-4 py-6">
-        {products.map((item) => <FlashSalesProduct key={item?._id} product={item}/>)}
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 py-6">
+        {products.map((item) => <ProductCard key={item?._id} product={item}/>)}
+      </div>
+      <div className="flex items-center justify-center py-6">
+        <Button className="bg-red-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
+          View All Products
+        </Button> 
       </div>
     </div>
   )

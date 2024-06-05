@@ -12,8 +12,8 @@ function About() {
       <Helmet title='About | Zephyar Online Shop'/>
       <div className="max-w-[1024px] m-auto">
         {/* Our Story Section */}
-        <section className="py-20 min-h-screen">
-          <div className="m-auto px-4">
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
+          <div>
             <div className="grid gap-8 md:grid-cols-2 lg:gap-16">
               <div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -38,8 +38,8 @@ function About() {
         </section>
         
         {/* Report Cards Section */}
-        <section className="pb-20">
-          <div className="m-auto px-4">
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
+          <div className="m-auto">
             <div className="grid gap-6 md:grid-cols-4">
               <ReportCard 
                 icon={<RiShoppingCartFill size={24} color="white" />} 
@@ -66,8 +66,8 @@ function About() {
         </section>
         
         {/* Team Section */}
-        <section className="w-full py-12 ">
-          <div className="container px-4 md:px-6">
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
+          <div>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2 mb-10">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">

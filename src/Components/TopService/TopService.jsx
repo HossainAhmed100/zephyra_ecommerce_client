@@ -5,7 +5,7 @@ import { Card, CardBody } from "@nextui-org/react";
 
 function TopService() {
   return (
-    <section className="py-20">
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
           <div className="m-auto">
             <div className="grid gap-6 md:grid-cols-3">
               <InfoCard 

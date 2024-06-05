@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async"
-import Banner from "./Banner"
 import TopService from "../../Components/TopService/TopService"
 import FlashSeles from "./FlashSeles/FlashSeles"
 import NewArrival from "./NewArrival/NewArrival"
+import BrowseByCategory from "./BrowseByCategory/BrowseByCategory"
+import Banner from "./Banner/Banner"
+import BestSallingItems from "./BestSallingItems/BestSallingItems"
 
 function Home() {
   return (
@@ -11,6 +13,8 @@ function Home() {
       <div className="m-auto max-w-[1024px]">
       <Banner />
       <FlashSeles />
+      <BrowseByCategory />
+      <BestSallingItems />
       <NewArrival />
       <TopService />
       </div>

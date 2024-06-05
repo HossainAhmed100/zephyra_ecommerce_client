@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NewArrival() {
   return (
-    <div className="min-h-screen py-6 sm:py-8 lg:py-12">
+    <div className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
       <div className="m-auto max-w-[1024px] px-4 md:px-8">
         <div className="mb-4 sm:mb-6 md:mb-10">
           <div className="flex items-center justify-start gap-4">
