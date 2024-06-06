@@ -15,6 +15,7 @@ import ManageProduct from "../Pages/Admin/ManageProduct/ManageProduct";
 import MyProfile from "../Pages/Admin/MyProfile/MyProfile";
 import UpdateProduct from "../Pages/Admin/UpdateProduct/UpdateProduct";
 import CookiesPolicy from "../Pages/Policy/CookiesPolicy";
+import TermsAndContitions from "../Pages/Policy/TermsAndContitions";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/termsAndContitions",
-            element: <CookiesPolicy />
+            element: <TermsAndContitions />
         },
         {
             path: "/privacyPolicy",
