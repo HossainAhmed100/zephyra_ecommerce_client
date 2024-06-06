@@ -16,6 +16,8 @@ import MyProfile from "../Pages/Admin/MyProfile/MyProfile";
 import UpdateProduct from "../Pages/Admin/UpdateProduct/UpdateProduct";
 import CookiesPolicy from "../Pages/Policy/CookiesPolicy";
 import TermsAndContitions from "../Pages/Policy/TermsAndContitions";
+import PrivacyPolicy from "../Pages/Policy/PrivacyPolicy";
+import CompanyLincense from "../Pages/Policy/CompanyLincense";
 
 const router = createBrowserRouter([
   {
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/companyLincense",
-            element: <CookiesPolicy />
+            element: <CompanyLincense />
         },
         {
             path: "/termsAndContitions",
@@ -66,7 +68,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/privacyPolicy",
-            element: <CookiesPolicy />
+            element: <PrivacyPolicy />
         },
     ]
   },
