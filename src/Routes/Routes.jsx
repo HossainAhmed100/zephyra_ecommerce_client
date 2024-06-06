@@ -7,6 +7,14 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import AllProduct from "../Pages/AllProduct/AllProduct";
+import ProductOverView from "../Pages/ProductOverView/ProductOverView";
+import PrivateRoutes from "./PrivateRoutes";
+import DashboardLayout from "../Layout/DashboardLayout";
+import AddNewProduct from "../Pages/Admin/AddNewProduct/AddNewProduct";
+import ManageProduct from "../Pages/Admin/ManageProduct/ManageProduct";
+import MyProfile from "../Pages/Admin/MyProfile/MyProfile";
+import UpdateProduct from "../Pages/Admin/UpdateProduct/UpdateProduct";
+import CookiesPolicy from "../Pages/Policy/CookiesPolicy";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +39,11 @@ const router = createBrowserRouter([
             element: <AllProduct />
         },
         {
+            path: "/allProduct/:id",
+            element: <ProductOverView />,
+            loader: ({params}) => fetch(`http://localhost:5000/productsById/${params.id}`),
+        },
+        {
             path: "/login",
             element: <Login />
         },
@@ -38,9 +51,47 @@ const router = createBrowserRouter([
             path: "/register",
             element: <Register />
         },
+        {
+            path: "/cookiesPolicy",
+            element: <CookiesPolicy />
+        },
+        {
+            path: "/companyLincense",
+            element: <CookiesPolicy />
+        },
+        {
+            path: "/termsAndContitions",
+            element: <CookiesPolicy />
+        },
+        {
+            path: "/privacyPolicy",
+            element: <CookiesPolicy />
+        },
     ]
   },
-
+  {
+    path: "Dashboard",
+    element: <PrivateRoutes><DashboardLayout /></PrivateRoutes>,
+    children: [
+        {
+            path: "addNewProduct",
+            element: <AddNewProduct />
+        },
+        {
+            path: "manageProduct",
+            element: <ManageProduct />
+        },
+        {
+            path: "myProfile",
+            element: <MyProfile />
+        },
+        {
+            path: "manageProduct/updateProduct/:id",
+            element: <UpdateProduct />,
+            loader: ({params}) => fetch(`http://localhost:5000/productsById/${params.id}`)
+        }
+    ]
+},
 
 ])
 

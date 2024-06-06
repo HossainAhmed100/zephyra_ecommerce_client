@@ -214,19 +214,20 @@ function Footer() {
             <ul className=" transition-all duration-500">
               <li className="mb-6"><FooterLink path={"/"} title={"Home"}/></li>
               <li className="mb-6"><FooterLink path={"/about"} title={"About"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Pricing"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Features"}/></li>
+              <li className="mb-6"><FooterLink path={"/contact"} title={"Contact"}/></li>
+              <li className="mb-6"><FooterLink path={"/"} title={"Flash Sales"}/></li>
+              <li className="mb-6"><FooterLink path={"/"} title={"Beast Selling Items"}/></li>
               <li className="mb-6"><FooterLink path={"/allProduct"} title={"Product"}/></li>
             </ul>
           </div>
           <div className=" md:col-span-1">
             <h4 className="text-lg text-gray-900 font-medium mb-7 text-left">Support</h4>
             <ul className=" transition-all duration-500">
-              <li className="mb-6"><FooterLink path={"/"} title={"Custome Support"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Cookies"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Lincense"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Terms & Contitions"}/></li>
-              <li className="mb-6"><FooterLink path={"/"} title={"Privacy Policy"}/></li>
+              <li className="mb-6"><FooterLink path={"/contact"} title={"Custome Support"}/></li>
+              <li className="mb-6"><FooterLink path={"/cookiesPolicy"} title={"Cookies"}/></li>
+              <li className="mb-6"><FooterLink path={"/companyLincense"} title={"Lincense"}/></li>
+              <li className="mb-6"><FooterLink path={"/termsAndContitions"} title={"Terms & Contitions"}/></li>
+              <li className="mb-6"><FooterLink path={"/privacyPolicy"} title={"Privacy Policy"}/></li>
             </ul>
           </div>
         </div>
