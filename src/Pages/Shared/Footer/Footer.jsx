@@ -18,7 +18,6 @@ const {data: footerProducts = []} = useQuery({
     return res.data
   }
 })
-console.log("🚀 ~ Footer ~ footerProducts:", footerProducts)
 return (
   <footer className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border-t-1">
     <div className="grid grid-cols-1 min-[1130px]:grid-cols-12 gap-8 lg:gap-0 py-10 border-b-2 border-gray-200">

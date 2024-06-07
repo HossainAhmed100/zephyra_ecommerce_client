@@ -18,6 +18,7 @@ import CookiesPolicy from "../Pages/Policy/CookiesPolicy";
 import TermsAndContitions from "../Pages/Policy/TermsAndContitions";
 import PrivacyPolicy from "../Pages/Policy/PrivacyPolicy";
 import CompanyLincense from "../Pages/Policy/CompanyLincense";
+import Dashboard from "../Pages/Admin/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -73,9 +74,13 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "Dashboard",
+    path: "/dashboard",
     element: <PrivateRoutes><DashboardLayout /></PrivateRoutes>,
     children: [
+        {
+            path: "/dashboard",
+            element: <Dashboard />
+        },
         {
             path: "addNewProduct",
             element: <AddNewProduct />

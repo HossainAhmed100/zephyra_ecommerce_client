@@ -9,15 +9,15 @@ import { useQuery } from "@tanstack/react-query";
 function AddNewProduct() {
     const {register,handleSubmit,formState: { errors }, reset} = useForm();
     const axiosPublic = useAxiosPublic();
-    const {data: shoes = [],} = useQuery({
-    queryKey: ["shoes"],
+    const {data: products = [],} = useQuery({
+    queryKey: ["products"],
     queryFn: async () => {
-        const res = await axiosPublic.get("/shoes");
+        const res = await axiosPublic.get("/products/0");
         return res.data
     }
     })
     const onSubmit = async (data) => {
-        const newId = shoes.length + Math.floor(100000 + Math.random() * 900000).toString();
+        const newId = products.length + Math.floor(100000 + Math.random() * 900000).toString();
         const product = {
         id: newId,
         ratings: 0,
