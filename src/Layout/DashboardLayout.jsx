@@ -1,4 +1,4 @@
-import { Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown} from "@nextui-org/react";
+import { Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Button} from "@nextui-org/react";
 import { Link, useNavigate, Outlet, NavLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { VscSignOut } from "react-icons/vsc";
@@ -6,32 +6,34 @@ import Swal from "sweetalert2";
 import auth from "../firebase/firebase.config";
 import ThreeLineIcon from "../assets/SVGIcons/ThreeLineIcon";
 import { useState } from "react";
-import { FaChartPie } from "react-icons/fa6";
+import { FaChartPie, FaArrowRightFromBracket } from "react-icons/fa6";
+import { FaUser } from "react-icons/fa";
+import { MdAddBusiness, MdOutlineManageSearch } from "react-icons/md";
 
 function DashboardLayout() {
-    // State to track the open/close status of the mobile menu
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    console.log("🚀 ~ DashboardLayout ~ isMenuOpen:", isMenuOpen)
-    // Get the current authenticated user
-    const [user] = useAuthState(auth);
-    // Hook for navigation
-    const navigate = useNavigate();
-    // Hook to sign out user
-    const [signOut] = useSignOut(auth);
+  // State to track the open/close status of the mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Get the current authenticated user
+  const [user] = useAuthState(auth);
+  // Hook for navigation
+  const navigate = useNavigate();
+  // Hook to sign out user
+  const [signOut] = useSignOut(auth);
   
-    // Function to handle user logout
-    const handleLogOut = async () => {
-    const success = await signOut();
-      if (success) {
-      navigate("/login")
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Logout Successfull",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    }};
+  // Function to handle user logout
+  const handleLogOut = async () => {
+  const success = await signOut();
+    if (success) {
+    navigate("/login")
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Logout Successfull",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }};
   return (
     <div>
       <div>
@@ -79,7 +81,7 @@ function DashboardLayout() {
         </div>
       </nav>
 
-      <aside id="logo-sidebar" className={`fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${!isMenuOpen && "-translate-x-full"} sm:translate-x-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700`} aria-label="Sidebar">
+      <aside id="logo-sidebar" className={`fixed flex flex-col top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${!isMenuOpen && "-translate-x-full"} sm:translate-x-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700`} aria-label="Sidebar">
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
             <ul className="space-y-2 font-medium">
               <li>
@@ -90,7 +92,7 @@ function DashboardLayout() {
                 } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={20}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Dashboard</span>
                   </>
                 )}
@@ -104,7 +106,7 @@ function DashboardLayout() {
                 } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <MdOutlineManageSearch color={isActive ? "#363636" : "#6b7280"} size={26}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Manage Product</span>
                   </>
                 )}
@@ -118,7 +120,7 @@ function DashboardLayout() {
                 } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <MdAddBusiness color={isActive ? "#363636" : "#6b7280"} size={24}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Add New Product</span>
                   </>
                 )}
@@ -132,13 +134,30 @@ function DashboardLayout() {
                   } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <FaUser color={isActive ? "#363636" : "#6b7280"} size={20}/>
                   <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Profile</span>
                   </>
                 )}
               </NavLink>
               </li>
             </ul>
+        </div>
+        <div className="mt-auto p-4 flex flex-col">
+        <Button onClick={async () => {
+            const success = await signOut();
+            if (success) {
+              navigate("/login")
+              Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Logout Successfull",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+            }
+          }} color="danger" startContent={<FaArrowRightFromBracket />}>
+          Sign Out
+        </Button> 
         </div>
       </aside>
 

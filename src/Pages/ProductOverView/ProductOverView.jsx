@@ -1,112 +1,173 @@
-import {RadioGroup, Radio, cn, Button} from "@nextui-org/react";
-import { useState } from "react";
-import { FaPlus, FaMinus, FaStar } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+import { useState } from 'react';
+import { FaPlus, FaMinus, FaStar, FaHeart } from 'react-icons/fa';
+import { Button, Divider } from '@nextui-org/react';
+import { FaCartShopping } from "react-icons/fa6";
 
-
-const CustomRadio = (props) => {
-  const {children, ...otherProps} = props;
-
-  return (
-    <Radio
-      {...otherProps}
-      classNames={{
-        base: cn(
-          "group flex items-center hover:opacity-70 active:opacity-50 justify-start tap-highlight-transparent",
-        "min-w-[70px] cursor-pointer border-2 border-default rounded-md gap-1 mr-2",
-        "data-[selected=true]:border-primary",
-        ),
-      }}
-      size="sm"
-    >
-      {children}
-    </Radio>
-  );
-};
-
-const ProductOverView = () => {
+const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
-  const product = useLoaderData();
-  const decressQuantity = () => {
-    if(quantity > 0){
-      setQuantity(quantity - 1)
-    }
-  }
-  const commaSeparetor = (price) => {
-    const options = {  maximumFractionDigits: 2 };
-    const result = Intl.NumberFormat("en-US",options).format(price);
-    return result;
-  }
-  const percentage = (discount, price) => {
-    const num = (100 * discount) / price;
-    return parseFloat(num).toFixed(2)
-}
+  const [selectedSize, setSelectedSize] = useState('XS');
+  const [selectedColor, setSelectedColor] = useState('Red');
+  const [mainImage, setMainImage] = useState('https://i.ibb.co/mHQ61dS/playstations.png');
+  const [selectedImage, setSelectedImage] = useState('https://i.ibb.co/mHQ61dS/playstations.png');
+  
+  const product = {
+    name: 'Havic HV G-92 Gamepad',
+    price: 192,
+    rating: 4.5,
+    reviews: 150,
+    availability: 'In Stock',
+    description: 'Playstation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
+    colors: ['Red', 'Black', 'Blue'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    images: [
+      'https://i.ibb.co/mHQ61dS/playstations.png',
+      'https://i.ibb.co/3s7hJKD/laptop.png',
+      'https://i.ibb.co/92nThYH/dfdf.jpg',
+      'https://i.ibb.co/mHQ61dS/playstations.png'
+    ],
+  };
+
+  const handleQuantityChange = (change) => {
+    setQuantity((prev) => Math.max(0, prev + change));
+  };
+
+  const commaSeparator = (price) => {
+    return new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(price);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle the Buy Now action here
+    alert('Product added to cart');
+  };
+
   return (
     <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-10">
-      <div className="grid gap-4 md:gap-10 items-start">
+      <div className="grid gap-4">
         <div className="grid gap-4">
           <img
             alt="product"
-            className="aspect-square object-cover border border-gray-200 w-full rounded-lg overflow-hidden dark:border-gray-800"
-            height={600}
-            src={product?.thumbnail}
-            width={600}
+            className="aspect-square object-contain  bg-gray-100 p-4 border border-gray-200 w-full rounded-lg overflow-hidden dark:border-gray-800"
+            src={mainImage}
           />
+          <div className="grid grid-cols-4 gap-2">
+            {product.images.map((img, index) => (
+              <img 
+                key={index} 
+                alt={`product thumbnail ${index + 1}`} 
+                src={img} 
+                className={`w-full bg-gray-100 rounded-md h-full aspect-square p-2 object-contain cursor-pointer ${selectedImage === img ? 'border-2 border-gray-200' : ''}`}
+                onClick={() => { setMainImage(img); setSelectedImage(img); }}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="grid gap-4 md:gap-6 items-start">
         <div className="grid gap-2">
-          <h1 className="font-bold text-3xl lg:text-4xl">{product?.model}</h1>
-          <div>
-            <p>{product?.description}</p>
-          </div>
-          <div className="flex items-center justify-start gap-10 w-full py-2">
-          <div className="flex items-center justify-start gap-2">
-            <p className="uppercase text-2xl font-semibold">${commaSeparetor(product?.price)}</p>
-            <small className="text-default-500 line-through">${product?.discount}</small>
-            <small className="text-default-500 font-medium">OFF {percentage(product?.discount, product?.price)}%</small>
-          </div>
-          <Button 
-          className="max-w-[50px] font-medium text-yellow-500" 
-          variant="ghost" 
-          color="default" 
-          size="md" startContent={<FaStar size={20}/>}>{product?.rating}</Button>
-          </div>
-        </div>
-        <form className="grid gap-4 md:gap-10">
-          <RadioGroup orientation="horizontal" label="Color">
-            <CustomRadio value="black">Black</CustomRadio>
-            <CustomRadio value="white">White</CustomRadio>
-            <CustomRadio value="blue">Blue</CustomRadio>
-          </RadioGroup>
-          <div className="grid gap-2">
-            <RadioGroup orientation="horizontal" label="Size">
-              <CustomRadio value="free">S</CustomRadio>
-              <CustomRadio value="pro">M</CustomRadio>
-              <CustomRadio value="enterprise">L</CustomRadio>
-            </RadioGroup>
-          </div>
-          <div className="grid gap-2">
-            <span className="text-base" htmlFor="quantity">
-              Quantity
+          <h1 className="font-bold text-3xl lg:text-4xl">{product.name}</h1>
+          <div className="flex items-center">
+            <span className="text-yellow-500 flex items-start justify-center gap-1">
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
             </span>
-            <div className="flex items-center gap-2">
-              <Button onClick={decressQuantity} radius="sm" isIconOnly color="default" variant="faded" aria-label="Take a photo">
-                <FaMinus size={14}/>
+            <span className="ml-2 text-gray-600">({product.reviews} Reviews) |</span>
+            <span className="ml-2 text-green-500">{product.availability}</span>
+          </div>
+          <p className="text-2xl font-semibold">${commaSeparator(product.price)}</p>
+          <p>{product.description}</p>
+        </div>
+        <Divider className='text-gray-300'/>
+        <form className="grid gap-6" onSubmit={handleSubmit}>
+          <div className="grid gap-2">
+            <span className="text-base">Colours:</span>
+            <div className="flex gap-2">
+              {product.colors.map((color, index) => (
+                <Button
+                  size='sm'
+                  key={index}
+                  type="button"
+                  onClick={() => setSelectedColor(color)}
+                  className={`border px-4 py-2 rounded ${selectedColor === color ? 'bg-red-100 text-red-500 border-red-500' : ''}`}
+                  variant="flat"
+                  color="default"
+                >
+                  {color}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="grid gap-2">
+            <span className="text-base">Size:</span>
+            <div className="flex gap-2">
+              {product.sizes.map((size) => (
+                <Button
+                  size='sm'
+                  key={size}
+                  type="button"
+                  onClick={() => setSelectedSize(size)}
+                  className={`border px-4 py-2 rounded ${selectedSize === size ? 'bg-red-100 text-red-500 border-red-500' : ''}`}
+                  variant="flat"
+                  color="default"
+                >
+                  {size}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col items-start gap-2 justify-center">
+            <span className="text-base">Quantity:</span>
+            <div className="flex items-center gap-2 border-2 rounded-md border-gray-300">
+              <Button
+                type="button"
+                onClick={() => handleQuantityChange(-1)}
+                radius="sm"
+                isIconOnly
+                color="default"
+                variant="flat"
+                size='sm'
+                className='border-r-2 border-gray-300 rounded-none'
+              >
+                <FaMinus size={14} />
               </Button>
-              <Button radius="sm" color="default" variant="faded" aria-label="Take a photo">
-                {quantity}
-              </Button>
-              <Button onClick={() => setQuantity(quantity + 1)} radius="sm" isIconOnly color="default" variant="faded" aria-label="Take a photo">
-                <FaPlus size={14}/>
+              <span className='px-4'>{quantity}</span>
+              <Button
+                type="button"
+                onClick={() => handleQuantityChange(1)}
+                radius="sm"
+                isIconOnly
+                color="default"
+                variant="flat"
+                size='sm'
+                className='border-l-2 border-gray-300 rounded-none'
+              >
+                <FaPlus size={14} />
               </Button>
             </div>
           </div>
-          <Button className="bg-black text-white" size="lg">Add to cart</Button>
+          <div className="flex gap-2 lg:flex-row items-end justify-center">
+            <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-red-500 text-white flex-1" size="md">
+              Add To Cart
+            </Button>
+            <Button radius='sm' color='default' variant='flat' isIconOnly>
+              <FaHeart />
+            </Button>
+          </div>
+          
         </form>
+        <div className="grid gap-2 mt-2 ml-4">
+        <span className='text-base font-medium text-gray-700 underline'>Benefits</span>
+        <ul className="list-disc">
+            <li>Warranty included</li>
+            <li>Free return within 30 days</li>
+            <li>Damage and theft insurance</li>
+          </ul>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductOverView
+export default ProductDetails;
