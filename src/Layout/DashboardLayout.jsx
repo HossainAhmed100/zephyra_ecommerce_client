@@ -85,11 +85,13 @@ function DashboardLayout() {
               <li>
               <NavLink
                 to="/dashboard"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group" end>
+                className={({isActive}) => 
+                  `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#000000" : "#6b7280"} size={22}/>
-                  <span className="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
+                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Dashboard</span>
                   </>
                 )}
               </NavLink>
@@ -97,11 +99,13 @@ function DashboardLayout() {
               <li>
               <NavLink
                 to="manageProduct"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group" end>
+                className={({isActive}) => 
+                  `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#000000" : "#6b7280"} size={22}/>
-                  <span className="flex-1 ms-3 whitespace-nowrap">Manage Product</span>
+                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Manage Product</span>
                   </>
                 )}
               </NavLink>
@@ -109,11 +113,13 @@ function DashboardLayout() {
               <li>
               <NavLink
                 to="addNewProduct"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100 group" end>
+                className={({isActive}) => 
+                  `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#000000" : "#6b7280"} size={22}/>
-                  <span className="flex-1 ms-3 whitespace-nowrap">Add New Product</span>
+                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Add New Product</span>
                   </>
                 )}
               </NavLink>
@@ -121,15 +127,13 @@ function DashboardLayout() {
               <li>
               <NavLink
                 to="myProfile"
-                className={({isActive}) => {
-                  return (
-                    `flex items-center p-2 text-gray-900 rounded-lg ${isActive && 'bg-gray-100'}  hover:bg-gray-100 group`
-                  )
-                }} end>
+                className={({isActive}) => 
+                    `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                  } end>
                 {({ isActive }) => (
                   <>
-                  <FaChartPie color={isActive ? "#000000" : "#6b7280"} size={22}/>
-                  <span className="flex-1 ms-3 whitespace-nowrap">My Profile</span>
+                  <FaChartPie color={isActive ? "#363636" : "#6b7280"} size={22}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Profile</span>
                   </>
                 )}
               </NavLink>
