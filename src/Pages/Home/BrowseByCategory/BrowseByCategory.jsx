@@ -30,6 +30,14 @@ function BrowseByCategory() {
           <CategoryCard icon={HeadphoneIcon} title="Headphones" path="/headphones"/>
           <CategoryCard icon={GamepadIcon} title="Gaming" path="/gaming"/>
         </div>
+        <div className="grid lg:grid-cols-6 md:grid-cols-4 grid-cols-2 gap-4">
+          <CategoryCard icon={PhonesIcon} title="Phones" path="/phones"/>
+          <CategoryCard icon={ComputerIcon} title="Computers" path="/computers"/>
+          <CategoryCard icon={SmartWatchIcon} title="SmartWatches" path="/smartwatches"/>
+          <CategoryCard icon={CameraIcon} title="Cameras" path="/cameras"/>
+          <CategoryCard icon={HeadphoneIcon} title="Headphones" path="/headphones"/>
+          <CategoryCard icon={GamepadIcon} title="Gaming" path="/gaming"/>
+        </div>
       </div>
     </div>
   )

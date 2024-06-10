@@ -57,6 +57,12 @@ function NavBar() {
         <NavLink to="/allProduct">Product</NavLink>
       </NavbarItem>
       <NavbarItem>
+        <NavLink to="/allProduct">Flash Sales</NavLink>
+      </NavbarItem>
+      <NavbarItem>
+        <NavLink to="/allProduct">Offers</NavLink>
+      </NavbarItem>
+      <NavbarItem>
         <NavLink to="/about">About</NavLink>
       </NavbarItem>
       <NavbarItem>
