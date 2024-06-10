@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import AnimatingNumber from "./NumberCounter/animating-number";
 
 function OfferTimer({ duration }) {
   // State to keep track of remaining time in milliseconds
@@ -38,11 +39,10 @@ function OfferTimer({ duration }) {
 const TimeSlot = ({ time, title }) => {
   return (
     <div>
-      <div>
         <h3 className="countdown-element seconds font-manrope font-semibold text-2xl text-red-600 text-center">
-          {time}
+          <AnimatingNumber value={time}/>
+          {/* {time} */}
         </h3>
-      </div>
       <p className="text-sm font-normal text-gray-900 mt-1 text-center w-full">{title}</p>
     </div>
   );

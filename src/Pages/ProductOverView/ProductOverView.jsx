@@ -132,7 +132,7 @@ const ProductDetails = () => {
               >
                 <FaMinus size={14} />
               </Button>
-              <span className='px-4'>{quantity}</span>
+              <span className='px-4 w-16 text-center'>{quantity}</span>
               <Button
                 type="button"
                 onClick={() => handleQuantityChange(1)}
