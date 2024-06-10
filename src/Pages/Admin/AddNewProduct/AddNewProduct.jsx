@@ -98,6 +98,72 @@ function AddNewProduct() {
             color={errors.productImgUrl ? "danger" : "default"}
             errorMessage={errors.productImgUrl && "Please Giv e Product img url"}
           />
+         <Input 
+            isRequired
+            radius="sm" 
+            type="text" 
+            name="productName"
+            label="Product name" 
+            className="w-full"
+            variant="bordered" 
+            labelPlacement="outside" 
+            placeholder="Recipe name" 
+            classNames={{inputWrapper: ["bg-white"]}}
+            {...register("productName", { required: true })}
+            isInvalid={errors.productName ? true : false}
+            color={errors.productName ? "danger" : "default"}
+            errorMessage={errors.productName && "Product name Please!"}
+          />
+         <Input 
+            isRequired
+            radius="sm" 
+            type="text" 
+            name="productImgUrl"
+            label="Product Image Url" 
+            className="w-full"
+            variant="bordered" 
+            labelPlacement="outside" 
+            placeholder="Image Url"
+            defaultValue="https://i.ibb.co/S72kSF7/Untitled-design-111.png"
+            classNames={{inputWrapper: ["bg-white"]}}
+            {...register("productImgUrl", { required: true })}
+            isInvalid={errors.productImgUrl ? true : false}
+            color={errors.productImgUrl ? "danger" : "default"}
+            errorMessage={errors.productImgUrl && "Please Giv e Product img url"}
+          />
+         <Input 
+            isRequired
+            radius="sm" 
+            type="text" 
+            name="productName"
+            label="Product name" 
+            className="w-full"
+            variant="bordered" 
+            labelPlacement="outside" 
+            placeholder="Recipe name" 
+            classNames={{inputWrapper: ["bg-white"]}}
+            {...register("productName", { required: true })}
+            isInvalid={errors.productName ? true : false}
+            color={errors.productName ? "danger" : "default"}
+            errorMessage={errors.productName && "Product name Please!"}
+          />
+         <Input 
+            isRequired
+            radius="sm" 
+            type="text" 
+            name="productImgUrl"
+            label="Product Image Url" 
+            className="w-full"
+            variant="bordered" 
+            labelPlacement="outside" 
+            placeholder="Image Url"
+            defaultValue="https://i.ibb.co/S72kSF7/Untitled-design-111.png"
+            classNames={{inputWrapper: ["bg-white"]}}
+            {...register("productImgUrl", { required: true })}
+            isInvalid={errors.productImgUrl ? true : false}
+            color={errors.productImgUrl ? "danger" : "default"}
+            errorMessage={errors.productImgUrl && "Please Giv e Product img url"}
+          />
          <div className="flex items-center lg:justify-between w-full gap-4">
           <Select isRequired {...register("productBrand", { required: true })}
             size="md"
