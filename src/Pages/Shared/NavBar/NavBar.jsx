@@ -51,16 +51,7 @@ function NavBar() {
     {/* Main navigation links, hidden on small screens */}
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
-        <NavLink to="/">Home</NavLink>
-      </NavbarItem>
-      <NavbarItem>
         <NavLink to="/allProduct">Product</NavLink>
-      </NavbarItem>
-      <NavbarItem>
-        <NavLink to="/allProduct">Flash Sales</NavLink>
-      </NavbarItem>
-      <NavbarItem>
-        <NavLink to="/allProduct">Offers</NavLink>
       </NavbarItem>
       <NavbarItem>
         <NavLink to="/about">About</NavLink>

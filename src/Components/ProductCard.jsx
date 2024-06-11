@@ -17,11 +17,11 @@ function ProductCard({product}) {
     }
   return (
     <Link to={`/allProduct/${_id}`}>
-    <Card className="pb-4 hover:border-1 hover:border-gray-200 transition rounded-md duration-700 ease-in-out border-1 border-transparent">
+    <Card className="pb-4 bg-white hover:border-1 hover:border-gray-200 transition shadow-sm rounded-md duration-700 ease-in-out border-1 border-transparent">
       {discount > 10 && <div className="bg-red-500 rounded-r-lg z-10 absolute items-center p-2 top-6 left-0">
         <p className="text-white font-bold text-tiny uppercase text-center">OFF {percentage(discount, price)}%</p>
       </div>}
-      <CardBody className="overflow-visible items-center p-6 bg-gray-100">
+      <CardBody className="overflow-visible items-center p-6">
       <Image
         alt="Card background"
         className="object-cover w-full h-32 object-center transition duration-200 group-hover:scale-110"

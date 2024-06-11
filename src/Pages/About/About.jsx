@@ -10,7 +10,7 @@ function About() {
   return (
     <div className="p-4">
       <Helmet title='About | Zephyar Online Shop'/>
-      <div className="max-w-[1024px] m-auto">
+      <div className="max-w-7xl m-auto">
         {/* Our Story Section */}
         <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
           <div>

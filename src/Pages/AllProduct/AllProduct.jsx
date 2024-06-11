@@ -1,10 +1,13 @@
 import ProductCard from "../../Components/ProductCard";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import {Divider, Select, SelectItem, Slider} from "@nextui-org/react";
+import { IoFilter } from "react-icons/io5";
+import {Button, Divider, Select, SelectItem, Slider} from "@nextui-org/react";
 import { useState } from "react";
 
 function AllProduct() {
+  // State to track the open/close status of the mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [value, setValue] = useState([100, 300]);
   const axiosPublic = useAxiosPublic();
   const {data: products = []} = useQuery({
@@ -29,9 +32,9 @@ function AllProduct() {
   ]
   
   return (
-    <section className="max-w-[1024px] py-4 m-auto">
-      <div className="flex items-start justify-center gap-4">
-        <div className="flex flex-col items-center justify-center gap-2">
+    <section className="max-w-7xl p-4 m-auto">
+      <div className="flex items-start justify-center gap-8">
+        <div id="logo-sidebar" className={`flex flex-col top-0 left-44 z-30 w-64 gap-2 transition-transform ${!isMenuOpen && "translate-x-0"} sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`} aria-label="Sidebar">
           <div className="bg-white shadow-sm w-64 rounded-md">
             <p className="p-4 text-gray-700 text-base font-medium">Price Range</p>
             <Divider />
@@ -103,14 +106,21 @@ function AllProduct() {
           </div>
         </div>
         <div className="flex-1 flex-col gap-4">
-          <div className="flex items-center bg-white justify-between p-4">
-              <span>All Devcie</span>
+          <div className="flex rounded-md shadow-sm items-center bg-white justify-between p-3">
+              <div>
+              <Button variant="flat" color="default" onClick={() => setIsMenuOpen(!isMenuOpen)} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" className="inline-flex text-gray-700 lg:hidden">
+                  <IoFilter size={18}/>
+                  <span className="text-base font-medium">Filter</span>
+              </Button>
+              <span className="text-gray-700 hidden lg:inline-flex text-base font-medium">All Devcie</span>
+              </div>
               <div className="flex items-start gap-4">
+                <div className="hidden lg:block">
                 <Select
                   size="sm"
                   labelPlacement={"outside-left"}
                   label="Show"
-                  defaultSelectedKeys={[20]}
+                  defaultSelectedKeys={["20"]}
                   className="w-[100px] items-center"
                 >
                   {cardShows.map((shows) => (
@@ -119,6 +129,8 @@ function AllProduct() {
                     </SelectItem>
                   ))}
                 </Select>
+                </div>
+                <div>
                 <Select
                   size="sm"
                   labelPlacement={"outside-left"}
@@ -132,16 +144,14 @@ function AllProduct() {
                     </SelectItem>
                   ))}
                 </Select>
+                </div>
               </div>
           </div>
           <div className="w-full">
-            <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-4 py-6">
+            <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-4 py-6">
               {products.map((item) => <ProductCard key={item?._id} product={item}/>)}
             </div>
           </div>
-        </div>
-        <div>
-          
         </div>
       </div>
     </section>
