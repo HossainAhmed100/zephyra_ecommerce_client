@@ -5,11 +5,11 @@ import NavBar from "../Pages/Shared/NavBar/NavBar"
 
 function MainLayout({children}) {
   return (
-    <>
+    <div className="bg-slate-100">
     <NavBar />
     <Outlet>{children}</Outlet>
     <Footer />
-    </>
+    </div>
   )
 }
 
