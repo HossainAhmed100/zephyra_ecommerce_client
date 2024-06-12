@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { IoFilter } from "react-icons/io5";
 import {Button, Divider, Select, SelectItem, Slider} from "@nextui-org/react";
 import { useState } from "react";
+import According from "../../Components/According";
 
 function AllProduct() {
   // State to track the open/close status of the mobile menu
@@ -33,8 +34,8 @@ function AllProduct() {
   
   return (
     <section className="max-w-7xl p-4 m-auto">
-      <div className="flex items-start justify-center gap-8">
-        <div id="logo-sidebar" className={`flex flex-col top-0 left-44 z-30 w-64 gap-2 transition-transform ${!isMenuOpen && "translate-x-0"} sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700`} aria-label="Sidebar">
+      <div className="grid lg:grid-cols-4 gap-4 grid-cols-1">
+        <aside id="logo-sidebar" className={`flex flex-col left-44 z-30 w-64 gap-2 transition-transform ${!isMenuOpen && "translate-x-0"} hidden lg:inline-flex sm:translate-x-0 h-fit`} aria-label="Sidebar">
           <div className="bg-white shadow-sm w-64 rounded-md">
             <p className="p-4 text-gray-700 text-base font-medium">Price Range</p>
             <Divider />
@@ -59,53 +60,11 @@ function AllProduct() {
             </div>
           </div>
           <div className="bg-white shadow-sm w-64 rounded-md">
-            <p className="p-4 text-gray-700 text-base font-medium">Price Range</p>
-            <Divider />
-            <div className="flex flex-col gap-4 w-full p-4 h-full max-w-md items-start justify-center">
-              <Slider 
-                formatOptions={{style: "currency", currency: "USD"}}
-                step={10}
-                maxValue={1000}
-                minValue={0}
-                value={value} 
-                onChange={setValue}
-                className="max-w-md"
-              />
-              <div className="flex w-full items-center justify-between">
-                <div className="w-16 p-1 rounded-md border-1 border-gray-300 text-center text-[14px]">
-                  ${value[0]}
-                </div>
-                <div className="w-16 p-1 rounded-md border-1 border-gray-300 text-center text-[14px]">
-                  ${value[1]}  
-                </div>
-              </div>
-            </div>
+            <According ariaLabel={"Accordion 1"} title="Availability" />
           </div>
-          <div className="bg-white shadow-sm w-64 rounded-md">
-            <p className="p-4 text-gray-700 text-base font-medium">Price Range</p>
-            <Divider />
-            <div className="flex flex-col gap-4 w-full p-4 h-full max-w-md items-start justify-center">
-              <Slider 
-                formatOptions={{style: "currency", currency: "USD"}}
-                step={10}
-                maxValue={1000}
-                minValue={0}
-                value={value} 
-                onChange={setValue}
-                className="max-w-md"
-              />
-              <div className="flex w-full items-center justify-between">
-                <div className="w-16 p-1 rounded-md border-1 border-gray-300 text-center text-[14px]">
-                  ${value[0]}
-                </div>
-                <div className="w-16 p-1 rounded-md border-1 border-gray-300 text-center text-[14px]">
-                  ${value[1]}  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 flex-col gap-4">
+        </aside>
+
+        <div className="flex flex-col lg:col-span-3 gap-2">
           <div className="flex rounded-md shadow-sm items-center bg-white justify-between p-3">
               <div>
               <Button variant="flat" color="default" onClick={() => setIsMenuOpen(!isMenuOpen)} data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" className="inline-flex text-gray-700 lg:hidden">
