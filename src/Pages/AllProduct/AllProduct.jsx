@@ -43,7 +43,7 @@ function AllProduct() {
       <div className="flex items-start gap-6 w-full">
         <aside
           id="logo-sidebar"
-          className={`translate-x-0 lg:bg-transparent bg-white rounded-md lg:static fixed ${!isMenuOpen && "fixed -translate-x-[500px]"} z-30 transition-transform`}
+          className={` lg:bg-transparent bg-white rounded-md lg:static fixed ${!isMenuOpen && "fixed -translate-x-[500px] lg:translate-x-0"} z-30 transition-transform`}
           aria-label="Sidebar"
         >
           <div className="flex flex-col w-64 gap-2 h-fit">
