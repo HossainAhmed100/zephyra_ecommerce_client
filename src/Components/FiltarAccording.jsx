@@ -7,7 +7,7 @@ const FiltarAccording = ({ title, items }) => {
     title: "px-4 py-3 text-gray-700 text-[14px] font-normal",
     trigger: "p-0",
     indicator: "px-2 text-gray-700 text-base font-medium",
-    content: "text-small p-2 bg-red-500 w-full border-t",
+    content: "text-small w-full border-t",
   };
 
   return (
@@ -27,11 +27,12 @@ const FiltarAccording = ({ title, items }) => {
 const CustomCheckbox = ({ label, value }) => {
   return (
     <Checkbox
+      size="sm"
       classNames={{
         base: cn(
           "inline-flex max-w-md w-full mb-1",
-          "hover:bg-content2 items-center justify-start",
-          "cursor-pointer rounded-lg gap-2 py-1.5 border-2 border-transparent",
+          "hover:bg-content2 m-0 items-center justify-start",
+          "cursor-pointer rounded-lg gap-2 py-0 border-2 border-transparent",
         ),
         label: "w-full text-[14px]",
       }}

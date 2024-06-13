@@ -8,7 +8,6 @@ import FiltarAccording from "../../Components/FiltarAccording";
 
 function AllProduct() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  console.log("🚀 ~ AllProduct ~ isMenuOpen:", isMenuOpen)
   const [priceRange, setPriceRange] = useState([100, 300]);
   const axiosPublic = useAxiosPublic();
   const { data: products = [] } = useQuery({
@@ -38,9 +37,53 @@ function AllProduct() {
     { label: "Up Coming", value: "upcoming" },
   ];
 
+  const filterBrand = [
+    { label: "HP", value: "hp" },
+    { label: "MSI", value: "msi" },
+    { label: "Asus", value: "asus" },
+    { label: "Acer", value: "acer" },
+    { label: "Dell", value: "dell" },
+    { label: "Apple", value: "apple" },
+    { label: "Infinix", value: "infinix" },
+  ];
+
+  const filterRamSize = [
+    { label: "4 GB", value: "4GB" },
+    { label: "8 GB", value: "8GB" },
+    { label: "16 GB", value: "16GB" },
+    { label: "32 GB", value: "32GB" },
+    { label: "64 GB", value: "64GB" },
+    { label: "128 GB", value: "128GB" },
+  ];
+
+  const filterRamType = [
+    { label: "DDR4", value: "DDR4" },
+    { label: "DDR5", value: "DDR5" },
+  ];
+
+  const filterDisplayType = [
+    { label: "LED", value: "led" },
+    { label: "OLED", value: "oled" },
+    { label: "AMOLED", value: "amoled" },
+  ];
+
+  const filterDisplaySize = [
+    { label: "13-Inch to 13.9-Inch", value: "13" },
+    { label: "14-Inch to 14.9-Inch", value: "14" },
+    { label: "15-Inch to 15.9-Inch", value: "15" },
+    { label: "16-Inch to 16.9-Inch", value: "16" },
+    { label: "17-Inch to 17.9-Inch", value: "17" },
+  ];
+
+  const filterProcessor = [
+    { label: "Intel", value: "intel" },
+    { label: "AMD", value: "amd" },
+    { label: "Apple", value: "apple" },
+  ];
+
   return (
     <section className="max-w-7xl p-4 m-auto">
-      <div className="flex items-start gap-6 w-full">
+      <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
           className={` lg:bg-transparent bg-white rounded-md lg:static fixed ${!isMenuOpen && "fixed -translate-x-[500px] lg:translate-x-0"} z-30 transition-transform`}
@@ -74,10 +117,28 @@ function AllProduct() {
             <div className="bg-white shadow-sm w-64 rounded-md">
               <FiltarAccording title="Availability" items={availabilityItems} />
             </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Brand" items={filterBrand} />
+            </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Processor Type" items={filterProcessor} />
+            </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Display Size" items={filterDisplaySize} />
+            </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Display Tupe" items={filterDisplayType} />
+            </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Ram Type" items={filterRamType} />
+            </div>
+            <div className="bg-white shadow-sm w-64 rounded-md">
+              <FiltarAccording title="Ram Size" items={filterRamSize} />
+            </div>
           </div>
         </aside>
 
-        <div className="flex flex-col flex-1 gap-2">
+        <div className="flex flex-col flex-1 gap-4">
           <div className="flex rounded-md shadow-sm items-center bg-white justify-between p-3">
             <div>
               <Button
