@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button} from "@nextui-org/react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
@@ -10,6 +10,35 @@ import "./NavBar.css";
 
 
 function NavBar() {
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY) {
+        // if scrolling down, hide the navbar
+        setShow(false);
+      } else {
+        // if scrolling up, show the navbar
+        setShow(true);
+      }
+
+      // remember the current page location for the next move
+      setLastScrollY(window.scrollY);
+    }
+  }, [lastScrollY]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlNavbar);
+
+      // cleanup function
+      return () => {
+        window.removeEventListener('scroll', controlNavbar);
+      };
+    }
+  }, [controlNavbar]);
+
   // State to track the open/close status of the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Get the current authenticated user
@@ -33,7 +62,7 @@ function NavBar() {
     });
   }};
   return (
-    <Navbar isBordered onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className={`transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`} isBordered onMenuOpenChange={setIsMenuOpen}>
     <NavbarContent >
       {/* Mobile menu toggle button */}
       <NavbarMenuToggle

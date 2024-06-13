@@ -3,11 +3,11 @@ import { Accordion, AccordionItem, CheckboxGroup, Checkbox, cn } from "@nextui-o
 const FiltarAccording = ({ title, items }) => {
   // Define custom styles for the AccordionItem component
   const itemClasses = {
-    base: "py-2 w-full",
-    title: "px-4 py-2 text-gray-700 text-base font-medium",
+    base: "w-full",
+    title: "px-4 py-3 text-gray-700 text-[14px] font-normal",
     trigger: "p-0",
     indicator: "px-2 text-gray-700 text-base font-medium",
-    content: "text-small px-4",
+    content: "text-small p-2 bg-red-500 w-full border-t",
   };
 
   return (
@@ -31,16 +31,13 @@ const CustomCheckbox = ({ label, value }) => {
         base: cn(
           "inline-flex max-w-md w-full mb-1",
           "hover:bg-content2 items-center justify-start",
-          "cursor-pointer rounded-lg gap-2 py-2 border-2 border-transparent",
-          "data-[selected=true]:bg-gray-100"
+          "cursor-pointer rounded-lg gap-2 py-1.5 border-2 border-transparent",
         ),
         label: "w-full text-[14px]",
       }}
       value={value}
     >
-      <div className="w-full flex justify-between gap-2">
         {label}
-      </div>
     </Checkbox>
   );
 };
