@@ -86,7 +86,7 @@ function AllProduct() {
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
-          className={`lg:bg-transparent z-50 h-screen w-fit overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
+          className={`lg:bg-transparent z-50 lg:min-h-screen h-full no-scrollbar overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
           aria-label="Sidebar"
         >
           <div className={`flex flex-col min-h-screen w-64 gap-2 ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
@@ -98,7 +98,7 @@ function AllProduct() {
             <div className="bg-white shadow-sm w-64 rounded-md">
               <p className="px-4 py-3 text-gray-700 text-[14px] font-normal">Price Range</p>
               <Divider className="bg-gray-200"/>
-              <div className="flex flex-col gap-4 w-full p-4 h-full max-w-md items-start justify-center">
+              <div className="flex flex-col gap-4 w-full p-4 h-auto">
                 <Slider
                     formatOptions={{ style: "currency", currency: "USD" }}
                     step={10}

@@ -1,106 +1,143 @@
-import { Avatar, Button, Input } from "@nextui-org/react"
+import { useForm } from "react-hook-form";
+import { Avatar, Button, Input } from "@nextui-org/react";
+import { Helmet } from "react-helmet-async";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.config";
+import { BdFlags } from "../../../assets/icons/BdFlags";
+import { FaCamera, FaTrash  } from "react-icons/fa";
 
 export default function MyProfile() {
   const [user] = useAuthState(auth);
+  // Hook to manage form state, validation, and submission handling
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  // Form submission handler
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+  
   return (
-    <div className="flex items-center justify-center">
-      <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-        <div className="bg-gray-500 py-6 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-          <Avatar isBordered as="button" className="transition-transform" color="default" 
-                  name={user?.displayName} size="sm"
-                  src={user?.photoURL}
-                />
-            <div className="text-white">
-              <h2 className="text-lg font-semibold">{user?.displayName}</h2>
-              <p className="text-sm">{user?.email}</p>
-            </div>
-          </div>
-          <Button className="text-white hover:bg-[#4f46e5]" variant="ghost">
-            <PencilIcon className="h-5 w-5" />
-            <span className="sr-only">Edit Profile</span>
-          </Button>
+    <div className="w-full">
+      <Helmet title='My Profile | Zephyar Online Shop'/>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="md:col-span-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col gap-4">
+              <div className="flex gap-4 md:flex-row flex-col">
+                <div className="flex-1">
+                  <Input
+                    isRequired
+                    radius="sm"
+                    size="lg"
+                    type="text"
+                    name="firstName"
+                    label="First Name"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="Type your Full Name"
+                    {...register("firstName", { required: "Please enter your Name" })}
+                    color={errors.firstName ? "danger" : "default"}
+                  />
+                  {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+                </div>
+                <div className="flex-1">
+                  <Input
+                    isRequired
+                    radius="sm"
+                    size="lg"
+                    type="text"
+                    name="lastName"
+                    label="Last Name"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="Type your Full Name"
+                    {...register("lastName", { required: "Please enter your Name" })}
+                    color={errors.lastName ? "danger" : "default"}
+                  />
+                  {errors.lastName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+                </div>
+              </div>
+              <div className="flex gap-4 md:flex-row flex-col">
+                <div className="flex-1">
+                <Input
+                isRequired
+                radius="sm"
+                size="lg"
+                type="email"
+                name="email"
+                label="Email"
+                className="w-full"
+                variant="bordered"
+                labelPlacement="outside"
+                placeholder="Type Your Email"
+                {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
+                color={errors.email ? "danger" : "default"}
+              />
+              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+                </div>
+                <div className="flex-1">
+                  <Input
+                    startContent={
+                      <div className="border-r-2 pr-2 flex items-center justify-start gap-1">
+                        <BdFlags width="20" height="20" />
+                        <span className="text-[14px] font-medium text-gray-600">+880</span>
+                      </div>
+                    }
+                    isRequired
+                    radius="sm"
+                    size="lg"
+                    type="tel"
+                    name="phone"
+                    label="Phone"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="018-0000-0000"
+                    {...register("phone", { required: "Please enter your Phone", pattern: {
+                      value: /^[0-9]{11}$/,
+                      message: "Phone number must be exactly 11 digits"
+                    }})}
+                    color={errors.phone ? "danger" : "default"}
+                  />
+                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+                </div>
+              </div>
+              <Input
+                    isRequired
+                    radius="sm"
+                    size="lg"
+                    type="text"
+                    name="address"
+                    label="Address"
+                    className="w-full"
+                    variant="bordered"
+                    labelPlacement="outside"
+                    placeholder="Type your Full Name"
+                    {...register("address", { required: "Please enter your Name" })}
+                    color={errors.address ? "danger" : "default"}
+                  />
+                  {errors.address && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+              <Button type="submit" className="w-44" color="primary">Save Changes</Button>
+            </form>
         </div>
-        <form className="p-6 flex flex-col items-start justify-center gap-4">
-            <Input
-              type="text"
-              label="Name"
-              labelPlacement="outside"
-              placeholder="Enter your name"
-              variant="bordered"
-            />
-          <div className="space-y-2">
-            <span htmlFor="photo">Photo</span>
-            <div className="flex items-center gap-4">
-              <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" size="md" />
-              <Button startContent={<UploadIcon className="mr-2 h-4 w-4" />} variant="bordered">
+        <div>
+          <div className="flex items-center flex-col justify-center gap-4">
+            <Avatar 
+            src="https://i.pravatar.cc/150?u=a04258114e29026708c" 
+            className="w-44 h-44 text-large" />
+            <div className="flex items-center justify-center gap-2">
+              <Button color="default" variant="bordered" radius="sm" endContent={<FaCamera/>}>
                 Upload
-              </Button>
+              </Button> 
+              <Button color="default" variant="bordered" radius="sm" isIconOnly>
+                <FaTrash />
+              </Button> 
             </div>
+            <p className="text-tiny text-default-500">Up to 1 MB (300x300 px)</p>
           </div>
-          <Input
-              type="email"
-              label="Email"
-              labelPlacement="outside"
-              placeholder="Enter your email"
-              variant="bordered"
-            />
-          <Input
-              type="password"
-              label="Password"
-              labelPlacement="outside"
-              placeholder="Enter new password"
-              variant="bordered"
-            />
-          <Button className="w-full" type="submit">
-            Save Changes
-          </Button>
-        </form>
+        </div>
       </div>
     </div>
-  )
-}
-
-function PencilIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
-      <path d="m15 5 4 4" />
-    </svg>
-  )
-}
-
-
-function UploadIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-      <polyline points="17 8 12 3 7 8" />
-      <line x1="12" x2="12" y1="3" y2="15" />
-    </svg>
   )
 }
