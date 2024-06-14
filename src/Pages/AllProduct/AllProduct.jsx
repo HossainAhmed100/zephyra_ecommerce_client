@@ -90,7 +90,7 @@ function AllProduct() {
           aria-label="Sidebar"
         >
           <div className={`flex flex-col min-h-screen w-64 gap-2 h-fit ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
-            <div className="fixed left-[260px] top-1">
+            <div className="fixed left-[260px] top-1 lg:hidden">
               <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="default" variant="flat" aria-label="Close Filter Button">
                 <IoClose />
               </Button>
