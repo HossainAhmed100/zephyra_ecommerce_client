@@ -32,13 +32,13 @@ return (
           <div className="relative  text-gray-500 focus-within:text-gray-900 max-sm:w-full">
             <Input
               type="email"
-              placeholder="you@example.com"
+              placeholder="support@zephyra.com"
               startContent={
                 <HiOutlineMail size={24} color="gray"/> 
               }
             />
           </div>
-          <Button radius="sm" size="md" color="primary">Subscribe</Button>
+          <Button radius="sm" size="md" color="danger">Subscribe</Button>
           </div>
           <div className="flex items-start">
           <AvatarGroup
@@ -245,7 +245,7 @@ return (
           <div className="flex justify-between items-center mb-7 max-w-sm mx-auto">
             <h4 className="text-lg text-gray-900 font-medium">Product</h4>
             <Link to={"/allProduct"}
-              className="flex items-center gap-2 text-xs text-indigo-600 font-semibold">Visit All
+              className="flex items-center gap-2 text-xs text-rose-400 font-semibold">View all
               <FaArrowRightLong size={16}/>
             </Link>
           </div>

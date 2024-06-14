@@ -14,7 +14,7 @@ function Contact() {
   };
 
   return (
-    <section className="w-full min-h-screen bg-white">
+    <section className="w-full lg:py-12 md:py-8 py-6 min-h-screen bg-white">
       <Helmet title='Contact | Zephyar Online Shop'/>
       <div className="max-w-7xl m-auto p-6">
         <div className="flex flex-col lg:flex-row gap-6">

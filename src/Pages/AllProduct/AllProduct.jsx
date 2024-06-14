@@ -2,7 +2,7 @@ import ProductCard from "../../Components/ProductCard";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { IoFilter, IoClose } from "react-icons/io5";
-import { Button, Divider, Select, SelectItem, Slider } from "@nextui-org/react";
+import { Button, Divider, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import FiltarAccording from "../../Components/FiltarAccording";
 
@@ -86,12 +86,12 @@ function AllProduct() {
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
-          className={`lg:bg-transparent lg:w-64 z-50 w-full ${isMenuOpen && "bg-gray-900/50"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} z-30 transition-transform`}
+          className={`lg:bg-transparent z-50 h-screen w-fit overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
           aria-label="Sidebar"
         >
-          <div className={`flex flex-col min-h-screen w-64 gap-2 h-fit ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
-            <div className="fixed left-[260px] top-1 lg:hidden">
-              <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="default" variant="flat" aria-label="Close Filter Button">
+          <div className={`flex flex-col min-h-screen w-64 gap-2 ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
+            <div className="fixed left-[210px] top-1.5 lg:hidden">
+              <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="danger" variant="shadow" aria-label="Close Filter Button">
                 <IoClose />
               </Button>
             </div>

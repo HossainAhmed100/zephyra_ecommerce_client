@@ -137,7 +137,7 @@ function NavBar() {
         </NavbarItem>
         {/* Sign Up button */}
         <NavbarItem>
-        <Button as={Link} color="primary" href="/signup" variant="flat">
+        <Button as={Link} color="danger" href="/signup" variant="flat">
           Sign Up
         </Button>
         </NavbarItem>
