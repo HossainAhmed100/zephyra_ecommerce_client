@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Avatar, Button, Input } from "@nextui-org/react";
+import { Avatar, Button, Divider, Input } from "@nextui-org/react";
 import { Helmet } from "react-helmet-async";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase/firebase.config";
@@ -138,6 +138,27 @@ export default function MyProfile() {
           </div>
         </div>
       </div>
+      <Divider className="my-10"/>
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+        <div className="p-4 rounded-md border border-default-300 flex items-start justify-between gap-2">
+          <div className="gap-2">
+            <h4 className="text-base font-semibold text-gray-800">Password</h4>
+            <span className="text-tiny font-normal text-default-400">You can change or reset your password bt clicking here</span>
+          </div>
+          <Button color="default" size="sm" variant="bordered">
+            Change
+          </Button> 
+        </div>
+        <div className="p-4 rounded-md border border-default-300 flex items-start justify-between gap-2">
+          <div className="gap-2">
+          <h4 className="text-base font-semibold text-gray-800">Remove Account</h4>
+          <span className="text-tiny font-normal text-default-400">Once you delete your account, there is no going back</span>
+          </div>
+          <Button color="danger" size="sm" variant="bordered">
+            Deactivate
+          </Button>  
+        </div>
+        </div>
     </div>
   )
 }
