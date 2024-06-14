@@ -241,7 +241,7 @@ return (
             </ul>
           </div>
         </div>
-        <div className="lg:hidden col-span-full md:col-span-1 lg:w-max">
+        <div className="lg:text-left col-span-full md:col-span-1 lg:w-max">
           <div className="flex justify-between items-center mb-7 max-w-sm mx-auto">
             <h4 className="text-lg text-gray-900 font-medium">Product</h4>
             <Link to={"/allProduct"}

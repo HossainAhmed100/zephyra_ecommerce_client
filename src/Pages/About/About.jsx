@@ -8,12 +8,12 @@ import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
-    <div className="p-4">
+    <>
       <Helmet title='About | Zephyar Online Shop'/>
-      <div className="max-w-7xl m-auto">
+      <div className="">
         {/* Our Story Section */}
-        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
-          <div>
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
+          <div className="max-w-7xl m-auto">
             <div className="grid gap-8 md:grid-cols-2 lg:gap-16">
               <div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -38,8 +38,8 @@ function About() {
         </section>
         
         {/* Report Cards Section */}
-        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
-          <div className="m-auto">
+        <section className="py-8 lg:py-16 px-4">
+          <div className="max-w-7xl m-auto">
             <div className="grid gap-6 md:grid-cols-4">
               <ReportCard 
                 icon={<RiShoppingCartFill size={24} color="white" />} 
@@ -66,8 +66,8 @@ function About() {
         </section>
         
         {/* Team Section */}
-        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8">
-          <div>
+        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
+          <div className="max-w-7xl m-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2 mb-10">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
@@ -82,7 +82,7 @@ function About() {
               <TeamCard 
                 name="Tom Cruise" 
                 tag="Founder & Chairman" 
-                imageUrl={"https://i.ibb.co/GdSS19m/image-46.png"} 
+                imageUrl={"https://i.ibb.co/fG9wF41/AA.png"} 
               />
               <TeamCard 
                 name="Emma Watson" 
@@ -100,7 +100,7 @@ function About() {
 
         <TopService />
       </div>
-    </div>
+    </>
   );
 }
 
@@ -117,7 +117,7 @@ const TeamCard = ({ name, tag, imageUrl }) => {
           />
         </div>
       </CardBody>
-      <CardHeader className="flex flex-col items-start gap-1 p-4">
+      <CardHeader className="flex flex-col bg-white items-start gap-1 p-4">
         <h3 className="text-xl font-bold">{name}</h3>
         <div className="text-gray-500 dark:text-gray-400">{tag}</div>
         <div className="flex items-start justify-start gap-2">
