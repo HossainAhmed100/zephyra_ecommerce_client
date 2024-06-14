@@ -19,7 +19,7 @@ function Contact() {
       <div className="max-w-7xl m-auto p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information Card */}
-          <Card className="w-96 min-h-[450px] rounded-sm shadow-sm">
+          <Card className="min-h-[450px] rounded-sm shadow-sm">
             <CardBody>
               {/* Call Us Section */}
               <div className="p-4 flex flex-col gap-4">
@@ -29,8 +29,8 @@ function Contact() {
                   </div>
                   <h1 className="text-lg font-medium text-gray-800">Call To Us</h1>
                 </div>
-                <h1 className="text-base font-normal text-gray-700">We are available 24/7, 7 days a week.</h1>
-                <h1 className="text-base font-normal text-gray-700">Phone: +8801611112222</h1>
+                <h1 className="text-base text-gray-700">We are available 24/7, 7 days a week.</h1>
+                <h1 className="text-tiny md:text-base text-gray-700">Phone: +8801611112222</h1>
               </div>
 
               {/* Write To Us Section */}
@@ -41,11 +41,11 @@ function Contact() {
                   </div>
                   <h1 className="text-lg font-medium text-gray-800">Write To Us</h1>
                 </div>
-                <h1 className="text-base font-normal text-gray-700">
+                <h1 className="text-base  text-gray-700">
                   Fill out our form and we will contact you within 24 hours.
                 </h1>
-                <h1 className="text-base font-normal text-gray-700">Email: customer@exclusive.com</h1>
-                <h1 className="text-base font-normal text-gray-700">Email: support@exclusive.com</h1>
+                <h1 className="text-tiny md:text-base text-gray-700">Email: customer@exclusive.com</h1>
+                <h1 className="text-tiny md:text-base text-gray-700">Email: support@exclusive.com</h1>
               </div>
             </CardBody>
           </Card>
