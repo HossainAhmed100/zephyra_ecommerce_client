@@ -1,7 +1,7 @@
 import ProductCard from "../../Components/ProductCard";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
-import { IoFilter } from "react-icons/io5";
+import { IoFilter, IoClose } from "react-icons/io5";
 import { Button, Divider, Select, SelectItem, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import FiltarAccording from "../../Components/FiltarAccording";
@@ -86,10 +86,15 @@ function AllProduct() {
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
-          className={` lg:bg-transparent bg-white rounded-md lg:static fixed ${!isMenuOpen && "fixed -translate-x-[500px] lg:translate-x-0"} z-30 transition-transform`}
+          className={`lg:bg-transparent lg:w-64 z-50 w-full ${isMenuOpen && "bg-gray-900/50"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} z-30 transition-transform`}
           aria-label="Sidebar"
         >
-          <div className="flex flex-col w-64 gap-2 h-fit">
+          <div className={`flex flex-col min-h-screen w-64 gap-2 h-fit ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
+            <div className="fixed left-[260px] top-1">
+              <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="default" variant="flat" aria-label="Close Filter Button">
+                <IoClose />
+              </Button>
+            </div>
             <div className="bg-white shadow-sm w-64 rounded-md">
               <p className="px-4 py-3 text-gray-700 text-[14px] font-normal">Price Range</p>
               <Divider className="bg-gray-200"/>
@@ -142,6 +147,7 @@ function AllProduct() {
           <div className="flex rounded-md shadow-sm items-center bg-white justify-between p-3">
             <div>
               <Button
+                size="sm"
                 variant="flat"
                 color="default"
                 data-drawer-target="logo-sidebar"
@@ -150,18 +156,18 @@ function AllProduct() {
                 className="inline-flex text-gray-700 lg:hidden"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                <IoFilter size={18} />
-                <span className="text-base font-medium">Filter</span>
+                <IoFilter size={16} />
+                <span className="text-tiny">Filter</span>
               </Button>
               <span className="text-gray-700 hidden lg:inline-flex text-base font-medium">
                 All Device
               </span>
             </div>
-            <div className="flex items-start gap-4">
+            <div className="flex items-center justify-end flex-1 gap-4">
               <div className="hidden lg:block">
                 <FilterSelect label="Show" options={cardShows} defaultKey="20" width="120px" />
               </div>
-              <FilterSelect label="Filter" options={filterSelect} defaultKey="default" width="220px" />
+              <FilterSelect label="Short By" options={filterSelect} defaultKey="default" width="220px" />
             </div>
           </div>
           <div className="w-full">
@@ -178,24 +184,16 @@ function AllProduct() {
 }
 
 
-function FilterSelect({ label, options, defaultKey, width }) {
+function FilterSelect({ label, options }) {
   return (
-    <div>
-      <Select
-        size="sm"
-        labelPlacement="outside-left"
-        label={label}
-        defaultSelectedKeys={[defaultKey]}
-        className={`w-[${width}] items-center`}
-        aria-label={label}
-      >
-        {options.map((option) => (
-          <SelectItem aria-label={option.label} key={option.key}>
-            {option.label}
-          </SelectItem>
-        ))}
-      </Select>
-    </div>
+      <div className="flex items-center gap-1 justify-center">
+      <label htmlFor="small" className="block w-[80px] text-end text-tiny font-medium text-gray-600">{label}</label>
+      <select id="small" className="block p-[3px] w-28 md:w-full text-sm text-gray-600 border border-gray-300 rounded-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:text-white">
+        {
+          options.map(item => <option key={item.value} >{item.label}</option>)
+        }
+      </select>
+      </div>
   );
 }
 
