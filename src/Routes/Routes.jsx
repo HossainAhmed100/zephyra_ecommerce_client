@@ -95,7 +95,7 @@ const router = createBrowserRouter([
             element: <MyProfile />
         },
         {
-            path: "myProfile/updateMyProfile",
+            path: "updateMyProfile",
             element: <UpdateMyProfile />
         },
         {

@@ -83,8 +83,7 @@ function DashboardLayout() {
 
       <aside id="logo-sidebar" className={`fixed flex flex-col top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform ${!isMenuOpen && "-translate-x-full"} lg:translate-x-0 bg-white border-r border-gray-200`} aria-label="Sidebar">
         <div className="h-full px-3 pb-4 overflow-y-auto bg-white">
-          <div className="mb-6">
-            <span className="text-tiny font-medium text-gray-900">Genarel</span>
+          <div>
             <ul className="space-y-2 font-medium">
               <li>
               <NavLink
@@ -128,11 +127,6 @@ function DashboardLayout() {
                 )}
               </NavLink>
               </li>
-            </ul>
-          </div>
-          <div>
-            <span className="text-tiny font-medium text-gray-900">Setting</span>
-            <ul className="space-y-2 font-medium">
               <li>
               <NavLink
                 to="myProfile"
@@ -141,8 +135,22 @@ function DashboardLayout() {
                   } end>
                 {({ isActive }) => (
                   <>
-                  <FaUser color={isActive ? "#363636" : "#6b7280"} size={20}/>
-                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Profile</span>
+                  <FaUser color={isActive ? "#363636" : "#6b7280"} size={18}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>My Account</span>
+                  </>
+                )}
+              </NavLink>
+              </li>
+              <li>
+              <NavLink
+                to="updateMyProfile"
+                className={({isActive}) => 
+                    `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
+                  } end>
+                {({ isActive }) => (
+                  <>
+                  <FaUser color={isActive ? "#363636" : "#6b7280"} size={18}/>
+                  <span className={`flex-1 ms-3 ${isActive ? "#363636" : "#6b7280"} whitespace-nowrap`}>Profile setting</span>
                   </>
                 )}
               </NavLink>

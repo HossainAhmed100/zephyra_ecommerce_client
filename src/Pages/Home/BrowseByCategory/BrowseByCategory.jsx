@@ -11,7 +11,7 @@ import GamepadIcon from "../../../assets/icons/gamepad.png";
 
 function BrowseByCategory() {
   return (
-    <div className="py-6 border-y-1 sm:py-8 lg:py-16 px-4 md:px-8">
+    <div className="py-6 sm:py-8 bg-white lg:py-16 px-4 md:px-8">
       {/* Category header */}
       <div className="pt-2 order-last md:-order-last w-full flex flex-col items-start justify-start gap-6">
         <div className="flex items-center justify-start gap-4">
@@ -39,7 +39,7 @@ function BrowseByCategory() {
 const CategoryCard = ({ icon, title, path }) => {
   return (
     <Link to={path}>
-      <div className="rounded-sm border-1 border-gray-300 py-4 px-6 flex flex-col items-center justify-center gap-2">
+      <div className="rounded-sm border-1 hover:bg-gray-50 transform transition border-gray-300 py-4 px-6 flex flex-col items-center justify-center gap-2">
         <img src={icon} alt={title} className="w-14 h-14"/>
         <span className="text-base text-gray-700 font-medium">{title}</span>
       </div>
