@@ -18,110 +18,109 @@ export default function MyProfile() {
   
   return (
     <div className="w-full">
-      <Helmet title='My Profile | Zephyar Online Shop'/>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="md:col-span-2">
-        <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col gap-4">
-              <div className="flex gap-4 md:flex-row flex-col">
-                <div className="flex-1">
-                  <Input
-                    isRequired
-                    radius="sm"
-                    size="lg"
-                    type="text"
-                    name="firstName"
-                    label="First Name"
-                    className="w-full"
-                    variant="bordered"
-                    labelPlacement="outside"
-                    placeholder="Type your Full Name"
-                    {...register("firstName", { required: "Please enter your Name" })}
-                    color={errors.firstName ? "danger" : "default"}
-                  />
-                  {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
-                </div>
-                <div className="flex-1">
-                  <Input
-                    isRequired
-                    radius="sm"
-                    size="lg"
-                    type="text"
-                    name="lastName"
-                    label="Last Name"
-                    className="w-full"
-                    variant="bordered"
-                    labelPlacement="outside"
-                    placeholder="Type your Full Name"
-                    {...register("lastName", { required: "Please enter your Name" })}
-                    color={errors.lastName ? "danger" : "default"}
-                  />
-                  {errors.lastName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
-                </div>
-              </div>
-              <div className="flex gap-4 md:flex-row flex-col">
-                <div className="flex-1">
-                <Input
+      <Helmet title='My Profile | Zephyra Online Shop'/>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)} className="grid md:grid-cols-3 grid-cols-1 gap-4">
+        <div className="flex min-w-full flex-col gap-6 md:col-span-2">
+          <div className="flex gap-4 md:flex-row flex-col">
+            <div className="flex-1">
+              <Input
                 isRequired
                 radius="sm"
                 size="lg"
-                type="email"
-                name="email"
-                label="Email"
+                type="text"
+                name="firstName"
+                label="First Name"
                 className="w-full"
-                variant="bordered"
+                variant="faded"
                 labelPlacement="outside"
-                placeholder="Type Your Email"
-                {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
-                color={errors.email ? "danger" : "default"}
+                placeholder="Type your Full Name"
+                {...register("firstName", { required: "Please enter your Name" })}
+                color={errors.firstName ? "danger" : "default"}
               />
-              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
-                </div>
-                <div className="flex-1">
-                  <Input
-                    startContent={
-                      <div className="border-r-2 pr-2 flex items-center justify-start gap-1">
-                        <BdFlags width="20" height="20" />
-                        <span className="text-[14px] font-medium text-gray-600">+880</span>
-                      </div>
-                    }
-                    isRequired
-                    radius="sm"
-                    size="lg"
-                    type="tel"
-                    name="phone"
-                    label="Phone"
-                    className="w-full"
-                    variant="bordered"
-                    labelPlacement="outside"
-                    placeholder="018-0000-0000"
-                    {...register("phone", { required: "Please enter your Phone", pattern: {
-                      value: /^[0-9]{11}$/,
-                      message: "Phone number must be exactly 11 digits"
-                    }})}
-                    color={errors.phone ? "danger" : "default"}
-                  />
-                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
-                </div>
-              </div>
+              {errors.firstName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+            </div>
+            <div className="flex-1">
               <Input
-                    isRequired
-                    radius="sm"
-                    size="lg"
-                    type="text"
-                    name="address"
-                    label="Address"
-                    className="w-full"
-                    variant="bordered"
-                    labelPlacement="outside"
-                    placeholder="Type your Full Name"
-                    {...register("address", { required: "Please enter your Name" })}
-                    color={errors.address ? "danger" : "default"}
-                  />
-                  {errors.address && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
-              <Button type="submit" className="w-44" color="primary">Save Changes</Button>
-            </form>
+                isRequired
+                radius="sm"
+                size="lg"
+                type="text"
+                name="lastName"
+                label="Last Name"
+                className="w-full"
+                variant="faded"
+                labelPlacement="outside"
+                placeholder="Type your Full Name"
+                {...register("lastName", { required: "Please enter your Name" })}
+                color={errors.lastName ? "danger" : "default"}
+              />
+              {errors.lastName && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+            </div>
+          </div>
+          <div className="flex gap-4 md:flex-row flex-col">
+            <div className="flex-1">
+            <Input
+            isRequired
+            radius="sm"
+            size="lg"
+            type="email"
+            name="email"
+            label="Email"
+            className="w-full"
+            variant="faded"
+            labelPlacement="outside"
+            placeholder="Type Your Email"
+            {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
+            color={errors.email ? "danger" : "default"}
+          />
+          {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+            </div>
+            <div className="flex-1">
+              <Input
+                startContent={
+                  <div className="border-r-2 pr-2 flex items-center justify-start gap-1">
+                    <BdFlags width="20" height="20" />
+                    <span className="text-[14px] font-medium text-gray-600">+880</span>
+                  </div>
+                }
+                isRequired
+                radius="sm"
+                size="lg"
+                type="tel"
+                name="phone"
+                label="Phone"
+                className="w-full"
+                variant="faded"
+                labelPlacement="outside"
+                placeholder="018-0000-0000"
+                {...register("phone", { required: "Please enter your Phone", pattern: {
+                  value: /^[0-9]{11}$/,
+                  message: "Phone number must be exactly 11 digits"
+                }})}
+                color={errors.phone ? "danger" : "default"}
+              />
+              {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+            </div>
+          </div>
+          <Input
+            isRequired
+            radius="sm"
+            size="lg"
+            type="text"
+            name="address"
+            label="Address"
+            className="w-full"
+            variant="faded"
+            labelPlacement="outside"
+            placeholder="Type your Full Name"
+            {...register("address", { required: "Please enter your Name" })}
+            color={errors.address ? "danger" : "default"}
+          />
+          {errors.address && <span className="text-red-500 text-sm">{errors.firstName.message}</span>}
+          <Button type="submit" className="w-44" color="primary">Save Changes</Button>
         </div>
-        <div>
+        <div className="order-first md:order-last">
           <div className="flex items-center flex-col justify-center gap-4">
             <Avatar 
             src="https://i.pravatar.cc/150?u=a04258114e29026708c" 
@@ -137,8 +136,9 @@ export default function MyProfile() {
             <p className="text-tiny text-default-500">Up to 1 MB (300x300 px)</p>
           </div>
         </div>
+        </form>
       </div>
-      <Divider className="my-10"/>
+      <Divider className="my-16"/>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
         <div className="p-4 rounded-md border border-default-300 flex items-start justify-between gap-2">
           <div className="gap-2">
@@ -154,11 +154,11 @@ export default function MyProfile() {
           <h4 className="text-base font-semibold text-gray-800">Remove Account</h4>
           <span className="text-tiny font-normal text-default-400">Once you delete your account, there is no going back</span>
           </div>
-          <Button color="danger" size="sm" variant="bordered">
+          <Button color="danger" size="sm" className="px-4" variant="bordered">
             Deactivate
           </Button>  
         </div>
-        </div>
+      </div>
     </div>
   )
 }
