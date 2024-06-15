@@ -19,6 +19,7 @@ import TermsAndContitions from "../Pages/Policy/TermsAndContitions";
 import PrivacyPolicy from "../Pages/Policy/PrivacyPolicy";
 import CompanyLincense from "../Pages/Policy/CompanyLincense";
 import Dashboard from "../Pages/Admin/Dashboard/Dashboard";
+import UpdateMyProfile from "../Pages/Admin/MyProfile/UpdateMyProfile";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         {
             path: "myProfile",
             element: <MyProfile />
+        },
+        {
+            path: "myProfile/updateMyProfile",
+            element: <UpdateMyProfile />
         },
         {
             path: "manageProduct/updateProduct/:id",
