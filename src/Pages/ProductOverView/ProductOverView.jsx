@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus, FaStar, FaHeart } from 'react-icons/fa';
-import { Button, Divider, Progress} from '@nextui-org/react';
+import { Avatar, Button, Divider, Progress} from '@nextui-org/react';
 import { FaCartShopping } from "react-icons/fa6";
-import { IoMdGlobe, IoIosTimer } from "react-icons/io";
-import { LuShieldOff } from "react-icons/lu";
-import { CiLocationOn, CiMoneyBill } from "react-icons/ci";
+import { LuDot } from "react-icons/lu";
+import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
+import { HiOutlineDotsVertical } from "react-icons/hi";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -41,7 +41,7 @@ const ProductDetails = () => {
 
   return (
     <div className='max-w-6xl px-4 mx-auto py-10'>
-    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-flow-row grid-cols-1 gap-6 lg:gap-12 items-start">
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-6 items-start">
       <div className="grid gap-4">
         <div className="grid gap-4">
           <img
@@ -62,7 +62,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-        <div className="grid gap-4 md:gap-6 md:col-span-2 items-start">
+        <div className="grid gap-4 md:gap-6 items-start">
           <div className="grid gap-2">
             <h1 className="font-bold text-3xl lg:text-4xl">{product.name}</h1>
             <div className="flex items-center">
@@ -165,45 +165,18 @@ const ProductDetails = () => {
             </ul>
           </div>
         </div>
-        <div className="grid bg-gray-100 p-4 gap-6">
-          <div><p className='text-tiny text-gray-700'>Delivery</p></div>
-          <div className='flex items-start justify-start gap-2 text-black'>
-            <CiLocationOn className='mt-1' size={16}/>
-            <p className='flex-1 text-[14px] font-normal'>
-              Dhaka, Dhaka North, Banani Road No. 12 - 19
-            </p>
-          </div>
-          <div className='flex items-start justify-center gap-2 text-black'>
-            <IoMdGlobe className='mt-1' size={16}/>
-            <p className='flex-1 text-[14px] font-normal'>Ships from Overseas</p>
-          </div>
-          <div className='flex items-start justify-start gap-2 text-black'>
-            <CiMoneyBill className='mt-1' size={16}/>
-            <p className='flex-1 text-[14px] font-normal'>Cash on Delivery Available</p>
-          </div>
-          <div><p className='text-tiny text-gray-700'>Delivery</p></div>
-          <div className='flex items-start justify-start gap-2 text-black'>
-            <IoIosTimer className='mt-1' size={16}/>
-            <div className='flex-1'>
-              <p className='text-[14px] font-normal'>7 Days Returns</p>
-              <p className='text-gray-600 text-[12px] font-normal'>Change of mind is not applicable</p>
-            </div>
-          </div>
-          <div className='flex items-start justify-start gap-2 text-black'>
-            <LuShieldOff className='mt-1' size={16}/>
-            <p className='flex-1 text-[14px] font-normal'>Warranty not available</p>
-          </div>
-        </div>
     </div>
     <div className='lg:py-16 md:py-8 py-4'>
       <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
         <div className='md:col-span-2 bg-white p-6 rounded-md shadow'>
-          <div><h1 className='text-gray-800 text-xl font-semibold'>Reviews</h1></div>
+          <div className='w-full pb-6'><h1 className='text-gray-800 text-xl font-semibold'>Reviews</h1></div>
           <div>
-
+            <ReviewCard />
+            <ReviewCard />
+            <ReviewCard />
           </div>
         </div>
-        <div className='lg:order-1 flex flex-col gap-5 bg-white p-6 rounded-md shadow'>
+        <div className='lg:order-1 flex flex-col h-fit gap-5 bg-white p-6 rounded-md shadow'>
           <Button color="primary" variant="flat" className='w-full' radius='sm'>Write a review</Button>
           <div className='flex items-center justify-normal gap-3'>
             <div className='flex items-center justify-start gap-1'>
@@ -232,6 +205,44 @@ const ProductDetails = () => {
   );
 };
 
+const ReviewCard = () => {
+  return(
+    <div className='flex py-3 items-start gap-4 justify-normal'>
+      <div><Avatar isBordered src="https://i.pravatar.cc/150?u=a042581f4e29026024d" /></div>
+      <div className='flex flex-col items-start justify-center gap-2 w-full'>
+        <div className='flex items-center justify-between w-full'>
+          <div className='flex items-start justify-center flex-col gap-1'>
+            <h1 className='text-base text-gray-800 font-medium'>Hossain Ahmed</h1>
+            <div className='flex items-center justify-start gap-2'>
+              <div className='flex items-center justify-start gap-1'>
+                {[1,2,3,].map(item => <FaStar key={item} size={14} className='text-orange-300'/>)}
+                <FaStar size={14} className='text-gray-300'/>
+                <FaStar size={14} className='text-gray-300'/>
+              </div>
+              <LuDot className='text-[14px] text-gray-400'/>
+              <span className='text-tiny text-gray-400'>Purchased on Wed, May 12</span>
+            </div>
+          </div>  
+          <div className='flex items-center justify-between gap-2'>
+            <Button isIconOnly variant='light' color='default'>
+              <IoMdThumbsUp size={16} className='text-gray-400'/> 
+            </Button>
+            <Button isIconOnly variant='light' color='default'>
+              <IoMdThumbsDown size={16} className='text-gray-400'/> 
+            </Button>
+          </div>
+        </div>
+        <p className='text-gray-500 text-[14px]'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tempora eius quos rem, ducimus dolor. Voluptatem, blanditiis animi tempora enim illo harum fugiat quaerat voluptatum.
+        </p>
+      </div>
+      <Button isIconOnly color='default' variant='light'>
+        <HiOutlineDotsVertical size={24} className='text-gray-400'/>
+      </Button>
+    </div>
+  )
+}
+
 const RatingProgressBar = ({number, rating}) => {
   return(
     <div className='flex w-full items-center justify-normal gap-3'>
@@ -243,5 +254,6 @@ const RatingProgressBar = ({number, rating}) => {
     </div>
   )
 }
+
 
 export default ProductDetails;
