@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection} from "@nextui-org/react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
-import { VscSignOut } from "react-icons/vsc";
+import { VscSignOut, VscFeedback } from "react-icons/vsc";
 import Swal from "sweetalert2";
 import auth from "../../../firebase/firebase.config";
 import "./NavBar.css";
@@ -102,31 +102,67 @@ function NavBar() {
         </NavbarItem>
         {/* User profile dropdown, only visible on large screens */}
         <NavbarItem className="hidden lg:flex">
-        <Dropdown placement="bottom-end">
-        <DropdownTrigger>
-          <Avatar isBordered as="button" className="transition-transform" color="default" 
-            name={user?.displayName} size="sm"
-            src="https://avatar.iran.liara.run/public"
-          />
-        </DropdownTrigger>
-        <DropdownMenu aria-label="Profile Actions" variant="flat">
-          <DropdownItem textValue="userNameandEmail" key="userDetails" className="h-14 gap-2">
-            <p className="font-semibold">Signed in as</p>
-            <p className="font-semibold">{user?.email}</p>
-          </DropdownItem>
-          <DropdownItem textValue="profile" key="profile">
-            <Link className="inline-block w-full" to="/dashboard/myProfile">Profile</Link>
-          </DropdownItem>
-          <DropdownItem textValue="dashboard" key="dashboard">
-            <Link className="inline-block w-full" to="/dashboard">Dashboard</Link>
-          </DropdownItem>
-          <DropdownItem textValue="logout" onClick={handleLogOut} key="logout" color="danger" className="flex items-center justify-center flex-row gap-2">
-            <span className="flex items-center gap-1 justify-start">
-            <VscSignOut />
-            Log Out
-            </span>
-          </DropdownItem>
-        </DropdownMenu>
+        <Dropdown
+          placement="bottom-end"
+          showArrow
+          radius="sm"
+          classNames={{
+            base: "before:bg-default-200", // change arrow background
+            content: "p-0 border-small border-divider bg-background",
+          }}
+        >
+          <DropdownTrigger>
+            <Avatar isBordered as="button" className="transition-transform" color="default" 
+              name={user?.displayName} size="sm"
+              src="https://avatar.iran.liara.run/public"
+            />
+          </DropdownTrigger>
+          <DropdownMenu
+            aria-label="Custom item styles"
+            disabledKeys={["profile"]}
+            className="p-3"
+            itemClasses={{
+              base: [
+                "rounded-md",
+                "text-default-500",
+                "transition-opacity",
+                "data-[hover=true]:text-foreground",
+                "data-[hover=true]:bg-default-100",
+                "dark:data-[hover=true]:bg-default-50",
+                "data-[selectable=true]:focus:bg-default-50",
+                "data-[pressed=true]:opacity-70",
+                "data-[focus-visible=true]:ring-default-500",
+              ],
+            }}
+          >
+            <DropdownSection aria-label="Profile & Actions" showDivider>
+              <DropdownItem key="dashboard">
+                Dashboard
+              </DropdownItem>
+              <DropdownItem key="settings">Settings</DropdownItem>
+              <DropdownItem key="new_project">
+                New Project
+              </DropdownItem>
+            </DropdownSection>
+
+            <DropdownSection aria-label="Preferences" showDivider>
+              <DropdownItem key="quick_search" shortcut="⌘K">
+                Quick search
+              </DropdownItem>
+            </DropdownSection>  
+
+            <DropdownSection aria-label="Help & Feedback">
+              <DropdownItem key="help_and_feedback"  startContent={<VscFeedback />}>
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem 
+              textValue="logout"
+              onClick={handleLogOut} 
+              key="logout" 
+              startContent={<VscSignOut />}
+              >Log Out</DropdownItem>
+            </DropdownSection> 
+          </DropdownMenu>
         </Dropdown>
         </NavbarItem>
       </NavbarContent> :

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus, FaStar, FaHeart } from 'react-icons/fa';
-import { Avatar, Button, Divider, Progress} from '@nextui-org/react';
+import { Avatar, Button, Divider, Progress, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from '@nextui-org/react';
 import { FaCartShopping } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
@@ -236,9 +236,16 @@ const ReviewCard = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tempora eius quos rem, ducimus dolor. Voluptatem, blanditiis animi tempora enim illo harum fugiat quaerat voluptatum.
         </p>
       </div>
-      <Button isIconOnly color='default' variant='light'>
-        <HiOutlineDotsVertical size={24} className='text-gray-400'/>
-      </Button>
+      <Dropdown backdrop="blur">
+        <DropdownTrigger>
+          <Button isIconOnly color='default' variant='light'>
+            <HiOutlineDotsVertical size={24} className='text-gray-400'/>
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Action event example" >
+          <DropdownItem key="reportAbuse">Report abouse</DropdownItem>
+        </DropdownMenu>
+    </Dropdown>
     </div>
   )
 }
