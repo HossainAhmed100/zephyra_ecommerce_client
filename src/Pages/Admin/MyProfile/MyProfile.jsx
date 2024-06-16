@@ -13,7 +13,7 @@ export default function MyProfile() {
       <Helmet title='My Account | Zephyra Online Shop'/>
       <div>
         <div className="flex items-start md:flex-row flex-col justify-start gap-2">
-          <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026708c" className="w-16 h-16 text-large" />
+          <Avatar isBordered src="https://avatar.iran.liara.run/public" className="w-16 h-16 text-large" />
           <div className="flex flex-col items-start justify-center">
             <h1 className="text-xl font-semibold text-gray-800">Mr. Jackson Mike</h1>
             <div className="flex sm:items-center items-start justify-start gap-3 md:flex-row flex-col">

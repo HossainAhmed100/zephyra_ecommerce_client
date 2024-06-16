@@ -82,7 +82,7 @@ function AllProduct() {
   ];
 
   return (
-    <section className="max-w-7xl p-4 m-auto">
+    <section className="max-w-6xl p-4 m-auto">
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
@@ -190,7 +190,7 @@ function FilterSelect({ label, options }) {
       <label htmlFor="small" className="block w-[80px] text-end text-tiny font-medium text-gray-600">{label}</label>
       <select id="small" className="block p-[3px] w-28 md:w-full text-sm text-gray-600 border border-gray-300 rounded-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:text-white">
         {
-          options.map(item => <option key={item.value} >{item.label}</option>)
+          options.map(item => <option key={item.key} >{item.label}</option>)
         }
       </select>
       </div>

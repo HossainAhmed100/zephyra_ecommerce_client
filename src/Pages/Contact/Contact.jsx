@@ -16,7 +16,7 @@ function Contact() {
   return (
     <section className="w-full lg:py-12 md:py-8 py-6 min-h-screen bg-white">
       <Helmet title='Contact | Zephyar Online Shop'/>
-      <div className="max-w-7xl m-auto p-6">
+      <div className="max-w-6xl m-auto p-6">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information Card */}
           <Card className="min-h-[450px] rounded-sm shadow-sm">

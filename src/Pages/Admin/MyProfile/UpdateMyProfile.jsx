@@ -123,7 +123,8 @@ export default function UpdateMyProfile() {
         <div className="order-first md:order-last">
           <div className="flex items-center flex-col justify-center gap-4">
             <Avatar 
-            src="https://i.pravatar.cc/150?u=a04258114e29026708c" 
+            isBordered
+            src="https://avatar.iran.liara.run/public" 
             className="w-44 h-44 text-large" />
             <div className="flex items-center justify-center gap-2">
               <Button color="default" variant="bordered" radius="sm" endContent={<FaCamera/>}>

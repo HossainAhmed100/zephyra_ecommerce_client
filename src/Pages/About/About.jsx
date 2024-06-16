@@ -13,7 +13,7 @@ function About() {
       <div className="">
         {/* Our Story Section */}
         <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-7xl m-auto">
+          <div className="max-w-6xl m-auto">
             <div className="grid gap-8 md:grid-cols-2 lg:gap-16">
               <div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -39,7 +39,7 @@ function About() {
         
         {/* Report Cards Section */}
         <section className="py-8 lg:py-16 px-4">
-          <div className="max-w-7xl m-auto">
+          <div className="max-w-6xl m-auto">
             <div className="grid gap-6 md:grid-cols-4">
               <ReportCard 
                 icon={<RiShoppingCartFill size={24} color="white" />} 
@@ -67,7 +67,7 @@ function About() {
         
         {/* Team Section */}
         <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-7xl m-auto">
+          <div className="max-w-6xl m-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2 mb-10">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">

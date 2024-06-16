@@ -106,7 +106,7 @@ function NavBar() {
         <DropdownTrigger>
           <Avatar isBordered as="button" className="transition-transform" color="default" 
             name={user?.displayName} size="sm"
-            src={user?.photoURL}
+            src="https://avatar.iran.liara.run/public"
           />
         </DropdownTrigger>
         <DropdownMenu aria-label="Profile Actions" variant="flat">
