@@ -41,8 +41,8 @@ const ProductDetails = () => {
 
   return (
     <div>
-    <div className="grid md:grid-cols-3 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-10">
-      <div className="grid gap-4 md:col-span-1">
+    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-flow-row grid-cols-1 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-10">
+      <div className="grid gap-4">
         <div className="grid gap-4">
           <img
             alt="product"
@@ -62,8 +62,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <div className="md:col-span-2 grid grid-cols-3 gap-4 items-start">
-        <div className="grid gap-4 md:gap-6 col-span-2 items-start">
+        <div className="grid gap-4 md:gap-6 md:col-span-2 items-start">
           <div className="grid gap-2">
             <h1 className="font-bold text-3xl lg:text-4xl">{product.name}</h1>
             <div className="flex items-center">
@@ -195,7 +194,6 @@ const ProductDetails = () => {
             <p className='flex-1 text-[14px] font-normal'>Warranty not available</p>
           </div>
         </div>
-      </div>
     </div>
     <div>
     </div>
