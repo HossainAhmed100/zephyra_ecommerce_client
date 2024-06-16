@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaPlus, FaMinus, FaStar, FaHeart } from 'react-icons/fa';
-import { Button, Divider} from '@nextui-org/react';
+import { Button, Divider, Progress} from '@nextui-org/react';
 import { FaCartShopping } from "react-icons/fa6";
 import { IoMdGlobe, IoIosTimer } from "react-icons/io";
 import { LuShieldOff } from "react-icons/lu";
@@ -40,8 +40,8 @@ const ProductDetails = () => {
 
 
   return (
-    <div>
-    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-flow-row grid-cols-1 gap-6 lg:gap-12 items-start max-w-6xl px-4 mx-auto py-10">
+    <div className='max-w-6xl px-4 mx-auto py-10'>
+    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-flow-row grid-cols-1 gap-6 lg:gap-12 items-start">
       <div className="grid gap-4">
         <div className="grid gap-4">
           <img
@@ -195,10 +195,53 @@ const ProductDetails = () => {
           </div>
         </div>
     </div>
+    <div className='lg:py-16 md:py-8 py-4'>
+      <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
+        <div className='md:col-span-2 bg-white p-6 rounded-md shadow'>
+          <div><h1 className='text-gray-800 text-xl font-semibold'>Reviews</h1></div>
+          <div>
+
+          </div>
+        </div>
+        <div className='lg:order-1 flex flex-col gap-5 bg-white p-6 rounded-md shadow'>
+          <Button color="primary" variant="flat" className='w-full' radius='sm'>Write a review</Button>
+          <div className='flex items-center justify-normal gap-3'>
+            <div className='flex items-center justify-start gap-1'>
+              {[1,2,3,].map(item => <FaStar key={item} size={24} className='text-orange-400'/>)}
+              <FaStar size={24} className='text-gray-300'/>
+              <FaStar size={24} className='text-gray-300'/>
+            </div>
+            <div>
+              <span className='text-2xl text-black font-semibold mr-'>3.7</span>
+              <span className='text-[14px] text-gray-400 font-normal'> / 320 reviews</span>
+            </div>
+          </div>
+          <div className='flex items-start gap-3 flex-col w-full justify-normal'>
+            <RatingProgressBar number={5} rating={30}/>
+            <RatingProgressBar number={4} rating={40}/>
+            <RatingProgressBar number={3} rating={80}/>
+            <RatingProgressBar number={2} rating={70}/>
+            <RatingProgressBar number={1} rating={20}/>
+          </div>
+        </div>
+      </div>
+    </div>
     <div>
     </div>
     </div>
   );
 };
+
+const RatingProgressBar = ({number, rating}) => {
+  return(
+    <div className='flex w-full items-center justify-normal gap-3'>
+      <div className='flex items-center w-10 justify-between gap-1'>
+        <span className='text-gray-400'>{number}</span> 
+        <FaStar className='text-gray-300'/>
+      </div> 
+      <Progress color="warning" aria-label="Loading..." value={rating} />
+    </div>
+  )
+}
 
 export default ProductDetails;
