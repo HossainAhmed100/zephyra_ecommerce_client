@@ -137,7 +137,7 @@ function NavBar() {
           >
             <DropdownSection aria-label="Profile & Actions" showDivider>
               <DropdownItem key="dashboard">
-                Dashboard
+                <Link to={"dashboard"}>Dashboard</Link>
               </DropdownItem>
               <DropdownItem key="settings">Settings</DropdownItem>
               <DropdownItem key="new_project">

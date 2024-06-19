@@ -5,6 +5,7 @@ import { IoFilter, IoClose } from "react-icons/io5";
 import { Button, Divider, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import FiltarAccording from "../../Components/FiltarAccording";
+import { Helmet } from "react-helmet-async";
 
 function AllProduct() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -83,6 +84,7 @@ function AllProduct() {
 
   return (
     <section className="max-w-6xl p-4 m-auto">
+      <Helmet title="Search Product | Zephyra Online Shop"/>
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
