@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 import ColumnChart from "../../../Components/ChartCard/ColumnChart"
 import PieChart from "../../../Components/ChartCard/PieChart"
+import LineChart from "../../../Components/ChartCard/LineChart"
 
 function Dashboard() {
 
@@ -56,7 +57,7 @@ function Dashboard() {
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
           <ColumnChart />
           <PieChart />
-          <PieChart />
+          <LineChart />
         </div>
         <div className="grid grid-cols-1 gap-4">
           <Card className="h-fit rounded-md shadow-none border-1">
