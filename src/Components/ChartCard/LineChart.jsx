@@ -1,5 +1,7 @@
-import { Button } from "@nextui-org/react";
+import { Button, Select, SelectItem } from "@nextui-org/react";
 import Chart from "react-apexcharts";
+import { FaAngleRight } from "react-icons/fa6";
+
 function LineChart() {
     const chartConfig = {
         type: "line",
@@ -99,10 +101,19 @@ function LineChart() {
           },
         },
       };
+
+      const reportWeeks = [
+        { label: "Yesterday", key: "yesterday" },
+        { label: "Today", key: "today" },
+        { label: "Last 7 days", key: "last7days" },
+        { label: "Last 30 days", key: "last30days" },
+        { label: "Last 90 days", key: "last90days" },
+        { label: "Life Time", key: "lifetime" }
+      ];
         
   return (
     
-<div className="max-w-sm w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+<div className="w-full flex flex-col justify-around bg-white rounded-lg border-1 dark:bg-gray-800 p-4 md:p-6">
   <div className="flex justify-between mb-5">
     <div>
       <h5 className="leading-none text-3xl font-bold text-gray-900 dark:text-white pb-2">$12,423</h5>
@@ -117,48 +128,25 @@ function LineChart() {
     </div>
   </div>
   <div id="data-labels-chart"><Chart {...chartConfig}/></div>
-  <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-5">
-    <div className="flex justify-between items-center pt-5">
-      <Button
-        id="dropdownDefaultButton"
-        data-dropdown-toggle="lastDaysdropdown"
-        data-dropdown-placement="bottom"
-        className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 text-center inline-flex items-center dark:hover:text-white">
-        Last 7 days
-        <svg className="w-2.5 m-2.5 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
-        </svg>
-      </Button>
-      <div id="lastDaysdropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-          <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-            <li>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
-            </li>
-            <li>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
-            </li>
-            <li>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 7 days</a>
-            </li>
-            <li>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 30 days</a>
-            </li>
-            <li>
-              <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 90 days</a>
-            </li>
-          </ul>
-      </div>
-      <a
-        href="#"
-        className="uppercase text-sm font-semibold inline-flex items-center rounded-lg text-blue-600 hover:text-blue-700 dark:hover:text-blue-500  hover:bg-gray-100 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 px-3 py-2">
-        Sales Report
-        <svg className="w-2.5 h-2.5 ms-1.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
-        </svg>
-      </a>
-    </div>
+  <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
+        <div className="flex justify-between items-center pt-5">
+        <Select 
+            size="sm"
+            className="max-w-36"
+            defaultSelectedKeys={["yesterday"]}
+          >
+            {reportWeeks.map((item) => (
+              <SelectItem key={item.key}>
+                {item.label}
+              </SelectItem>
+            ))}
+          </Select>
+        <Button endContent={<FaAngleRight />} color="primary" variant="flat" size="sm" radius="sm">
+            Full Report
+        </Button> 
+        </div>
   </div>
-</div>
+  </div>
 
   )
 }

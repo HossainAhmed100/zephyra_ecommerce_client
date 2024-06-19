@@ -54,12 +54,11 @@ function Dashboard() {
             </CardBody>
           </Card>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
           <ColumnChart />
-          <PieChart />
           <LineChart />
         </div>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Card className="h-fit rounded-md shadow-none border-1">
             <CardHeader className="flex px-6 flex-row items-center justify-between pb-2">
               <div className="flex items-center justify-normal gap-1">
@@ -164,7 +163,7 @@ function Dashboard() {
             </CardBody>
           </Card>
         </div>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card className="h-fit rounded-md  shadow-none border-1">
             <CardHeader className="flex flex-row px-6 items-center justify-between pb-2">
               <span className="text-sm font-medium">Pending Orders</span>
