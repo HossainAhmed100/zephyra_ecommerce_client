@@ -117,7 +117,7 @@ return (
       {...register("fullName", { required: "Please enter your Name"})}
       color={errors.fullName ? "danger" : "default"}
     />
-    {errors.fullName && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+    {errors.fullName && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
     <Input
       startContent={
         <div className="border-r-2 pr-2 flex items-center justify-start gap-1"><BdFlags width="20" height="20"/> <span className="text-[14px] font-medium text-gray-600">+880</span></div>
@@ -137,7 +137,7 @@ return (
       }})}
       color={errors.phone ? "danger" : "default"}
     />
-    {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+    {errors.phone && <span className="text-blue-500 text-sm">{errors.phone.message}</span>}
     <Input 
       radius="sm" 
       size={"md"}
@@ -151,7 +151,7 @@ return (
       {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
       color={errors.email ? "danger" : "default"}
     />
-    {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+    {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
     <Input
       radius="sm" 
       size={"md"}
@@ -170,7 +170,7 @@ return (
       {...register("password", { required: "Please enter a password", minLength: { value: 6, message: "Password must be at least 6 characters" } })}
       color={errors.password ? "danger" : "default"}
     />
-    {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
+    {errors.password && <span className="text-blue-500 text-sm">{errors.password.message}</span>}
     <div className="flex items-center justify-between pb-3">
       <Checkbox size="sm" defaultChecked>Accept terms and conditions</Checkbox>
     </div>

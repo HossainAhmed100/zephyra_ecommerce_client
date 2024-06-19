@@ -19,8 +19,8 @@ function FlashSeles() {
       <div className="flex md:items-center items-start md:flex-row flex-col md:justify-between gap-6">
       <div className="pt-2 order-last md:-order-last w-full flex flex-col items-start justify-start gap-6">
       <div className="flex items-center justify-start gap-4">
-        <div className="w-4 h-6 bg-red-500 rounded-sm"></div>
-        <h2 className="text-red-500 font-semibold text-lg">Tody's</h2>
+        <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
+        <h2 className="text-blue-500 font-semibold text-lg">Tody's</h2>
       </div>
       <h1 className="text-3xl font-semibold">Flash Sales</h1>
       </div>
@@ -33,7 +33,7 @@ function FlashSeles() {
         {products.map((item) => <ProductCard key={item?._id} product={item}/>)}
       </div>
       <div className="flex items-center justify-center py-6">
-        <Button className="bg-red-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
+        <Button radius="sm" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
           View All Products
         </Button> 
       </div>

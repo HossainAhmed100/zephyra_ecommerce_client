@@ -6,8 +6,8 @@ export default function NewArrival() {
       <div className="m-auto max-w-6xl px-4 md:px-8">
         <div className="mb-4 sm:mb-6 md:mb-10">
           <div className="flex items-center justify-start gap-4">
-            <div className="w-4 h-6 bg-red-500 rounded-sm"></div>
-            <h2 className="text-red-500 font-semibold text-lg">Tody's</h2>
+            <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
+            <h2 className="text-blue-500 font-semibold text-lg">Tody's</h2>
           </div>
           <div className="pt-2 flex items-center justify-start gap-6">
             <h1 className="text-3xl font-semibold">New Arrival</h1>

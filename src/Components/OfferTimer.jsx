@@ -39,7 +39,7 @@ function OfferTimer({ duration }) {
 const TimeSlot = ({ time, title }) => {
   return (
     <div>
-        <h3 className="countdown-element seconds font-manrope font-semibold text-2xl text-red-600 text-center">
+        <h3 className="countdown-element seconds font-manrope font-semibold text-2xl text-blue-600 text-center">
           <AnimatingNumber value={time}/>
           {/* {time} */}
         </h3>

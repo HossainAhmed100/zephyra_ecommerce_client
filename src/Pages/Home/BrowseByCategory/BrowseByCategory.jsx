@@ -15,8 +15,8 @@ function BrowseByCategory() {
       {/* Category header */}
       <div className="pt-2 order-last md:-order-last w-full flex flex-col items-start justify-start gap-6">
         <div className="flex items-center justify-start gap-4">
-          <div className="w-4 h-6 bg-red-500 rounded-sm"></div>
-          <h2 className="text-red-500 font-semibold text-lg">Categories</h2>
+          <div className="w-4 h-6 bg-blue-500 rounded-sm"></div>
+          <h2 className="text-blue-500 font-semibold text-lg">Categories</h2>
         </div>
         <h1 className="text-3xl font-semibold">Browse By Category</h1>
       </div>

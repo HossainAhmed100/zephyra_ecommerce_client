@@ -7,7 +7,7 @@ const FiltarAccording = ({ title, items }) => {
     title: "px-4 py-3 text-gray-700 text-[14px] font-normal",
     trigger: "p-0",
     indicator: "px-2 text-gray-700 text-base font-medium",
-    content: "text-small  text-red-300 w-full border-t",
+    content: "text-small  text-blue-300 w-full border-t",
   };
 
   return (

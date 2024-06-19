@@ -5,6 +5,7 @@ import { FaCartShopping } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
 import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import { TbMessageReport } from "react-icons/tb";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -89,7 +90,7 @@ const ProductDetails = () => {
                     key={index}
                     type="button"
                     onClick={() => setSelectedColor(color)}
-                    className={`border px-4 py-2 rounded ${selectedColor === color ? 'bg-red-100 text-red-500 border-red-500' : ''}`}
+                    className={`border px-4 py-2 rounded ${selectedColor === color ? 'bg-blue-100 text-blue-500 border-red-500' : ''}`}
                     variant="flat"
                     color="default"
                   >
@@ -107,7 +108,7 @@ const ProductDetails = () => {
                     key={size}
                     type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`border px-4 py-2 rounded ${selectedSize === size ? 'bg-red-100 text-red-500 border-red-500' : ''}`}
+                    className={`border px-4 py-2 rounded ${selectedSize === size ? 'bg-blue-100 text-blue-500 border-red-500' : ''}`}
                     variant="flat"
                     color="default"
                   >
@@ -147,7 +148,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex gap-2 lg:flex-row items-end justify-center">
-              <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-red-500 text-white flex-1" size="md">
+              <Button radius='sm' startContent={<FaCartShopping size={20}/>} type="submit" className="bg-blue-500 text-white flex-1" size="md">
                 Add To Cart
               </Button>
               <Button radius='sm' color='default' variant='flat' isIconOnly>
@@ -236,14 +237,14 @@ const ReviewCard = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo tempora eius quos rem, ducimus dolor. Voluptatem, blanditiis animi tempora enim illo harum fugiat quaerat voluptatum.
         </p>
       </div>
-      <Dropdown backdrop="blur">
+      <Dropdown placement='bottom-end'>
         <DropdownTrigger>
           <Button isIconOnly color='default' variant='light'>
             <HiOutlineDotsVertical size={24} className='text-gray-400'/>
           </Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Action event example" >
-          <DropdownItem key="reportAbuse">Report abouse</DropdownItem>
+          <DropdownItem startContent={<TbMessageReport />} key="reportAbuse">Report abouse</DropdownItem>
         </DropdownMenu>
     </Dropdown>
     </div>

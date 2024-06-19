@@ -95,7 +95,7 @@ function NavBar() {
         {/* Cart icon with badge, only visible on large screens */}
         <NavbarItem className="hidden lg:flex">
           <Link to="/dashboard/myCart">
-            <Badge color="danger" content={0} shape="circle">
+            <Badge color="primary" content={0} shape="circle">
               <FaCartShopping size={30}/>
             </Badge>
           </Link>

@@ -69,7 +69,7 @@ function Contact() {
                     {...register("fullName", { required: "Please enter your Name" })}
                     color={errors.fullName ? "danger" : "default"}
                   />
-                  {errors.fullName && <span className="text-red-500 text-sm">{errors.fullName.message}</span>}
+                  {errors.fullName && <span className="text-blue-500 text-sm">{errors.fullName.message}</span>}
                 </div>
                 <div className="flex-1">
                   <Input
@@ -95,7 +95,7 @@ function Contact() {
                     }})}
                     color={errors.phone ? "danger" : "default"}
                   />
-                  {errors.phone && <span className="text-red-500 text-sm">{errors.phone.message}</span>}
+                  {errors.phone && <span className="text-blue-500 text-sm">{errors.phone.message}</span>}
                 </div>
               </div>
               <Input
@@ -112,7 +112,7 @@ function Contact() {
                 {...register("email", { required: "Please enter your email", pattern: { value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/, message: "Email is not valid" } })}
                 color={errors.email ? "danger" : "default"}
               />
-              {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
+              {errors.email && <span className="text-blue-500 text-sm">{errors.email.message}</span>}
               <Textarea
                 isRequired
                 label="Your Message"
@@ -126,7 +126,7 @@ function Contact() {
                 color={errors.customerMessage ? "danger" : "default"}
                 errorMessage={errors.customerMessage && "Please write your message."}
               />
-              {errors.customerMessage && <span className="text-red-500 text-sm">{errors.customerMessage.message}</span>}
+              {errors.customerMessage && <span className="text-blue-500 text-sm">{errors.customerMessage.message}</span>}
               <Button type="submit" className="bg-[#DB4444] text-white">Send Message</Button>
             </form>
           </div>
