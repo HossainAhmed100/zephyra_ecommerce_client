@@ -1,14 +1,17 @@
-import { Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
+import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
 import { Helmet } from "react-helmet-async"
+import { Link } from "react-router-dom"
+import ColumnChart from "../../../Components/ChartCard/ColumnChart"
 
 function Dashboard() {
+
   return (
     <div>
       <Helmet title="Admin - Dashbaord | Zephyra Online Shop"/>
       <div className="flex flex-col min-h-screen">
-      <main className="flex-1 grid gap-6 p-4 md:p-6">
+      <main className="flex-1 grid gap-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          <Card>
+          <Card className="shadow-none border-1">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-sm font-medium">Total Users</span>
               <UsersIcon className="w-4 h-4 text-muted-foreground" />
@@ -18,7 +21,7 @@ function Dashboard() {
               <p className="text-xs text-muted-foreground">+5.2% from last month</p>
             </CardBody>
           </Card>
-          <Card>
+          <Card className="shadow-none border-1">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-sm font-medium">Total Orders</span>
               <ShoppingCartIcon className="w-4 h-4 text-muted-foreground" />
@@ -28,7 +31,7 @@ function Dashboard() {
               <p className="text-xs text-muted-foreground">+8.1% from last month</p>
             </CardBody>
           </Card>
-          <Card>
+          <Card className="shadow-none border-1">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-sm font-medium">Total Revenue</span>
               <DollarSignIcon className="w-4 h-4 text-muted-foreground" />
@@ -38,7 +41,7 @@ function Dashboard() {
               <p className="text-xs text-muted-foreground">+12.4% from last month</p>
             </CardBody>
           </Card>
-          <Card>
+          <Card className="shadow-none border-1">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-sm font-medium">Products in Stock</span>
               <PackageIcon className="w-4 h-4 text-muted-foreground" />
@@ -49,14 +52,20 @@ function Dashboard() {
             </CardBody>
           </Card>
         </div>
+        <div>
+          <ColumnChart />
+        </div>
         <div className="grid grid-cols-1 gap-4">
           <Card className="h-fit rounded-md shadow-none border-1">
             <CardHeader className="flex px-6 flex-row items-center justify-between pb-2">
-              <span className="text-sm font-medium">Top Selling Products</span>
+              <div className="flex items-center justify-normal gap-1">
               <PackageIcon className="w-4 h-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Top Selling Products</span>
+              </div>
+              <Button color="primary" variant="light">View all</Button>
             </CardHeader>
             <CardBody>
-              <Table  removeWrapper className="px-2" aria-label="Example static collection table">
+              <Table  removeWrapper className="px-2" aria-label="Top Selling Products Tables">
                 <TableHeader>
                   <TableColumn>Product</TableColumn>
                   <TableColumn>ID</TableColumn>
@@ -94,9 +103,12 @@ function Dashboard() {
           </Card>
           
           <Card className="h-fit rounded-md  shadow-none border-1">
-            <CardHeader className="flex flex-row px-6 items-center justify-between pb-2">
-              <span className="text-sm font-medium">Recent Orders</span>
-              <ShoppingCartIcon className="w-4 h-4 text-muted-foreground" />
+            <CardHeader className="flex px-6 flex-row items-center justify-between pb-2">
+              <div className="flex items-center justify-normal gap-1">
+              <PackageIcon className="w-4 h-4 text-muted-foreground" />
+              <span className="text-sm font-medium">Recents Orders</span>
+              </div>
+              <Link to={"topSelingProducts"}><Button color="primary" variant="light">View all</Button></Link>
             </CardHeader>
             <CardBody>
               <Table removeWrapper aria-labelledby="Recent Ordesrs" className="px-2">
@@ -155,7 +167,7 @@ function Dashboard() {
               <ShoppingCartIcon className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardBody>
-              <Table removeWrapper aria-labelledby="Pending Ordesrs" className="px-2">
+              <Table removeWrapper aria-labelledby="Pending Ordesrs Tables" className="px-2">
                 <TableHeader>
                   <TableColumn>Order ID</TableColumn>
                   <TableColumn>User ID</TableColumn>
@@ -209,7 +221,7 @@ function Dashboard() {
               <PackageIcon className="w-4 h-4 text-muted-foreground" />
             </CardHeader>
             <CardBody>
-              <Table removeWrapper className="px-2">
+              <Table removeWrapper className="px-2" aria-label="Sales Bu Category Tables">
                 <TableHeader>
                   <TableColumn>Category</TableColumn>
                   <TableColumn>ID</TableColumn>

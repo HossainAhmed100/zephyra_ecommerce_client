@@ -20,6 +20,7 @@ import PrivacyPolicy from "../Pages/Policy/PrivacyPolicy";
 import CompanyLincense from "../Pages/Policy/CompanyLincense";
 import Dashboard from "../Pages/Admin/Dashboard/Dashboard";
 import UpdateMyProfile from "../Pages/Admin/MyProfile/UpdateMyProfile";
+import TopSelingProducts from "../Pages/Admin/TopSelingProducts/TopSelingProducts";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
         {
             path: "manageProduct",
             element: <ManageProduct />
+        },
+        {
+            path: "topSelingProducts",
+            element: <TopSelingProducts />
         },
         {
             path: "myProfile",
