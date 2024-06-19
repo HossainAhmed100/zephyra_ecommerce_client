@@ -380,7 +380,7 @@ export default function ManageProduct() {
 
   return (
     <>
-     <Helmet title='Printing Report | Mayer Doa Inventory'/>
+    <Helmet title='Manage All Product | Admin - Dashbaord | Zephyra Online Shop '/>
     <Table
     aria-label="Example table with custom cells, pagination and sorting"
     isHeaderSticky

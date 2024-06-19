@@ -9,7 +9,6 @@ import { useState } from "react";
 import { FaChartPie, FaArrowRightFromBracket } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { MdAddBusiness, MdOutlineManageSearch } from "react-icons/md";
-import { Helmet } from "react-helmet-async";
 
 function DashboardLayout() {
   // State to track the open/close status of the mobile menu
@@ -37,7 +36,6 @@ function DashboardLayout() {
   }};
   return (
     <div>
-      <Helmet title="Dashbaord | Zephyra Online Shop"/>
       <div>
       <nav className="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
@@ -161,7 +159,7 @@ function DashboardLayout() {
           </div>
         </div>
         <div className="mt-auto p-4 flex flex-col">
-        <Button onClick={async () => {
+        <Button size="sm" onClick={async () => {
             const success = await signOut();
             if (success) {
               navigate("/login")

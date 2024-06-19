@@ -50,9 +50,10 @@ function UpdateProduct() {
       {label: "Reebok", value: "Reebok"},
       {label: "Converse", value: "Converse"},
     ]
+  const product = {name: "Macbook Pro Update now"}
   return (
     <section className="lg:mx-16 md:mx-8 mx-4">
-      <Helmet title='Add New Product | Smart Shoe Admin'/>
+      <Helmet title={`${product?.name} | Update | Admin - Dashbaord | Zephyra Online Shop`}/>
       <div className="bg-gray-100 rounded-lg p-12">
         <div className="w-ful items-center pb-4">
             <h1 className="text-gray-800 font-semibold text-2xl">ADD NEW PRODUCT</h1>

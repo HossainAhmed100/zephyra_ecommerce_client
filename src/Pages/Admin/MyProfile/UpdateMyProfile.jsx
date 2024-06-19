@@ -146,7 +146,7 @@ export default function UpdateMyProfile() {
             <h4 className="text-base font-semibold text-gray-800">Password</h4>
             <span className="text-tiny font-normal text-default-400">You can change or reset your password bt clicking here</span>
           </div>
-          <Button color="default" size="sm" variant="bordered">
+          <Button color="primary" size="sm" variant="flat">
             Change
           </Button> 
         </div>
@@ -155,7 +155,7 @@ export default function UpdateMyProfile() {
           <h4 className="text-base font-semibold text-gray-800">Remove Account</h4>
           <span className="text-tiny font-normal text-default-400">Once you delete your account, there is no going back</span>
           </div>
-          <Button color="danger" size="sm" className="px-4" variant="bordered">
+          <Button color="danger" size="sm" className="px-4" variant="flat">
             Deactivate
           </Button>  
         </div>
