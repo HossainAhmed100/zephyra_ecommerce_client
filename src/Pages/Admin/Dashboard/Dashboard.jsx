@@ -2,6 +2,7 @@ import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableC
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 import ColumnChart from "../../../Components/ChartCard/ColumnChart"
+import PieChart from "../../../Components/ChartCard/PieChart"
 
 function Dashboard() {
 
@@ -52,8 +53,10 @@ function Dashboard() {
             </CardBody>
           </Card>
         </div>
-        <div>
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
           <ColumnChart />
+          <PieChart />
+          <PieChart />
         </div>
         <div className="grid grid-cols-1 gap-4">
           <Card className="h-fit rounded-md shadow-none border-1">

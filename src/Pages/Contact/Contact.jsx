@@ -24,9 +24,9 @@ function Contact() {
               {/* Call Us Section */}
               <div className="p-4 flex flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
-                  <div className="rounded-lg bg-[#DB4444] p-2 flex items-center justify-center">
-                    <MdOutlineCall color="white" size={24} />
-                  </div>
+                  <Button isIconOnly color="primary" variant="flat">
+                    <MdOutlineCall size={24} />
+                  </Button>
                   <h1 className="text-lg font-medium text-gray-800">Call To Us</h1>
                 </div>
                 <h1 className="text-base text-gray-700">We are available 24/7, 7 days a week.</h1>
@@ -36,9 +36,9 @@ function Contact() {
               {/* Write To Us Section */}
               <div className="p-4 flex flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
-                  <div className="rounded-lg bg-[#DB4444] p-2 flex items-center justify-center">
-                    <MdOutlineMail color="white" size={24} />
-                  </div>
+                <Button isIconOnly color="primary" variant="flat">
+                    <MdOutlineMail size={24} />
+                  </Button>
                   <h1 className="text-lg font-medium text-gray-800">Write To Us</h1>
                 </div>
                 <h1 className="text-base  text-gray-700">
@@ -127,7 +127,7 @@ function Contact() {
                 errorMessage={errors.customerMessage && "Please write your message."}
               />
               {errors.customerMessage && <span className="text-blue-500 text-sm">{errors.customerMessage.message}</span>}
-              <Button type="submit" className="bg-[#DB4444] text-white">Send Message</Button>
+              <Button type="submit" color="primary" variant="solid">Send Message</Button>
             </form>
           </div>
         </div>
