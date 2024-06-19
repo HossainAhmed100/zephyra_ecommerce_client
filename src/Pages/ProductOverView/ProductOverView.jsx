@@ -90,9 +90,8 @@ const ProductDetails = () => {
                     key={index}
                     type="button"
                     onClick={() => setSelectedColor(color)}
-                    className={`border px-4 py-2 rounded ${selectedColor === color ? 'bg-blue-100 text-blue-500 border-red-500' : ''}`}
                     variant="flat"
-                    color="default"
+                    color={selectedColor === color ? "primary" : "default"}
                   >
                     {color}
                   </Button>
@@ -108,9 +107,8 @@ const ProductDetails = () => {
                     key={size}
                     type="button"
                     onClick={() => setSelectedSize(size)}
-                    className={`border px-4 py-2 rounded ${selectedSize === size ? 'bg-blue-100 text-blue-500 border-red-500' : ''}`}
                     variant="flat"
-                    color="default"
+                    color={selectedSize === size ? "primary" : "default"}
                   >
                     {size}
                   </Button>
