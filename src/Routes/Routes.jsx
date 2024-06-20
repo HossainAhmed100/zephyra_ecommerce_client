@@ -21,6 +21,7 @@ import CompanyLincense from "../Pages/Policy/CompanyLincense";
 import Dashboard from "../Pages/Admin/Dashboard/Dashboard";
 import UpdateMyProfile from "../Pages/Admin/MyProfile/UpdateMyProfile";
 import TopSelingProducts from "../Pages/Admin/TopSelingProducts/TopSelingProducts";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         {
             path: "/about",
             element: <About />
+        },
+        {
+            path: "/blog",
+            element: <Blog />
         },
         {
             path: "/contact",
