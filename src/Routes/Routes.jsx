@@ -22,6 +22,7 @@ import Dashboard from "../Pages/Admin/Dashboard/Dashboard";
 import UpdateMyProfile from "../Pages/Admin/MyProfile/UpdateMyProfile";
 import TopSelingProducts from "../Pages/Admin/TopSelingProducts/TopSelingProducts";
 import Blog from "../Pages/Blog/Blog";
+import ReadBlog from "../Pages/Blog/ReadBlog";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         {
             path: "/blog",
             element: <Blog />
+        },
+        {
+            path: "/blog/:id",
+            element: <ReadBlog />
         },
         {
             path: "/contact",

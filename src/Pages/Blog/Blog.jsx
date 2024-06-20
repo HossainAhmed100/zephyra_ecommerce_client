@@ -89,12 +89,7 @@ export default function Blog() {
       <main className="container py-12">
         <h2 className="text-2xl font-bold mb-6">Recent Posts</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <BlogPostCard />
-          <BlogPostCard />
-          <BlogPostCard />
-          <BlogPostCard />
-          <BlogPostCard />
-          <BlogPostCard />
+         {[1,2,3,4,5,6].map(item => <BlogPostCard key={item}/>)}
         </div>
       </main>
     </div>
