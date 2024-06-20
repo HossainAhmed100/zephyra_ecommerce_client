@@ -1,4 +1,4 @@
-import { Image } from "@nextui-org/react"
+import { Chip, Image } from "@nextui-org/react"
 import { Link } from "react-router-dom"
 import BlogPostCard from "../../Components/Blog/BlogPostCard"
 
@@ -8,6 +8,8 @@ export default function Blog() {
         {key: "tech", label: "Tech"},
         {key: "lifestyle", label: "Life Style"},
         {key: "travel", label: "Travel"},
+        {key: "gadget", label: "Gadget"},
+        {key: "kitchen", label: "Kithcen"},
     ];
     const tagList = [
         {key: "ecommerce", label: "Ecommerce"},
@@ -47,16 +49,16 @@ export default function Blog() {
             <div className="space-y-6">
               <div className="space-y-2">
                 <h2 className="text-xl font-bold">Categories</h2>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {
                     cetegoryList.map((category) => (
                       <Link
                         key={category.key}
                         to={"/blog"}
-                        className="rounded-md bg-muted px-3 py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
+                        className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
                         prefetch={false}
                       >
-                        {category.label}
+                         <Chip variant="flat">{category.label}</Chip>
                       </Link>
                     ))
                   }
@@ -65,7 +67,19 @@ export default function Blog() {
               <div className="space-y-2">
                 <h2 className="text-xl font-bold">Tags</h2>
                 <div className="flex flex-wrap gap-2">
-                  
+                    {
+                      tagList.map((tag) => (
+                        <Link
+                          key={tag.key}
+                          to={"/blog"}
+                          className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
+                          prefetch={false}
+                        >
+                            <Chip variant="flat">#{tag.label}</Chip>
+                        </Link>
+                      ))
+                    }
+  
                 </div>
               </div>
             </div>
