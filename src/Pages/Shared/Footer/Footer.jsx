@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Avatar, AvatarGroup,Button, Input } from "@nextui-org/react"
+import { Avatar, AvatarGroup,Button, Input, Link } from "@nextui-org/react"
 import { HiOutlineMail } from "react-icons/hi";
 import { FaFacebook, FaInstagram, FaYoutube  } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -24,9 +23,11 @@ return (
     <div className="grid grid-cols-1 min-[1130px]:grid-cols-12 gap-8 lg:gap-0 py-10 border-b-2 border-gray-200">
       <div className="min-[1130px]:col-span-5 col-span-1 w-full min-[1130px]:max-w-full mx-auto">
         <div className="flex flex-col gap-8 w-full px-4">
-          <Link to="/" className="flex flex-col items-start gap-2 justify-center">
+          <Link href="/">
+          <div className="flex flex-col items-start gap-2 justify-center">
             <p className="font-bold text-inherit text-xl">Zephyra</p>
             <p className="text-inherit text-base text-gray-400">Best Online Shop in Bangladesh</p>
+          </div>
           </Link>
           <div className="flex min-[470px]:flex-row items-center gap-3 w-full">
           <div className="relative  text-gray-500 focus-within:text-gray-900 max-sm:w-full">
@@ -58,7 +59,7 @@ return (
           </AvatarGroup>
           </div>
           <div className="flex items-center justify-start gap-4">
-            <Link to="/">
+            <Link href="/">
               <svg width="134" height="45" viewBox="0 0 134 45" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <g clipPath="url(#clip0_8832_65012)">
@@ -143,7 +144,7 @@ return (
                   </defs>
               </svg>
             </Link>
-            <Link to="/">
+            <Link href="/">
               <svg width="151" height="45" viewBox="0 0 151 45" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
                   <g clipPath="url(#clip0_8832_65013)">
@@ -251,7 +252,7 @@ return (
           </div>
           <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto ">
             {
-              footerProducts.map((item) => <Link key={item?._id} to={`/allProduct/${item?._id}`} className="block">
+              footerProducts.map((item) => <Link key={item?._id} href={`/allProduct/${item?._id}`} className="block">
                 <img src={item?.thumbnail}
                 alt="Footer Shoe img" className="max-lg:w-full" />
               </Link>
@@ -284,9 +285,10 @@ return (
 )
 }
 
-const FooterLink = ({title, path}) => {
+const FooterLink = ({path, title}) => {
+  console.log("🚀 ~ FooterLink ~ path:", path)
   return (
-    <Link to={path} className="text-gray-600 max-lg:flex hover:text-gray-900">{title}</Link>
+    <Link href={path} color="foreground">{title}</Link>
   )
 }
 

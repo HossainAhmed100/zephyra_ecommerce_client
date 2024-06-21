@@ -1,12 +1,10 @@
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 
 const Breadcrumb = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
-  console.log("🚀 ~ Breadcrumb ~ pathnames:", pathnames)
   let breadcrumbPath = "";
-  console.log("🚀 ~ Breadcrumb ~ breadcrumbPath:", breadcrumbPath)
 
   // if (pathnames.length === 0) {
   //   // If the current route is the home route ('/'), do not render the breadcrumbs
