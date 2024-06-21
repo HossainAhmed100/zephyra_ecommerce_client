@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async"
-import TopService from "../../components/top-service/TopService"
+import TopService from "../../components/products/top-service/TopService"
 import FlashSeles from "./flash-sales/FlashSeles"
 import NewArrival from "./new-arrivals/NewArrival"
 import BrowseByCategory from "./browse-by-category/BrowseByCategory"

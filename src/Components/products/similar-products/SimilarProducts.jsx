@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@nextui-org/react";
 import { FaArrowRight } from "react-icons/fa6";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import ProductCard from "../ProductCard";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 function SimilarProducts() {
     const axiosPublic = useAxiosPublic();

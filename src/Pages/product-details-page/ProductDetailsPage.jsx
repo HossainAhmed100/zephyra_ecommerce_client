@@ -7,7 +7,7 @@ import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { TbMessageReport } from "react-icons/tb";
 import { Helmet } from 'react-helmet-async';
-import SimilarProducts from '../../components/similar-products/SimilarProducts';
+import SimilarProducts from '../../components/products/similar-products/SimilarProducts';
 import Breadcrumb from '../../components/breadcrumbs/BreadCrumbs';
 
 const ProductDetailsPage = () => {

@@ -1,6 +1,6 @@
-import { Chip, Image } from "@nextui-org/react"
-import { Link } from "react-router-dom"
+import { Chip, Image, Link } from "@nextui-org/react"
 import BlogPostCard from "../../components/blog/BlogPostCard"
+import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
 
 export default function Blog() {
     const cetegoryList = [
@@ -19,7 +19,8 @@ export default function Blog() {
     ]
   return (
     <div className="max-w-6xl m-auto">
-      <header className="py-6 md:py-12">
+      <header className="py-6">
+      <div className="pb-4"><Breadcrumb /></div>
         <div className="container">
           <div className="grid md:grid-cols-[1fr_300px] gap-8">
             <div className="space-y-4">
@@ -37,7 +38,7 @@ export default function Blog() {
                   nec, aliquam libero.
                 </p>
                 <Link
-                  to="/blog"
+                  href="/blog"
                   className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   prefetch={false}
                 >
@@ -54,7 +55,7 @@ export default function Blog() {
                     cetegoryList.map((category) => (
                       <Link
                         key={category.key}
-                        to={"/blog"}
+                        href={"/blog"}
                         className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
                         prefetch={false}
                       >
@@ -71,7 +72,7 @@ export default function Blog() {
                       tagList.map((tag) => (
                         <Link
                           key={tag.key}
-                          to={"/blog"}
+                          href={"/blog"}
                           className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
                           prefetch={false}
                         >

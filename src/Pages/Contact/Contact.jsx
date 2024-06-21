@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Button, Input, Textarea, Card, CardBody } from "@nextui-org/react";
 import { BdFlags } from "../../assets/icons/BdFlags";
 import { Helmet } from "react-helmet-async";
+import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
 
 function Contact() {
   // Hook to manage form state, validation, and submission handling
@@ -14,15 +15,17 @@ function Contact() {
   };
 
   return (
-    <section className="w-full lg:py-12 md:py-8 py-6 min-h-screen bg-white">
+    <section className="min-h-screen bg-white">
+      
       <Helmet title='Contact | Zephyar Online Shop'/>
-      <div className="max-w-6xl m-auto p-6">
+      <div className="max-w-6xl m-auto py-6 px-4">
+      <div className="pb-4"><Breadcrumb /></div>
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Contact Information Card */}
           <Card className="min-h-[450px] rounded-sm shadow-sm">
             <CardBody>
               {/* Call Us Section */}
-              <div className="p-4 flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
                   <Button isIconOnly color="primary" variant="flat">
                     <MdOutlineCall size={24} />
@@ -34,7 +37,7 @@ function Contact() {
               </div>
 
               {/* Write To Us Section */}
-              <div className="p-4 flex flex-col gap-4">
+              <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-start gap-3">
                 <Button isIconOnly color="primary" variant="flat">
                     <MdOutlineMail size={24} />
@@ -51,7 +54,7 @@ function Contact() {
           </Card>
 
           {/* Contact Form */}
-          <div className="flex-1 p-4 rounded-sm shadow-sm">
+          <div className="flex-1 rounded-sm shadow-sm">
             <form onSubmit={handleSubmit(onSubmit)} className="flex min-w-full flex-col gap-4">
               <div className="flex gap-4 md:flex-row flex-col">
                 <div className="flex-1">

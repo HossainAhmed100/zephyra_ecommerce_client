@@ -3,7 +3,7 @@ import { RiShoppingCartFill } from "react-icons/ri";
 import { LuCircleDollarSign, LuShoppingBag } from "react-icons/lu";
 import { FaSackDollar } from "react-icons/fa6";
 import { CiTwitter, CiInstagram, CiLinkedin } from "react-icons/ci";
-import TopService from "../../components/top-service/TopService";
+import TopService from "../../components/products/top-service/TopService";
 import { Helmet } from "react-helmet-async";
 
 function About() {

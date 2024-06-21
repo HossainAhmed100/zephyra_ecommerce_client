@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
 
 export default function ReadBlogPage() {
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
+    <div className="max-w-6xl mx-auto py-6 px-4">
+      <div className="pb-6"><Breadcrumb /></div>
+    <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
+      
       <article className="flex-1 prose prose-gray dark:prose-invert">
         <div className="space-y-4 not-prose">
           <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">Taxing Laughter: The Joke Tax Chronicles</h1>
@@ -125,6 +129,7 @@ export default function ReadBlogPage() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   )
 }

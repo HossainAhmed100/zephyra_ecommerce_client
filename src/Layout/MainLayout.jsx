@@ -1,6 +1,6 @@
 import { Outlet , useNavigate} from "react-router-dom"
-import Footer from "../Pages/Shared/Footer/Footer"
-import NavBar from "../Pages/Shared/NavBar/NavBar"
+import Footer from "../pages/shared/Footer/Footer"
+import NavBar from "../pages/shared/NavBar/NavBar"
 import { NextUIProvider } from "@nextui-org/react"
 
 
