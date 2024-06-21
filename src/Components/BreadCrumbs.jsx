@@ -1,9 +1,12 @@
 import {Link, useLocation} from "react-router-dom";
+import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 
-const Breadcrumbs = () => {
+const Breadcrumb = () => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
+  console.log("🚀 ~ Breadcrumb ~ pathnames:", pathnames)
   let breadcrumbPath = "";
+  console.log("🚀 ~ Breadcrumb ~ breadcrumbPath:", breadcrumbPath)
 
   // if (pathnames.length === 0) {
   //   // If the current route is the home route ('/'), do not render the breadcrumbs
@@ -12,23 +15,22 @@ const Breadcrumbs = () => {
 
   return (
     <div className="breadcrumbs">
-      <Link to="/">Home</Link>
+      <Breadcrumbs>  
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>  
       {pathnames.map((name, index) => {
         breadcrumbPath += `/${name}`;
         const isLast = index === pathnames.length - 1;
         console.log(pathnames, breadcrumbPath);
 
         return isLast ? (
-          <span key={breadcrumbPath}> / {name}</span>
+      <BreadcrumbItem key={breadcrumbPath}>{name}</BreadcrumbItem>
         ) : (
-          <span key={breadcrumbPath}>
-            {" "}
-            / <Link to={breadcrumbPath}>{name}</Link>
-          </span>
+      <BreadcrumbItem key={breadcrumbPath} href={`/${name}`}>{name}</BreadcrumbItem>
         );
       })}
+      </Breadcrumbs>
     </div>
   );
 };
 
-export default Breadcrumbs;
+export default Breadcrumb;

@@ -8,6 +8,7 @@ import { HiOutlineDotsVertical } from "react-icons/hi";
 import { TbMessageReport } from "react-icons/tb";
 import { Helmet } from 'react-helmet-async';
 import SimilarProducts from '../../Components/SimilarProducts/SimilarProducts';
+import Breadcrumb from '../../Components/BreadCrumbs';
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
@@ -45,6 +46,9 @@ const ProductDetails = () => {
   return (
     <div className='max-w-6xl px-4 mx-auto py-10'>
     <Helmet title={`${product?.name} | Zephyra Online Shop`}/>
+    <div className="pb-8">
+        <Breadcrumb />
+      </div>
     <div className="grid md:grid-cols-2 grid-cols-1 gap-6 items-start">
       <div className="grid gap-4">
         <div className="grid gap-4">

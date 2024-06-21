@@ -6,7 +6,7 @@ import { Button, Divider, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import FiltarAccording from "../../Components/FiltarAccording";
 import { Helmet } from "react-helmet-async";
-import Breadcrumbs from "../../Components/BreadCrumbs";
+import Breadcrumb from "../../Components/BreadCrumbs";
 
 function AllProduct() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,13 +86,13 @@ function AllProduct() {
   return (
     <section className="max-w-6xl p-4 m-auto">
       <Helmet title="Search Product | Zephyra Online Shop"/>
-      <div className="p-4 bg-white my-2 shadow">
-        <Breadcrumbs />
+      <div className="p-4 my-2 shadow">
+        <Breadcrumb />
       </div>
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
-          className={`lg:bg-transparent z-50 lg:min-h-screen h-full no-scrollbar overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
+          className={`lg:bg-transparent z-30 lg:min-h-screen h-full no-scrollbar overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
           aria-label="Sidebar"
         >
           <div className={`flex flex-col min-h-screen w-64 gap-2 ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
