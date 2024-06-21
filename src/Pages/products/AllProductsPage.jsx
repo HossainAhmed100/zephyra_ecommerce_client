@@ -86,7 +86,7 @@ function AllProductsPage() {
   return (
     <section className="max-w-6xl p-4 m-auto">
       <Helmet title="Search Product | Zephyra Online Shop"/>
-      <div className="p-4 my-2 shadow">
+      <div className="lg:pb-8 md:pb-6 pb-4">
         <Breadcrumb />
       </div>
       <div className="flex items-start gap-4 w-full">

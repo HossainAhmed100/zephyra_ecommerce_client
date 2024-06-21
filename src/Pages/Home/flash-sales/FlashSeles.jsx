@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic"
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import ProductCard from "../../../components/products/ProductCard";
 import OfferTimer from "../../../components/timer/OfferTimer";
@@ -33,7 +33,7 @@ function FlashSeles() {
         {products.map((item) => <ProductCard key={item?._id} product={item}/>)}
       </div>
       <div className="flex items-center justify-center py-6">
-        <Button radius="sm" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
+        <Button radius="sm" as={Link} href="/all-products" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRightLong size={18}/>}>
           View All Products
         </Button> 
       </div>

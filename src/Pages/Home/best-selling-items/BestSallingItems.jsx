@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import ProductCard from "../../../components/products/ProductCard";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import { FaArrowRight } from "react-icons/fa6";
 
 function BestSallingItems() {
@@ -25,7 +25,7 @@ function BestSallingItems() {
       <h1 className="text-3xl font-semibold">Beast Sales</h1>
       </div>
       <div className="">
-        <Button radius="sm" size="sm"  className="bg-blue-500 text-white font-medium" endContent={<FaArrowRight size={16}/>}>
+        <Button radius="sm" size="sm" as={Link} href="/all-products" className="bg-blue-500 text-white font-medium" endContent={<FaArrowRight size={16}/>}>
           View All
         </Button> 
       </div>

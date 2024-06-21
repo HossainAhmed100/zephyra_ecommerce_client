@@ -1,7 +1,7 @@
 import { Avatar, AvatarGroup,Button, Input, Link } from "@nextui-org/react"
 import { HiOutlineMail } from "react-icons/hi";
 import { FaFacebook, FaInstagram, FaYoutube  } from "react-icons/fa";
-import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
@@ -23,7 +23,7 @@ return (
     <div className="grid grid-cols-1 min-[1130px]:grid-cols-12 gap-8 lg:gap-0 py-10 border-b-2 border-gray-200">
       <div className="min-[1130px]:col-span-5 col-span-1 w-full min-[1130px]:max-w-full mx-auto">
         <div className="flex flex-col gap-8 w-full px-4">
-          <Link href="/">
+          <Link href="/" color="foreground">
           <div className="flex flex-col items-start gap-2 justify-center">
             <p className="font-bold text-inherit text-xl">Zephyra</p>
             <p className="text-inherit text-base text-gray-400">Best Online Shop in Bangladesh</p>
@@ -245,10 +245,9 @@ return (
         <div className="lg:text-left col-span-full md:col-span-1 lg:w-max">
           <div className="flex justify-between items-center mb-7 max-w-sm mx-auto">
             <h4 className="text-lg text-gray-900 font-medium">Product</h4>
-            <Link to={"/all-products"}
-              className="flex items-center gap-2 text-xs text-blue-400 font-semibold">View all
-              <FaArrowRightLong size={16}/>
-            </Link>
+            <Button radius="sm" size="sm" variant="light" as={Link} href="/all-products" color="primary" endContent={<FaArrowRight size={16}/>}>
+              View All
+            </Button> 
           </div>
           <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto ">
             {

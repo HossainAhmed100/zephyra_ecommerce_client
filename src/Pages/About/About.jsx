@@ -5,15 +5,18 @@ import { FaSackDollar } from "react-icons/fa6";
 import { CiTwitter, CiInstagram, CiLinkedin } from "react-icons/ci";
 import TopService from "../../components/products/top-service/TopService";
 import { Helmet } from "react-helmet-async";
+import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
 
 function About() {
   return (
     <>
       <Helmet title='About | Zephyar Online Shop'/>
-      <div className="">
+      
+      <div className="max-w-6xl m-auto">
         {/* Our Story Section */}
-        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-6xl m-auto">
+        <section className="py-6 lg:py-10 px-4 md:px-8 bg-white">
+          <div className="pb-8"><Breadcrumb /></div>
+          <div>
             <div className="grid gap-8 md:grid-cols-2 lg:gap-16">
               <div>
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -38,8 +41,8 @@ function About() {
         </section>
         
         {/* Report Cards Section */}
-        <section className="py-8 lg:py-16 px-4">
-          <div className="max-w-6xl m-auto">
+        <section className="py-6 lg:py-16 px-4">
+          <div>
             <div className="grid gap-6 md:grid-cols-4">
               <ReportCard 
                 icon={<RiShoppingCartFill size={24} color="white" />} 
@@ -66,8 +69,8 @@ function About() {
         </section>
         
         {/* Team Section */}
-        <section className="py-6 sm:py-8 lg:py-16 px-4 md:px-8 bg-white">
-          <div className="max-w-6xl m-auto">
+        <section className="py-6 lg:py-16 px-4 md:px-8 bg-white">
+          <div>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2 mb-10">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
