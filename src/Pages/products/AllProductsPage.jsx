@@ -1,12 +1,12 @@
-import ProductCard from "../../Components/ProductCard";
+import ProductCard from "../../components/products/ProductCard";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { IoFilter, IoClose } from "react-icons/io5";
 import { Button, Divider, Slider } from "@nextui-org/react";
 import { useState } from "react";
-import FiltarAccording from "../../Components/FiltarAccording";
+import FiltarAccording from "../../components/filters/FiltarAccording";
 import { Helmet } from "react-helmet-async";
-import Breadcrumb from "../../Components/BreadCrumbs";
+import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
 
 function AllProductsPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

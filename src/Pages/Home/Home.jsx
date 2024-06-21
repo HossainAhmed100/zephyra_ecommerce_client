@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async"
-import TopService from "../../Components/TopService/TopService"
-import FlashSeles from "./FlashSeles/FlashSeles"
-import NewArrival from "./NewArrival/NewArrival"
-import BrowseByCategory from "./BrowseByCategory/BrowseByCategory"
-import Banner from "./Banner/Banner"
-import BestSallingItems from "./BestSallingItems/BestSallingItems"
+import TopService from "../../components/top-service/TopService"
+import FlashSeles from "./flash-sales/FlashSeles"
+import NewArrival from "./new-arrivals/NewArrival"
+import BrowseByCategory from "./browse-by-category/BrowseByCategory"
+import Banner from "./banner/Banner"
+import BestSallingItems from "./best-selling-items/BestSallingItems"
 
 function Home() {
   return (

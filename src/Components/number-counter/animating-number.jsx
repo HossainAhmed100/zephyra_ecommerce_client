@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { usePrevious } from "../../hooks/useInterval";
-import "./NumberCounter.css"
+import "./animating-number.css"
 
 function formatForDisplay(number = 0) {
     const hasDecimal = number % 1 !== 0;

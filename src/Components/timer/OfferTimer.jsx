@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import AnimatingNumber from "./NumberCounter/animating-number";
+import AnimatingNumber from "./number-counter/animating-number";
 
 function OfferTimer({ duration }) {
   // State to keep track of remaining time in milliseconds

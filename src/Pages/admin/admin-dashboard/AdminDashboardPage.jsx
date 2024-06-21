@@ -1,8 +1,8 @@
 import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
-import ColumnChart from "../../../Components/ChartCard/ColumnChart"
-import LineChart from "../../../Components/ChartCard/LineChart"
+import ColumnChart from "../../../components/charts/ColumnChart"
+import LineChart from "../../../components/charts/LineChart"
 
 export default function AdminDashboardPage() {
 

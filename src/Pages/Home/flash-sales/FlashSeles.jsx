@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import OfferTimer from "../../../Components/OfferTimer"
 import useAxiosPublic from "../../../hooks/useAxiosPublic"
 import { Button } from "@nextui-org/react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import ProductCard from "../../../Components/ProductCard";
+import ProductCard from "../../../components/products/ProductCard";
+import OfferTimer from "../../../components/timer/OfferTimer";
 
 function FlashSeles() {
   const axiosPublic = useAxiosPublic();

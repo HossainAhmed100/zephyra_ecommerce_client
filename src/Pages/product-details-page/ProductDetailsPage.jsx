@@ -7,8 +7,8 @@ import { IoMdThumbsDown, IoMdThumbsUp } from "react-icons/io";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import { TbMessageReport } from "react-icons/tb";
 import { Helmet } from 'react-helmet-async';
-import SimilarProducts from '../../Components/SimilarProducts/SimilarProducts';
-import Breadcrumb from '../../Components/BreadCrumbs';
+import SimilarProducts from '../../components/similar-products/SimilarProducts';
+import Breadcrumb from '../../components/breadcrumbs/BreadCrumbs';
 
 const ProductDetailsPage = () => {
   const [quantity, setQuantity] = useState(1);

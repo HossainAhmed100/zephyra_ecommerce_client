@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import ProductCard from "../../../Components/ProductCard";
+import ProductCard from "../../../components/products/ProductCard";
 import { Button } from "@nextui-org/react";
 import { FaArrowRight } from "react-icons/fa6";
 
