@@ -6,6 +6,7 @@ import { Button, Divider, Slider } from "@nextui-org/react";
 import { useState } from "react";
 import FiltarAccording from "../../Components/FiltarAccording";
 import { Helmet } from "react-helmet-async";
+import Breadcrumbs from "../../Components/BreadCrumbs";
 
 function AllProduct() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,6 +86,9 @@ function AllProduct() {
   return (
     <section className="max-w-6xl p-4 m-auto">
       <Helmet title="Search Product | Zephyra Online Shop"/>
+      <div className="p-4 bg-white my-2 shadow">
+        <Breadcrumbs />
+      </div>
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
@@ -144,7 +148,6 @@ function AllProduct() {
             </div>
           </div>
         </aside>
-
         <div className="flex flex-col flex-1 gap-4">
           <div className="flex rounded-md shadow-sm items-center bg-white justify-between p-3">
             <div>
