@@ -1,6 +1,6 @@
 import { Chip, Image } from "@nextui-org/react"
 import { Link } from "react-router-dom"
-import BlogPostCard from "../../Components/Blog/BlogPostCard"
+import BlogPostCard from "../../Components/blog/BlogPostCard"
 
 export default function Blog() {
     const cetegoryList = [
