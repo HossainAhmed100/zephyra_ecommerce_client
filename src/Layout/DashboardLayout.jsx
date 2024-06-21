@@ -101,7 +101,7 @@ function DashboardLayout() {
               </li>
               <li>
               <NavLink
-                to="manageProduct"
+                to="manage-products"
                 className={({isActive}) => 
                   `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
                 } end>
@@ -115,7 +115,7 @@ function DashboardLayout() {
               </li>
               <li>
               <NavLink
-                to="addNewProduct"
+                to="add-new-product"
                 className={({isActive}) => 
                   `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
                 } end>
@@ -129,7 +129,7 @@ function DashboardLayout() {
               </li>
               <li>
               <NavLink
-                to="myProfile"
+                to="my-profile"
                 className={({isActive}) => 
                     `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
                   } end>
@@ -143,7 +143,7 @@ function DashboardLayout() {
               </li>
               <li>
               <NavLink
-                to="updateMyProfile"
+                to="update-my-profile"
                 className={({isActive}) => 
                     `flex items-center p-2 text-gray-900 rounded-lg ${isActive ? 'bg-gray-100' : 'bg-transparent'}  hover:bg-gray-100 group`
                   } end>
@@ -176,7 +176,7 @@ function DashboardLayout() {
         </Button> 
         </div>
       </aside>
-
+          
       <div className="p-4 lg:ml-64">
         <div className="p-4 mt-14">
             <Outlet></Outlet>

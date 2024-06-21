@@ -213,7 +213,7 @@ export default function TopSellingProductsPage() {
         return (
           <div className="relative flex items-center gap-2">
           <Tooltip content="Details">
-            <Link to={`/allProduct/${item?._id}`} className="text-lg text-default-400 cursor-pointer active:opacity-50">
+            <Link to={`/all-products/${item?._id}`} className="text-lg text-default-400 cursor-pointer active:opacity-50">
               <LuEye />
             </Link>
           </Tooltip>

@@ -228,31 +228,31 @@ return (
               <li className="mb-6"><FooterLink path={"/about"} title={"About"}/></li>
               <li className="mb-6"><FooterLink path={"/contact"} title={"Contact"}/></li>
               <li className="mb-6"><FooterLink path={"/"} title={"Flash Sales"}/></li>
-              <li className="mb-6"><FooterLink path={"/allProduct"} title={"Product"}/></li>
+              <li className="mb-6"><FooterLink path={"/all-products"} title={"Product"}/></li>
             </ul>
           </div>
           <div className=" md:col-span-1">
             <h4 className="text-lg text-gray-900 font-medium mb-7 text-left">Support</h4>
             <ul className=" transition-all duration-500">
               <li className="mb-6"><FooterLink path={"/contact"} title={"Custome Support"}/></li>
-              <li className="mb-6"><FooterLink path={"/cookiesPolicy"} title={"Cookies"}/></li>
-              <li className="mb-6"><FooterLink path={"/companyLincense"} title={"Lincense"}/></li>
-              <li className="mb-6"><FooterLink path={"/termsAndContitions"} title={"Terms & Contitions"}/></li>
-              <li className="mb-6"><FooterLink path={"/privacyPolicy"} title={"Privacy Policy"}/></li>
+              <li className="mb-6"><FooterLink path={"/cookies-policy"} title={"Cookies"}/></li>
+              <li className="mb-6"><FooterLink path={"/company-license"} title={"Lincense"}/></li>
+              <li className="mb-6"><FooterLink path={"/terms-and-conditions"} title={"Terms & Contitions"}/></li>
+              <li className="mb-6"><FooterLink path={"/privacy-policy"} title={"Privacy Policy"}/></li>
             </ul>
           </div>
         </div>
         <div className="lg:text-left col-span-full md:col-span-1 lg:w-max">
           <div className="flex justify-between items-center mb-7 max-w-sm mx-auto">
             <h4 className="text-lg text-gray-900 font-medium">Product</h4>
-            <Link to={"/allProduct"}
+            <Link to={"/all-products"}
               className="flex items-center gap-2 text-xs text-blue-400 font-semibold">View all
               <FaArrowRightLong size={16}/>
             </Link>
           </div>
           <div className="grid grid-cols-3 gap-3 max-w-sm mx-auto ">
             {
-              footerProducts.map((item) => <Link key={item?._id} href={`/allProduct/${item?._id}`} className="block">
+              footerProducts.map((item) => <Link key={item?._id} href={`/all-products/${item?._id}`} className="block">
                 <img src={item?.thumbnail}
                 alt="Footer Shoe img" className="max-lg:w-full" />
               </Link>
