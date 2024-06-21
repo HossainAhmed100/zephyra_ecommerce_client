@@ -6,7 +6,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { IoIosAddCircle } from "react-icons/io";
 import { useQuery } from "@tanstack/react-query";
 
-function AddNewProduct() {
+function AddProductPage() {
     const {register,handleSubmit,formState: { errors }, reset} = useForm();
     const axiosPublic = useAxiosPublic();
     const {data: products = [],} = useQuery({
@@ -157,4 +157,4 @@ function AddNewProduct() {
   )
 }
 
-export default AddNewProduct
+export default AddProductPage

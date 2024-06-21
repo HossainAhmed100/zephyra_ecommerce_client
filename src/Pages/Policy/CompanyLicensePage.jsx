@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CompanyLincense() {
+export default function CompanyLicensePage() {
     return (
       <div className="container mx-auto py-12 md:py-20 px-4 md:px-6">
         <div className="max-w-3xl mx-auto space-y-8">

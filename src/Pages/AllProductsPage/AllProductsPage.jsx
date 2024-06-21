@@ -8,7 +8,7 @@ import FiltarAccording from "../../Components/FiltarAccording";
 import { Helmet } from "react-helmet-async";
 import Breadcrumb from "../../Components/BreadCrumbs";
 
-function AllProduct() {
+function AllProductsPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [priceRange, setPriceRange] = useState([100, 300]);
   const axiosPublic = useAxiosPublic();
@@ -202,4 +202,4 @@ function FilterSelect({ label, options }) {
   );
 }
 
-export default AllProduct;
+export default AllProductsPage;

@@ -1,6 +1,6 @@
 import { Button } from "@nextui-org/react";
 
-export default function CookiesPolicy() {
+export default function CookiesPolicyPage() {
   return (
     <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
       <div className="max-w-3xl mx-auto">

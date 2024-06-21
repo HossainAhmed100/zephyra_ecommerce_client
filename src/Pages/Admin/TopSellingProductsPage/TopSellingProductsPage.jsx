@@ -54,7 +54,7 @@ const statusColorMap = {
 
 const INITIAL_VISIBLE_COLUMNS = ["thumbnail", "model", "category", "brand", "discount", "rating", "price", "instock", "actions"];
 
-export default function ManageProduct() {
+export default function TopSellingProductsPage() {
   const [filterValue, setFilterValue] = React.useState("");
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
   const [statusFilter, setStatusFilter] = React.useState("all");
@@ -402,7 +402,7 @@ export default function ManageProduct() {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody isLoading={isReportLoading} emptyContent={"No Product found"} items={sortedItems}>
+      <TableBody isLoading={isReportLoading} emptyContent={"No productData found"} items={sortedItems}>
         {(item) => (
           <TableRow key={item._id}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}

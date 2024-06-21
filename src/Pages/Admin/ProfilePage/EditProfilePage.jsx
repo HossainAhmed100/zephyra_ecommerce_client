@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet-async";
 import { BdFlags } from "../../../assets/icons/BdFlags";
 import { FaCamera, FaTrash  } from "react-icons/fa";
 
-export default function UpdateMyProfile() {
+export default function EditProfilePage() {
   // const [user] = useAuthState(auth);
   // Hook to manage form state, validation, and submission handling
   const { register, handleSubmit, formState: { errors } } = useForm();

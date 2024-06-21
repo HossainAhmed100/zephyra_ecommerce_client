@@ -13,7 +13,7 @@ const Breadcrumb = () => {
 
   return (
     <div className="breadcrumbs">
-      <Breadcrumbs>  
+      <Breadcrumbs underline="hover">  
       <BreadcrumbItem href="/">Home</BreadcrumbItem>  
       {pathnames.map((name, index) => {
         breadcrumbPath += `/${name}`;

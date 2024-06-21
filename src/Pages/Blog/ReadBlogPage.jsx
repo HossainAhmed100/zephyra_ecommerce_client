@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ReadBlog() {
+export default function ReadBlogPage() {
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 container mx-auto py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8">
       <article className="flex-1 prose prose-gray dark:prose-invert">

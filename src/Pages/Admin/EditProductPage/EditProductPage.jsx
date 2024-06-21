@@ -6,7 +6,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { IoIosAddCircle } from "react-icons/io";
 import { useLoaderData } from "react-router-dom";
 
-function UpdateProduct() {
+function EditProductPage() {
     const {register,handleSubmit,formState: { errors }} = useForm();
     const shoe = useLoaderData();
     const axiosPublic = useAxiosPublic();
@@ -156,4 +156,4 @@ function UpdateProduct() {
 }
 
 
-export default UpdateProduct
+export default EditProductPage

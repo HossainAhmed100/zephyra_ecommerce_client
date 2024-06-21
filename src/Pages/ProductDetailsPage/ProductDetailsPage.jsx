@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet-async';
 import SimilarProducts from '../../Components/SimilarProducts/SimilarProducts';
 import Breadcrumb from '../../Components/BreadCrumbs';
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState('XS');
   const [selectedColor, setSelectedColor] = useState('Red');
@@ -270,4 +270,4 @@ const RatingProgressBar = ({number, rating}) => {
 }
 
 
-export default ProductDetails;
+export default ProductDetailsPage;

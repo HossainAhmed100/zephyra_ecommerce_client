@@ -2,10 +2,9 @@ import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableC
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 import ColumnChart from "../../../Components/ChartCard/ColumnChart"
-import PieChart from "../../../Components/ChartCard/PieChart"
 import LineChart from "../../../Components/ChartCard/LineChart"
 
-function Dashboard() {
+export default function AdminDashboardPage() {
 
   return (
     <div>
@@ -349,6 +348,3 @@ function UsersIcon(props) {
     </svg>
   )
 }
-
-
-export default Dashboard
