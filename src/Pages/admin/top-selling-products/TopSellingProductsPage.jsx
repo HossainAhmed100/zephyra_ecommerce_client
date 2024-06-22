@@ -15,13 +15,13 @@ import {
   Chip,
   Pagination,
   Tooltip,
+  Link
 } from "@nextui-org/react";
 import {SearchIcon} from "./SearchIcon";
 import {ChevronDownIcon} from "./ChevronDownIcon";
 import {capitalize} from "./utils";
 import { useQuery } from "@tanstack/react-query";
 import { FiPlus } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { LuEye } from "react-icons/lu";
 import { BiEditAlt } from "react-icons/bi";
@@ -213,12 +213,12 @@ export default function TopSellingProductsPage() {
         return (
           <div className="relative flex items-center gap-2">
           <Tooltip content="Details">
-            <Link to={`/all-products/${item?._id}`} className="text-lg text-default-400 cursor-pointer active:opacity-50">
+            <Link href={`/all-products/${item?._id}`} color="foreground">
               <LuEye />
             </Link>
           </Tooltip>
           <Tooltip content="Edit">
-            <Link to={`updateProduct/${item?._id}`} className="text-lg text-default-400 cursor-pointer active:opacity-50">
+            <Link href={`updateProduct/${item?._id}`} color="foreground">
               <BiEditAlt />
             </Link>
           </Tooltip>
@@ -321,10 +321,8 @@ export default function TopSellingProductsPage() {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button color="primary" endContent={<FiPlus />}>
-              <Link to="/addNewProduct" >
-                Add New Product
-              </Link>
+            <Button as={Link} href="/addNewProduct" color="primary" endContent={<FiPlus />}>
+              Add New Product
             </Button>
           </div>
         </div>

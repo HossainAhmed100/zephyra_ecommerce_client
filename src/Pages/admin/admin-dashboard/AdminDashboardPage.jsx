@@ -1,6 +1,5 @@
-import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow } from "@nextui-org/react"
+import { Button, Card, CardBody, CardHeader, Table, TableBody, TableCell, TableColumn, TableHeader, TableRow, Link } from "@nextui-org/react"
 import { Helmet } from "react-helmet-async"
-import { Link } from "react-router-dom"
 import ColumnChart from "../../../components/charts/ColumnChart"
 import LineChart from "../../../components/charts/LineChart"
 
@@ -110,7 +109,7 @@ export default function AdminDashboardPage() {
               <PackageIcon className="w-4 h-4 text-muted-foreground" />
               <span className="text-sm font-medium">Recents Orders</span>
               </div>
-              <Link to={"topSelingProducts"}><Button color="primary" variant="light">View all</Button></Link>
+                <Button href={"topSelingProducts"} as={Link} color="primary" variant="light">View all</Button>
             </CardHeader>
             <CardBody>
               <Table removeWrapper aria-labelledby="Recent Ordesrs" className="px-2">

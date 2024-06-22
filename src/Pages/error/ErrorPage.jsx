@@ -1,19 +1,22 @@
+import { Button, Link } from "@nextui-org/react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { AiFillHome } from "react-icons/ai";
+
 
 const ErrorPage = () => {
   return (
     <>
     <Helmet title='404 Page Not Fount | Zephyar Online Shop'/>
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold text-gray-800 mb-4">404 - Page Not Found</h1>
-      <p className="text-lg text-gray-600 mb-8">
-        The page you are looking for does not exist.
-      </p>
-      <Link to="/" className="text-blue-500 underline">
-        Go back to Home
-      </Link>
-    </div>
+    <section className="bg-white">
+      <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="mx-auto max-w-screen-sm text-center">
+          <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600">404</h1>
+          <p className="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl">Something's missing.</p>
+          <p className="mb-4 text-lg font-light text-gray-500">Sorry, we can't find that page. You'll find lots to explore on the home page. </p>
+          <Button startContent={<AiFillHome size={20}/>} as={Link} href="/" color="primary" variant="solid" radius="sm">Back to Homepage</Button>
+        </div>   
+      </div>
+    </section>
     </>
   );
 };

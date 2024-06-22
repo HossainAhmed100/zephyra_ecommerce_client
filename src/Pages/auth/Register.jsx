@@ -1,8 +1,8 @@
-import { Button, Card, CardBody, Checkbox, Input } from "@nextui-org/react";
+import { Button, Card, CardBody, Checkbox, Input, Link } from "@nextui-org/react";
 import { Helmet } from 'react-helmet-async';    
 import { useState } from "react";
 import { HiEye, HiEyeOff } from "react-icons/hi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
@@ -179,9 +179,7 @@ return (
   <div className="flex flex-col items-center justify-center space-y-2 my-6">
     <div className="flex items-center justify-center gap-1">
       <p className="text-[12px]">Already have an account?</p> 
-      <Link to="/login" className="text-sm text-blue-500 font-medium">
-        Login now!
-      </Link>
+      <Link href="/login" color="primary">Login now!</Link>
     </div>
   </div>
   </CardBody>

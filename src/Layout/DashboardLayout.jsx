@@ -1,5 +1,5 @@
-import { Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Button, NextUIProvider} from "@nextui-org/react";
-import { Link, useNavigate, Outlet, NavLink } from "react-router-dom";
+import { Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Button, NextUIProvider, Link} from "@nextui-org/react";
+import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { VscSignOut } from "react-icons/vsc";
 import Swal from "sweetalert2";
@@ -45,8 +45,8 @@ function DashboardLayout() {
                   <span className="sr-only">Open sidebar</span>
                   <ThreeLineIcon />
               </button>
-              <Link to="/" className="flex ms-2 md:me-24">
-                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Zephyra</span>
+              <Link href="/" className="flex ms-2 md:me-24" color="foreground">
+                <span className="self-center text-xl font-semibold sm:text-2xl whitespace-">Zephyra</span>
               </Link>
             </div>
             <div className="flex items-center">
@@ -63,10 +63,10 @@ function DashboardLayout() {
                   <p className="font-semibold">{user?.email}</p>
                 </DropdownItem>
                 <DropdownItem textValue="profile" key="profile">
-                  <Link className="inline-block w-full" to="/dashboard/myProfile">Profile</Link>
+                  <Link className="inline-block w-full" href="/dashboard/myProfile">Profile</Link>
                 </DropdownItem>
                 <DropdownItem textValue="dashboard" key="dashboard">
-                  <Link className="inline-block w-full" to="/dashboard">Dashboard</Link>
+                  <Link className="inline-block w-full" href="/dashboard">Dashboard</Link>
                 </DropdownItem>
                 <DropdownItem textValue="logout" onClick={handleLogOut} key="logout" color="danger" className="flex items-center justify-center flex-row gap-2">
                   <span className="flex items-center gap-1 justify-start">

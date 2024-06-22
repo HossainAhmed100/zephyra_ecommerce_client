@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection} from "@nextui-org/react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection, Link} from "@nextui-org/react";
+import { useNavigate } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
 import { VscSignOut, VscFeedback } from "react-icons/vsc";
@@ -62,7 +62,25 @@ function NavBar() {
     });
   }};
   return (
-    <Navbar className={`transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`} isBordered onMenuOpenChange={setIsMenuOpen}>
+    <Navbar 
+    className={`transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`} isBordered onMenuOpenChange={setIsMenuOpen} 
+    classNames={{
+      item: [
+        "flex",
+        "relative",
+        "h-full",
+        "items-center",
+        "data-[active=true]:after:content-['']",
+        "data-[active=true]:after:absolute",
+        "data-[active=true]:after:bottom-0",
+        "data-[active=true]:after:left-0",
+        "data-[active=true]:after:right-0",
+        "data-[active=true]:after:h-[2px]",
+        "data-[active=true]:after:rounded-[2px]",
+        "data-[active=true]:after:bg-primary",
+      ],
+    }}
+    >
     <NavbarContent >
       {/* Mobile menu toggle button */}
       <NavbarMenuToggle
@@ -71,7 +89,7 @@ function NavBar() {
       />
       {/* Brand logo and name */}
       <NavbarBrand>
-        <Link to="/" className="flex items-center gap-2 justify-center">
+        <Link href="/" color="foreground" className="flex items-center gap-2 justify-center">
         <p className="font-bold text-xl">Zephyra</p>
         </Link>
       </NavbarBrand>
@@ -80,37 +98,35 @@ function NavBar() {
     {/* Main navigation links, hidden on small screens */}
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
-        <NavLink to="/all-products">Product</NavLink>
+        <Link color="foreground" href="/all-products">Product</Link>
       </NavbarItem>
       <NavbarItem>
-        <NavLink to="/blog">Blogs</NavLink>
+        <Link color="foreground" href="/blog">Blogs</Link>
       </NavbarItem>
       <NavbarItem>
-        <NavLink to="/about">About</NavLink>
+        <Link color="foreground" href="/about">About</Link>
       </NavbarItem>
       <NavbarItem>
-        <NavLink to="/contact">Contact</NavLink>
+        <Link color="foreground" href="/contact">Contact</Link>
       </NavbarItem>
     </NavbarContent>
     {/* User-specific content */}
     {user ? 
       <NavbarContent justify="end">
-        {/* Cart icon with badge, only visible on large screens */}
         <NavbarItem className="flex">
-          <Link to="/dashboard/myCart">
+          <Link color="foreground" href="/dashboard/myCart">
             <Badge color="primary" content={0} shape="circle">
               <FaCartShopping size={30}/>
             </Badge>
           </Link>
         </NavbarItem>
-        {/* User profile dropdown, only visible on large screens */}
         <NavbarItem className="flex">
         <Dropdown
           placement="bottom-end"
           showArrow
           radius="sm"
           classNames={{
-            base: "before:bg-default-200", // change arrow background
+            base: "before:bg-default-200",
             content: "p-0 border-small border-divider bg-background",
           }}
         >
@@ -165,11 +181,11 @@ function NavBar() {
       <NavbarContent justify="end">
         {/* Login link, only visible on large screens */}
         <NavbarItem className="hidden lg:flex">
-          <Link to="/login">Login</Link>
+          <Button as={Link} color="primary" variant="light" href="/login">Login</Button>
         </NavbarItem>
         {/* Sign Up button */}
         <NavbarItem>
-        <Button as={Link} color="danger" href="/signup" variant="flat">
+        <Button as={Link} color="primary" href="/signup" variant="flat">
           Sign Up
         </Button>
         </NavbarItem>
@@ -178,16 +194,16 @@ function NavBar() {
     {/* Mobile menu items */}
     <NavbarMenu>
         <NavbarMenuItem>
-          <NavLink color="foreground" to="/">Home</NavLink>
+          <Link color="foreground" href="/">Home</Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-        <NavLink color="foreground" to="/all-products">Product</NavLink>
+        <Link color="foreground" href="/all-products">Product</Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-        <NavLink color="foreground" to="/about">About</NavLink>
+        <Link color="foreground" href="/about">About</Link>
         </NavbarMenuItem>
         <NavbarMenuItem>
-        <NavLink color="foreground" to="/contact">Contact</NavLink>
+        <Link color="foreground" href="/contact">Contact</Link>
         </NavbarMenuItem>
     </NavbarMenu>
     </Navbar>

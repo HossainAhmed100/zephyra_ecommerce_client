@@ -97,7 +97,7 @@ function AllProductsPage() {
         >
           <div className={`flex flex-col min-h-screen w-64 gap-2 ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>
             <div className="fixed left-[210px] top-1.5 lg:hidden">
-              <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="danger" variant="shadow" aria-label="Close Filter Button">
+              <Button size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} isIconOnly color="primary" variant="shadow" aria-label="Close Filter Button">
                 <IoClose />
               </Button>
             </div>
