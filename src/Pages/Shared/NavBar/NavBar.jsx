@@ -96,7 +96,7 @@ function NavBar() {
     {user ? 
       <NavbarContent justify="end">
         {/* Cart icon with badge, only visible on large screens */}
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="flex">
           <Link to="/dashboard/myCart">
             <Badge color="primary" content={0} shape="circle">
               <FaCartShopping size={30}/>
@@ -104,7 +104,7 @@ function NavBar() {
           </Link>
         </NavbarItem>
         {/* User profile dropdown, only visible on large screens */}
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="flex">
         <Dropdown
           placement="bottom-end"
           showArrow
@@ -121,7 +121,7 @@ function NavBar() {
             />
           </DropdownTrigger>
           <DropdownMenu
-            aria-label="Custom item styles"
+            aria-label="Link Actions"
             disabledKeys={["profile"]}
             className="p-3"
             itemClasses={{
@@ -139,23 +139,16 @@ function NavBar() {
             }}
           >
             <DropdownSection aria-label="Profile & Actions" showDivider>
-              <DropdownItem key="dashboard">
-                <Link to={"dashboard"}>Dashboard</Link>
+              <DropdownItem href="dashboard" textValue="Dashboard" key="dashboard">
+                Dashboard
               </DropdownItem>
-              <DropdownItem key="settings">Settings</DropdownItem>
-              <DropdownItem key="new_project">
-                New Project
-              </DropdownItem>
-            </DropdownSection>
-
-            <DropdownSection aria-label="Preferences" showDivider>
-              <DropdownItem key="quick_search" shortcut="⌘K">
-                Quick search
+              <DropdownItem href="dashboard/my-profile" textValue="My Profile" key="my-profile">
+                My Profile
               </DropdownItem>
             </DropdownSection>  
 
             <DropdownSection aria-label="Help & Feedback">
-              <DropdownItem key="help_and_feedback"  startContent={<VscFeedback />}>
+              <DropdownItem key="help_and_feedback" textValue="Help & Feedback" href="/contact"  startContent={<VscFeedback />}>
                 Help & Feedback
               </DropdownItem>
               <DropdownItem 

@@ -92,7 +92,7 @@ function AllProductsPage() {
       <div className="flex items-start gap-4 w-full">
         <aside
           id="logo-sidebar"
-          className={`lg:bg-transparent z-30 lg:min-h-screen h-full no-scrollbar overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
+          className={`lg:bg-transparent z-40 lg:min-h-screen h-full no-scrollbar overflow-y-scroll ${isMenuOpen && "bg-gray-900/50 lg:w-72 w-full"} rounded-md lg:static fixed top-0 left-0 ${!isMenuOpen && "-translate-x-[0px] hidden lg:inline-flex lg:translate-x-0"} transition-transform`}
           aria-label="Sidebar"
         >
           <div className={`flex flex-col min-h-screen w-64 gap-2 ${isMenuOpen ? "bg-white" : "bg-transparent"}`}>

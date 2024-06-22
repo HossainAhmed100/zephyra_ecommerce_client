@@ -28,9 +28,7 @@ const breadcrumbsData = [
 const Breadcrumb = () => {
   const location = useLocation();
   const productData = useLoaderData();
-  console.log("🚀 ~ Breadcrumb ~ productData:", productData)
   const pathnames = location.pathname.split('/').filter(x => x);
-  console.log("🚀 ~ Breadcrumb ~ pathnames:", pathnames)
 
   return (
     <Breadcrumbs>
@@ -45,7 +43,6 @@ const Breadcrumb = () => {
           }
           
           const isLast = index === pathnames.length - 1;
-          console.log("🚀 ~ {pathnames.map ~ title:", title)
           return isLast ? (
             <BreadcrumbItem key={routeTo} href={routeTo}>{title}</BreadcrumbItem>
           ) : (
