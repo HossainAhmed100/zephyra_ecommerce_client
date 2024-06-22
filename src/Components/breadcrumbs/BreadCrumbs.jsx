@@ -1,33 +1,58 @@
-import {useLocation} from "react-router-dom";
-import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
+import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
+import { useLocation , useLoaderData } from 'react-router-dom';
+
+const breadcrumbsData = [
+  { title: "Home", path: "/" },
+  { title: "About", path: "/about" },
+  { title: "Blog", path: "/blog" },
+  { title: "Read Blog", path: "/blog/:id" },
+  { title: "Contact", path: "/contact" },
+  { title: "All Products", path: "/all-products" },
+  { title: "Product Details", path: "/all-products/:id", regex: /^\/all-products\/[^\/]+$/ },
+  { title: "Login", path: "/login" },
+  { title: "Register", path: "/register" },
+  { title: "Cookies Policy", path: "/cookies-policy" },
+  { title: "Company License", path: "/company-license" },
+  { title: "Terms and Conditions", path: "/terms-and-conditions" },
+  { title: "Privacy Policy", path: "/privacy-policy" },
+  { title: "Dashboard", path: "/dashboard" },
+  { title: "Add New Product", path: "/dashboard/add-new-product" },
+  { title: "Manage Products", path: "/dashboard/manage-products" },
+  { title: "Top Selling Products", path: "/dashboard/top-selling-products" },
+  { title: "Profile", path: "/dashboard/my-profile" },
+  { title: "Edit Profile", path: "/dashboard/update-my-profile" },
+  { title: "Edit Product", path: "/dashboard/manage-products/update-product/:id", regex: /^\/dashboard\/manage-products\/update-product\/[^\/]+$/ },
+];
+
 
 const Breadcrumb = () => {
   const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x);
-  let breadcrumbPath = "";
-
-  // if (pathnames.length === 0) {
-  //   // If the current route is the home route ('/'), do not render the breadcrumbs
-  //   return null;
-  // }
+  const productData = useLoaderData();
+  console.log("🚀 ~ Breadcrumb ~ productData:", productData)
+  const pathnames = location.pathname.split('/').filter(x => x);
+  console.log("🚀 ~ Breadcrumb ~ pathnames:", pathnames)
 
   return (
-    <div className="breadcrumbs">
-      <Breadcrumbs underline="hover">  
-      <BreadcrumbItem href="/">Home</BreadcrumbItem>  
-      {pathnames.map((name, index) => {
-        breadcrumbPath += `/${name}`;
-        const isLast = index === pathnames.length - 1;
-        console.log(pathnames, breadcrumbPath);
+    <Breadcrumbs>
+        {pathnames.length > 0 && <BreadcrumbItem href="/">Home</BreadcrumbItem>}
+        {pathnames.map((_, index) => {
+          const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+          const breadcrumb = breadcrumbsData.find(b => b.path === routeTo || (b.regex && b.regex.test(routeTo))) || {};
 
-        return isLast ? (
-      <BreadcrumbItem key={breadcrumbPath}>{name}</BreadcrumbItem>
-        ) : (
-      <BreadcrumbItem key={breadcrumbPath} href={`/${name}`}>{name}</BreadcrumbItem>
-        );
-      })}
-      </Breadcrumbs>
-    </div>
+          let title = breadcrumb.title;
+          if (breadcrumb.regex && breadcrumb.regex.test(routeTo)) {
+            title = productData ? productData.model : 'Loading...';
+          }
+          
+          const isLast = index === pathnames.length - 1;
+          console.log("🚀 ~ {pathnames.map ~ title:", title)
+          return isLast ? (
+            <BreadcrumbItem key={routeTo} href={routeTo}>{title}</BreadcrumbItem>
+          ) : (
+            <BreadcrumbItem key={routeTo} href={routeTo}>{title}</BreadcrumbItem>
+          );
+        })}
+    </Breadcrumbs>
   );
 };
 

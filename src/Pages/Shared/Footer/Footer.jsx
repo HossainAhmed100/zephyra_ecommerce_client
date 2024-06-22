@@ -285,7 +285,6 @@ return (
 }
 
 const FooterLink = ({path, title}) => {
-  console.log("🚀 ~ FooterLink ~ path:", path)
   return (
     <Link href={path} color="foreground">{title}</Link>
   )
