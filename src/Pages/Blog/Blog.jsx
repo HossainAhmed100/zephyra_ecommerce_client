@@ -1,6 +1,7 @@
-import { Chip, Image, Link } from "@nextui-org/react"
+import { Button, Chip, Image, Link } from "@nextui-org/react"
 import BlogPostCard from "../../components/blog/BlogPostCard"
 import Breadcrumb from "../../components/breadcrumbs/BreadCrumbs";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function Blog() {
     const cetegoryList = [
@@ -37,14 +38,16 @@ export default function Blog() {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue egestas, scelerisque enim
                   nec, aliquam libero.
                 </p>
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  prefetch={false}
+                <Button
+                  as={Link}
+                  href="/blog/1"
+                  color="primary"
+                  size="sm"
+                  radius="sm"
+                  endContent={<FiArrowRight className="h-4 w-4" />}
                 >
                   Read More
-                  <ArrowRightIcon className="h-4 w-4" />
-                </Link>
+                </Button>
               </div>
             </div>
             <div className="space-y-6">
@@ -53,13 +56,8 @@ export default function Blog() {
                 <div className="flex flex-wrap gap-2">
                   {
                     cetegoryList.map((category) => (
-                      <Link
-                        key={category.key}
-                        href={"/blog"}
-                        className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
-                        prefetch={false}
-                      >
-                         <Chip variant="flat">{category.label}</Chip>
+                      <Link key={category.key} href={"/blog"}>
+                        <Chip color="default" variant="flat">{category.label}</Chip>
                       </Link>
                     ))
                   }
@@ -68,19 +66,13 @@ export default function Blog() {
               <div className="space-y-2">
                 <h2 className="text-xl font-bold">Tags</h2>
                 <div className="flex flex-wrap gap-2">
-                    {
-                      tagList.map((tag) => (
-                        <Link
-                          key={tag.key}
-                          href={"/blog"}
-                          className="rounded-md bg-muted py-2 text-sm font-medium transition-colors hover:bg-muted-foreground hover:text-muted"
-                          prefetch={false}
-                        >
-                            <Chip variant="flat">#{tag.label}</Chip>
-                        </Link>
-                      ))
-                    }
-  
+                  {
+                    tagList.map((tag) => (
+                      <Link key={tag.key} href={"/blog"}>
+                        <Chip color="default" variant="flat">#{tag.label}</Chip>
+                      </Link>
+                    ))
+                  }
                 </div>
               </div>
             </div>
@@ -94,25 +86,5 @@ export default function Blog() {
         </div>
       </main>
     </div>
-  )
-}
-
-function ArrowRightIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="m12 5 7 7-7 7" />
-    </svg>
   )
 }

@@ -1,4 +1,4 @@
-import { Image, Link } from "@nextui-org/react";
+import { Button, Image, Link } from "@nextui-org/react";
 import { FiArrowRight } from "react-icons/fi";
 
 function BlogPostCard() {
@@ -17,14 +17,16 @@ function BlogPostCard() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at augue egestas, scelerisque enim nec,
         aliquam libero.
       </p>
-      <Link
+      <Button
+        as={Link}
         href="/blog/1"
-        className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-        prefetch={false}
+        color="primary"
+        size="sm"
+        radius="sm"
+        endContent={<FiArrowRight className="h-4 w-4" />}
       >
         Read More
-        <FiArrowRight className="h-4 w-4" />
-      </Link>
+      </Button>
     </div>
   </div>
   )

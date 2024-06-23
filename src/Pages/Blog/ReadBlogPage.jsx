@@ -63,7 +63,7 @@ export default function ReadBlogPage() {
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">Related Posts</h2>
           <div className="grid gap-4">
-            <Link ti="/" className="group" prefetch={false}>
+            <Link to="/" className="group">
               <div className="flex items-center gap-4">
                 <img
                   src="https://i.ibb.co/cFL8BQ4/NEW-700x430-UOD-480x304.jpg"
@@ -78,7 +78,7 @@ export default function ReadBlogPage() {
                 </div>
               </div>
             </Link>
-            <Link to="/" className="group" prefetch={false}>
+            <Link to="/" className="group">
               <div className="flex items-center gap-4">
                 <img
                   src="https://i.ibb.co/cFL8BQ4/NEW-700x430-UOD-480x304.jpg"
@@ -101,28 +101,24 @@ export default function ReadBlogPage() {
             <Link
               to="/"
               className="inline-flex items-center rounded-md bg-muted px-3 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
-              prefetch={false}
             >
               Taxes
             </Link>
             <Link
               to="/"
               className="inline-flex items-center rounded-md bg-muted px-3 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
-              prefetch={false}
             >
               Humor
             </Link>
             <Link
               to="/"
               className="inline-flex items-center rounded-md bg-muted px-3 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
-              prefetch={false}
             >
               Politics
             </Link>
             <Link
               to="/"
               className="inline-flex items-center rounded-md bg-muted px-3 py-1 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80"
-              prefetch={false}
             >
               Satire
             </Link>
