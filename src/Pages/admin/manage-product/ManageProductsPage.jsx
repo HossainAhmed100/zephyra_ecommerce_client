@@ -73,8 +73,7 @@ export default function ManageProductsPage() {
     }
   })
   
-  const handleDeleteReport = (id) => {
-    console.log("🚀 ~ handleDeleteReport ~ id:", id)
+  const handleDeleteProduct = (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -88,7 +87,7 @@ export default function ManageProductsPage() {
         try {
           const res = await axiosPublic.delete(`/products/${id}`);
           console.log("🚀 ~ handleDelete ~ res:", res.data);
-          if (res.data.deletedCount > 0) {
+          if (res.data._id === id) {
             refetch();
             Swal.fire({
               icon: "success",
@@ -223,7 +222,7 @@ export default function ManageProductsPage() {
             </Link>
           </Tooltip>
           <Tooltip color="danger" content="Delete">
-            <span onClick={() => handleDeleteReport(item?._id)} className="text-lg text-danger cursor-pointer active:opacity-50">
+            <span onClick={() => handleDeleteProduct(item?._id)} className="text-lg text-danger cursor-pointer active:opacity-50">
               <RiDeleteBinLine />
             </span>
           </Tooltip>
