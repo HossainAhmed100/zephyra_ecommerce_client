@@ -21,17 +21,6 @@ function PieChart() {
             colors: ["white"],
             lineCap: "",
           },
-          plotOptions: {
-            pie: {
-              labels: {
-                show: true,
-              },
-              size: "100%",
-              dataLabels: {
-                offset: -25
-              }
-            },
-          },
           labels: ["Direct", "Organic search", "Referrals"],
           colors: ["#1C64F2", "#16BDCA", "#9061F9"],
           legend: {

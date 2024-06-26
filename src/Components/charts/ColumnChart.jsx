@@ -33,14 +33,6 @@ const chartConfig = {
           ],
         },
       ],
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          columnWidth: "70%",
-          borderRadiusApplication: "end",
-          borderRadius: 8,
-        },
-      },
     options: {
         chart: {
             type: "bar",
@@ -61,12 +53,6 @@ const chartConfig = {
         },
         dataLabels: {
         enabled: false,
-        },
-        plotOptions: {
-        bar: {
-            columnWidth: "40%",
-            borderRadius: 2,
-        },
         },
         xaxis: {
             floating: false,
@@ -164,6 +150,7 @@ const reportWeeks = [
             size="sm"
             className="max-w-36"
             defaultSelectedKeys={["yesterday"]}
+            aria-label="Select Report Date"
           >
             {reportWeeks.map((item) => (
               <SelectItem key={item.key}>

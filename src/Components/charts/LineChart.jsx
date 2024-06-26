@@ -134,6 +134,7 @@ function LineChart() {
             size="sm"
             className="max-w-36"
             defaultSelectedKeys={["yesterday"]}
+            aria-label="Select Report Date"
           >
             {reportWeeks.map((item) => (
               <SelectItem key={item.key}>
