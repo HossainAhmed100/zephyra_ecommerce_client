@@ -145,6 +145,9 @@ function NavBar() {
               <DropdownItem href="/dashboard/my-profile" textValue="My Profile" key="my-profile">
                 My Profile
               </DropdownItem>
+              <DropdownItem href="/dashboard/my-orders" textValue="My Profile" key="my-profile">
+                My Orders
+              </DropdownItem>
             </DropdownSection>  
 
             <DropdownSection aria-label="Help & Feedback">

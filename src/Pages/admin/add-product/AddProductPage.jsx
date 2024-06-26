@@ -32,6 +32,69 @@ function AddProductPage() {
     { id: 19, key: "limitedTimeDiscount", label: "Limited Time Discount" },
     { id: 20, key: "flashSaleDiscount", label: "Flash Sale Discount" }
   ];
+
+  const categoryList = [
+    { id: 100001, label: "Electronics" },
+    { id: 100002, label: "Clothing & Accessories" },
+    { id: 100003, label: "Home & Kitchen" },
+    { id: 100004, label: "Beauty & Personal Care" },
+    { id: 100005, label: "Sports & Outdoors" },
+    { id: 100006, label: "Automotive" },
+    { id: 100007, label: "Books & Media" },
+    { id: 100008, label: "Toys & Games" },
+    { id: 100009, label: "Health & Wellness" },
+    { id: 100010, label: "Grocery & Gourmet Food" },
+    { id: 100011, label: "Pet Supplies" },
+    { id: 100012, label: "Office Supplies" },
+    { id: 100013, label: "Jewelry" },
+    { id: 100014, label: "Shoes" },
+    { id: 100015, label: "Baby Products" },
+    { id: 100016, label: "Musical Instruments" },
+    { id: 100017, label: "Garden & Outdoor" },
+    { id: 100018, label: "Tools & Home Improvement" },
+    { id: 100019, label: "Industrial & Scientific" },
+    { id: 100020, label: "Video Games" },
+    { id: 100021, label: "Handmade" },
+    { id: 100022, label: "Luxury Beauty" },
+    { id: 100023, label: "Watches" },
+    { id: 100024, label: "Furniture" },
+    { id: 100025, label: "Arts, Crafts & Sewing" },
+    { id: 100026, label: "Computers & Accessories" },
+    { id: 100027, label: "Cell Phones & Accessories" },
+    { id: 100028, label: "Camera & Photo" },
+    { id: 100029, label: "Appliances" },
+    { id: 100030, label: "Luggage & Travel Gear" },
+    { id: 100031, label: "Board Games" },
+    { id: 100032, label: "Outdoor Recreation" },
+    { id: 100033, label: "Fitness & Exercise" },
+    { id: 100034, label: "Cycling" },
+    { id: 100035, label: "Hiking & Camping" },
+    { id: 100036, label: "Fishing & Hunting" },
+    { id: 100037, label: "Water Sports" },
+    { id: 100038, label: "Winter Sports" },
+    { id: 100039, label: "Party Supplies" },
+    { id: 100040, label: "Costumes & Accessories" },
+    { id: 100041, label: "Event & Wedding Supplies" },
+    { id: 100042, label: "Collectibles & Fine Art" },
+    { id: 100043, label: "Gift Cards" },
+    { id: 100044, label: "Bags & Wallets" },
+    { id: 100045, label: "Sunglasses & Eyewear" },
+    { id: 100046, label: "Hardware" },
+    { id: 100047, label: "Office Furniture & Lighting" },
+    { id: 100048, label: "Heating, Cooling & Air Quality" },
+    { id: 100049, label: "Small Kitchen Appliances" },
+    { id: 100050, label: "Smart Home" },
+    { id: 100051, label: "Wearable Technology" },
+    { id: 100052, label: "Drones" },
+    { id: 100053, label: "3D Printing" },
+    { id: 100054, label: "Robotics" },
+    { id: 100055, label: "Home Automation" },
+    { id: 100056, label: "Sustainable Living" },
+    { id: 100057, label: "Educational Supplies" },
+    { id: 100058, label: "Emergency Kits & Supplies" },
+    { id: 100059, label: "Safety & Security" },
+    { id: 100060, label: "Event Tickets" }
+  ];
   
 
   return (
@@ -78,14 +141,14 @@ function AddProductPage() {
               {errors.brand && <span>This field is required</span>}
               </div>
               <div>
-              <Select {...register("brand", { required: true })} label="Product Category" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Category" fullWidth>
-                {brandNameList.map((brand) => (
-                  <SelectItem key={brand.value} value={brand.value}>
-                    {brand.label}
+              <Select {...register("category", { required: true })} label="Product Category" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Category" fullWidth>
+                {categoryList.map((category) => (
+                  <SelectItem key={category.id} value={category.id}>
+                    {category.label}
                   </SelectItem>
                 ))}
               </Select>
-              {errors.brand && <span>This field is required</span>}
+              {errors.category && <span>This field is required</span>}
               </div>
             </div>
           </div>

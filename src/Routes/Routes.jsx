@@ -41,7 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/all-products/:productId",
         element: <ProductDetailsPage />,
-        loader: ({ params }) => fetch(`http://localhost:5000/productsById/${params.productId}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/api/products/productsById/${params.productId}`),
       },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       {
         path: "manage-products/update-product/:id",
         element: <EditProductPage />,
-        loader: ({ params }) => fetch(`http://localhost:5000/productsById/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/api/products/productsById/${params.id}`),
       },
     ],
   },
