@@ -28,6 +28,7 @@ import { BiEditAlt } from "react-icons/bi";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import Breadcrumb from "../../../components/breadcrumbs/BreadCrumbs";
 
 const columns = [
   {name: "Photo", uid: "thumbnail"},
@@ -378,7 +379,11 @@ export default function ManageProductsPage() {
   return (
     <>
     <Helmet title='Manage All Product | Admin - Dashbaord | Zephyra Online Shop '/>
+    <div className="p-4 mb-4 rounded-md border-1">
+        <Breadcrumb />
+      </div>
     <Table
+    radius="sm"
     aria-label="Example table with custom cells, pagination and sorting"
     isHeaderSticky
     bottomContent={bottomContent}

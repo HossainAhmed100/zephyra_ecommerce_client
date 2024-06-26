@@ -5,12 +5,16 @@ import { FaLocationDot } from "react-icons/fa6";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { HiPlus } from "react-icons/hi";
 import { RiVisaLine } from "react-icons/ri";
+import Breadcrumb from "../../../components/breadcrumbs/BreadCrumbs";
 
 export default function MyProfile() {
   
   return (
     <div className="w-full">
       <Helmet title='My Account | Zephyra Online Shop'/>
+      <div className="p-4 mb-4 rounded-md border-1">
+        <Breadcrumb />
+      </div>
       <div>
         <div className="flex items-start md:flex-row flex-col justify-start gap-2">
           <Avatar isBordered src="https://avatar.iran.liara.run/public" className="w-16 h-16 text-large" />
