@@ -37,7 +37,7 @@ function AddProductPage() {
           confirmButtonText: "Add now"
         }).then(async (result) => {
           if (result.isConfirmed) {
-        const productRes = await axiosPublic.post("/shoes", product);
+        const productRes = await axiosPublic.post("/products", product);
           console.log(productRes.data)
           if(productRes.data.price){
             reset()

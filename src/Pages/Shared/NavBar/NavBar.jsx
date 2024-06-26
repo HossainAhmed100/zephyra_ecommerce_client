@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection, Link} from "@nextui-org/react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink as RouterLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
 import { VscSignOut, VscFeedback } from "react-icons/vsc";
@@ -64,22 +64,6 @@ function NavBar() {
   return (
     <Navbar 
     className={`transition-transform duration-300 transform ${show ? 'translate-y-0' : '-translate-y-full'}`} isBordered onMenuOpenChange={setIsMenuOpen} 
-    classNames={{
-      item: [
-        "flex",
-        "relative",
-        "h-full",
-        "items-center",
-        "data-[active=true]:after:content-['']",
-        "data-[active=true]:after:absolute",
-        "data-[active=true]:after:bottom-0",
-        "data-[active=true]:after:left-0",
-        "data-[active=true]:after:right-0",
-        "data-[active=true]:after:h-[2px]",
-        "data-[active=true]:after:rounded-[2px]",
-        "data-[active=true]:after:bg-primary",
-      ],
-    }}
     >
     <NavbarContent >
       {/* Mobile menu toggle button */}
@@ -98,16 +82,16 @@ function NavBar() {
     {/* Main navigation links, hidden on small screens */}
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
-        <Link color="foreground" href="/all-products">Product</Link>
+        <RouterLink to="/all-products">Product</RouterLink>
       </NavbarItem>
       <NavbarItem>
-        <Link color="foreground" href="/blog">Blogs</Link>
+        <RouterLink to="/blog">Blogs</RouterLink>
       </NavbarItem>
       <NavbarItem>
-        <Link color="foreground" href="/about">About</Link>
+        <RouterLink to="/about">About</RouterLink>
       </NavbarItem>
       <NavbarItem>
-        <Link color="foreground" href="/contact">Contact</Link>
+        <RouterLink to="/contact">Contact</RouterLink>
       </NavbarItem>
     </NavbarContent>
     {/* User-specific content */}
@@ -155,10 +139,10 @@ function NavBar() {
             }}
           >
             <DropdownSection aria-label="Profile & Actions" showDivider>
-              <DropdownItem href="dashboard" textValue="Dashboard" key="dashboard">
+              <DropdownItem href="/dashboard" textValue="Dashboard" key="dashboard">
                 Dashboard
               </DropdownItem>
-              <DropdownItem href="dashboard/my-profile" textValue="My Profile" key="my-profile">
+              <DropdownItem href="/dashboard/my-profile" textValue="My Profile" key="my-profile">
                 My Profile
               </DropdownItem>
             </DropdownSection>  

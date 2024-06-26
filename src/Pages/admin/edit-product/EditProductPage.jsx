@@ -31,7 +31,7 @@ function EditProductPage() {
             confirmButtonText: "Update"
           }).then(async (result) => {
             if (result.isConfirmed) {
-        const productRes = await axiosPublic.patch(`/shoes/${shoe?.id}`, product);
+        const productRes = await axiosPublic.patch(`/products/${shoe?.id}`, product);
           console.log(productRes.data)
           if(productRes.data.price){
             Swal.fire({
