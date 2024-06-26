@@ -320,10 +320,8 @@ export default function ManageProductsPage() {
                 ))}
               </DropdownMenu>
             </Dropdown>
-            <Button color="primary" endContent={<FiPlus />}>
-              <Link href="/addNewProduct" >
+            <Button as={Link} color="primary" href="/addNewProduct" endContent={<FiPlus />}>
                 Add New Product
-              </Link>
             </Button>
           </div>
         </div>

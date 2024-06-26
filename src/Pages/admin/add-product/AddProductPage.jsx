@@ -1,54 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { Input, Button, Textarea, Select, SelectItem } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import { IoIosAddCircle } from "react-icons/io";
-import { useQuery } from "@tanstack/react-query";
 
 function AddProductPage() {
     const {register,handleSubmit,formState: { errors }, reset} = useForm();
-    const axiosPublic = useAxiosPublic();
-    const {data: products = [],} = useQuery({
-    queryKey: ["products"],
-    queryFn: async () => {
-        const res = await axiosPublic.get("/products/0");
-        return res.data
-    }
-    })
     const onSubmit = async (data) => {
-        const newId = products.length + Math.floor(100000 + Math.random() * 900000).toString();
-        const product = {
-        id: newId,
-        ratings: 0,
-        title: data.productName,
-        brand: data.productBrand,
-        price: data.productPrice,
-        image_url: data.productImgUrl,
-        description: data.productDescription
-        };
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You want to Add this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Add now"
-        }).then(async (result) => {
-          if (result.isConfirmed) {
-        const productRes = await axiosPublic.post("/products", product);
-          console.log(productRes.data)
-          if(productRes.data.price){
-            reset()
-            Swal.fire({
-              icon: "success",
-              title: `${data.productName} is Added Successfully.`,
-              showConfirmButton: false,
-              timer: 1500
-            });
-          }
-          }})
+      console.log(data)
     };
     const brandNameList = [
       {label: "Nike", value: "Nike"},
@@ -58,102 +15,79 @@ function AddProductPage() {
       {label: "Converse", value: "Converse"},
     ]
   return (
-    <section className="lg:mx-16 md:mx-8 mx-4">
+    <section>
       <Helmet title='Add New Product | Admin - Dashbaord | Zephyra Online Shop'/>
-      <div className="bg-gray-100 rounded-lg p-12">
-        <div className="w-ful items-center pb-4">
-            <h1 className="text-gray-800 font-semibold text-2xl">ADD NEW PRODUCT</h1>
+      <div className="space-y-4">
+        <div className="border-1 border-gray-200 rounded-md">
+          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+            <h1>Product Image Upload</h1>
+            <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <div className="grid  xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-4">
+            <ProductImageSelectInput />
+            <ProductImageSelectInput />
+            <ProductImageSelectInput />
+            <ProductImageSelectInput />
+            <ProductImageSelectInput />
+          </div>
         </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start justify-start gap-6">
-         <Input 
-            isRequired
-            radius="sm" 
-            type="text" 
-            name="productName"
-            label="Product name" 
-            className="w-full"
-            variant="bordered" 
-            labelPlacement="outside" 
-            placeholder="Recipe name" 
-            classNames={{inputWrapper: ["bg-white"]}}
-            {...register("productName", { required: true })}
-            isInvalid={errors.productName ? true : false}
-            color={errors.productName ? "danger" : "default"}
-            errorMessage={errors.productName && "Product name Please!"}
-          />
-         <Input 
-            isRequired
-            radius="sm" 
-            type="text" 
-            name="productImgUrl"
-            label="Product Image Url" 
-            className="w-full"
-            variant="bordered" 
-            labelPlacement="outside" 
-            placeholder="Image Url"
-            defaultValue="https://i.ibb.co/S72kSF7/Untitled-design-111.png"
-            classNames={{inputWrapper: ["bg-white"]}}
-            {...register("productImgUrl", { required: true })}
-            isInvalid={errors.productImgUrl ? true : false}
-            color={errors.productImgUrl ? "danger" : "default"}
-            errorMessage={errors.productImgUrl && "Please Giv e Product img url"}
-          />
-         <div className="flex items-center lg:justify-between w-full gap-4">
-          <Select isRequired {...register("productBrand", { required: true })}
-            size="md"
-            radius="sm"
-            variant="bordered" 
-            labelPlacement="outside" 
-            classNames={{ trigger: "bg-white",}}
-            placeholder="Select Product Brand"
-            isInvalid={errors.productBrand ? true : false}
-            color={errors.productBrand ? "danger" : "default"}
-            errorMessage={errors.productBrand && "Please Select Product Brand"}
-            label="Product Brand">
-            {brandNameList.map((brand) => (
-              <SelectItem key={brand.value} value={brand.value}>
-                {brand.label}
-              </SelectItem>
-            ))}
-          </Select>
-         <Input 
-            isRequired
-            radius="sm" 
-            type="number" 
-            name="productPrice"
-            label="Poduct Price" 
-            className="w-full"
-            variant="bordered" 
-            labelPlacement="outside" 
-            placeholder="0" 
-            {...register("productPrice", { required: true })}
-            classNames={{inputWrapper: ["bg-white"]}}
-            isInvalid={errors.productPrice ? true : false}
-            color={errors.productPrice ? "danger" : "default"}
-            errorMessage={errors.productPrice && "Enter Product Price"}
-          />
-         </div>
-          <Textarea
-            isRequired
-            label="Product Description"
-            labelPlacement="outside"
-            placeholder="Write somthing about product..."
-            className="w-full"
-            variant="bordered"
-            {...register("productDescription", { required: true })}
-            classNames={{inputWrapper: ["bg-white"]}}
-            isInvalid={errors.productDescription ? true : false}
-            color={errors.productDescription ? "danger" : "default"}
-            errorMessage={errors.productDescription && "Write Product Description."}
-          />
-          <Button endContent={<IoIosAddCircle size={20}/>} 
-          radius="sm" type="submit" 
-          className="bg-gray-700 text-white">
-            Add Item
-          </Button>
-         </form>
+        <div className="border-1 border-gray-200 rounded-md">
+          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+            <h1>General Information</h1>
+            <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <div className="p-4">
+          <h1>General Information</h1>
+          </div>
+        </div>
+        <div className="border-1 border-gray-200 rounded-md">
+          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+            <h1>Pricing</h1>
+            <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <div className="p-4">
+          <h1>Pricing</h1>
+          </div>
+        </div>
+        <div className="border-1 border-gray-200 rounded-md">
+          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+            <h1>Inventory</h1>
+            <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <div className="p-4">
+          <h1>Inventory</h1>
+          </div>
+        </div>
+        <div className="border-1 border-gray-200 rounded-md">
+          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+            <h1>Variation</h1>
+            <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+          </div>
+          <div className="p-4">
+          <h1>Variation</h1>
+          </div>
+        </div>
       </div>
     </section>
+  )
+}
+
+const ProductImageSelectInput = () => {
+  return(
+    <div className="flex items-center justify-center w-full">
+      <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-44 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 ">
+        <div className="flex flex-col items-center justify-center pt-5 pb-6">
+          <svg className="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+          </svg>
+          <div className="mb-2 text-tiny text-gray-500">
+            <p className="font-semibold">Click to upload</p>
+            <p>or drag and drop</p>
+          </div>
+        </div>
+        <input id="dropzone-file" type="file" className="hidden" />
+      </label>
+    </div>
   )
 }
 
