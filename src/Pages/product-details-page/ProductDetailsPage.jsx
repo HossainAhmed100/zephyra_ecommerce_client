@@ -220,7 +220,7 @@ const ReviewCard = () => {
         <div className='flex items-center justify-between w-full'>
           <div className='flex items-start justify-center flex-col gap-1'>
             <h1 className='text-base text-gray-800 font-medium'>Hossain Ahmed</h1>
-            <div className='flex flex-col items-start justify-start gap-2'>
+            <div className='flex flex-col items-start justify-start md:flex-row gap-2'>
               <div className='flex items-center justify-start gap-1'>
                 {[1,2,3,].map(item => <FaStar key={item} size={14} className='text-orange-300'/>)}
                 <FaStar size={14} className='text-gray-300'/>
@@ -228,7 +228,7 @@ const ReviewCard = () => {
               </div>
               <div className='flex items-start  justify-start gap-2'>
                 <LuDot className='text-[14px] md:flex hidden text-gray-400'/>
-                <span className='text-tiny text-gray-500'>Purchased on Wed, May 12</span>
+                <span className='text-tiny text-gray-500'>Wed, May 12</span>
               </div>
             </div>
           </div>  
