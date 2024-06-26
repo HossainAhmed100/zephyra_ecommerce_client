@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { Input, Button, Textarea, Select, SelectItem } from "@nextui-org/react";
+import { Input, Button, Select, SelectItem } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
-import Breadcrumb from "../../../components/breadcrumbs/BreadCrumbs";
+import { FaPercent } from "react-icons/fa6";
 
 function AddProductPage() {
   // Destructure useForm hook to handle form state and validation
@@ -22,20 +22,29 @@ function AddProductPage() {
     { label: "Converse", value: "Converse" },
   ];
 
+  const discountTypes = [
+    { id: 1, key: "cashDiscount", label: "Cash Discount" },
+    { id: 3, key: "buyOneGetOneFree", label: "Buy One Get One Free"},
+    { id: 5, key: "clearanceDiscount", label: "Clearance Discount" },
+    { id: 6, key: "loyaltyDiscount", label: "Loyalty Discount" },
+    { id: 7, key: "holidayDiscount", label: "Holiday Discount" },
+    { id: 11, key: "studentDiscount", label: "Student Discount" },
+    { id: 19, key: "limitedTimeDiscount", label: "Limited Time Discount" },
+    { id: 20, key: "flashSaleDiscount", label: "Flash Sale Discount" }
+  ];
+  
+
   return (
     <section>
       {/* Set the page title using Helmet for better SEO */}
       <Helmet title='Add New Product | Admin - Dashboard | Zephyra Online Shop' />
-      <div className="p-4 mb-4 rounded-md border-1">
-        <Breadcrumb />
-      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
       <div className="space-y-4">
         
         {/* Product Image Upload Section */}
         <div className="border-1 border-gray-200 rounded-md">
           <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
-            <h1>Product Image Upload</h1>
+            <h1>Select Product Image</h1>
             <p className="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
           </div>
           <div className="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 p-4 gap-4">
@@ -57,15 +66,28 @@ function AddProductPage() {
           <div className="p-4 space-y-4">
             <Input {...register("productName", { required: true })} labelPlacement="outside" variant="faded" radius="sm" label="Product Name" placeholder="Enter product name" fullWidth />
             {errors.productName && <span>This field is required</span>}
-            
-            <Select {...register("brand", { required: true })} label="Brand" placeholder="Select a brand" fullWidth>
-              {brandNameList.map((brand) => (
-                <SelectItem key={brand.value} value={brand.value}>
-                  {brand.label}
-                </SelectItem>
-              ))}
-            </Select>
-            {errors.brand && <span>This field is required</span>}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+              <Select {...register("brand", { required: true })} label="Brand" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a brand" fullWidth>
+                {brandNameList.map((brand) => (
+                  <SelectItem key={brand.value} value={brand.value}>
+                    {brand.label}
+                  </SelectItem>
+                ))}
+              </Select>
+              {errors.brand && <span>This field is required</span>}
+              </div>
+              <div>
+              <Select {...register("brand", { required: true })} label="Product Category" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Category" fullWidth>
+                {brandNameList.map((brand) => (
+                  <SelectItem key={brand.value} value={brand.value}>
+                    {brand.label}
+                  </SelectItem>
+                ))}
+              </Select>
+              {errors.brand && <span>This field is required</span>}
+              </div>
+            </div>
           </div>
           </div>
         
@@ -76,10 +98,37 @@ function AddProductPage() {
             <p className="text-xs text-gray-500">Enter the product pricing details</p>
           </div>
           <div className="p-4 space-y-4">
-            <Input {...register("price", { required: true })} label="Price" placeholder="Enter price" fullWidth type="number" />
-            {errors.price && <span>This field is required</span>}
-            
-            <Input {...register("discountPrice")} label="Discount Price" placeholder="Enter discount price" fullWidth type="number" />
+            <Input
+              type="number"
+              label="Price"
+              variant="faded" 
+              placeholder="0.00"
+              labelPlacement="outside"
+              {...register("productPrice", { required: true })}
+              startContent={
+                <div className="pointer-events-none flex items-center">
+                  <span className="text-default-400 text-small">$</span>
+                </div>
+              }
+            />
+            {errors.productPrice && <span>This field is required</span>}
+              
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+              <Input type="number" endContent={<FaPercent />} {...register("discountPercentage", { required: true })} labelPlacement="outside" variant="faded" radius="sm" label="Discount Percentage" placeholder="0.00" fullWidth />
+              {errors.discountPercentage && <span>This field is required</span>}
+              </div>
+              <div>
+              <Select {...register("discountType", { required: true })} label="Discount Type" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Discount Type" fullWidth>
+                {discountTypes.map((discount) => (
+                  <SelectItem key={discount.key} value={discount.key}>
+                    {discount.label}
+                  </SelectItem>
+                ))}
+              </Select>
+              {errors.discountType && <span>This field is required</span>}
+              </div>
+            </div>
           </div>
         </div>
         
@@ -89,12 +138,41 @@ function AddProductPage() {
             <h1>Inventory</h1>
             <p className="text-xs text-gray-500">Enter the inventory details</p>
           </div>
-          <div className="p-4 space-y-4">
-            <Input {...register("quantity", { required: true })} label="Quantity" placeholder="Enter quantity" fullWidth type="number" />
+          <div className="p-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
+            <div>
+            <Input
+              type="number"
+              label="SKU"
+              variant="faded" 
+              placeholder="12345678"
+              labelPlacement="outside"
+              {...register("sku", { required: true })}
+            />
+            {errors.sku && <span>This field is required</span>}
+            </div>
+            <div>
+            <Input
+              type="number"
+              label="Barcode"
+              variant="faded" 
+              placeholder="0943424547"
+              labelPlacement="outside"
+              {...register("barcode", { required: true })}
+            />
+            {errors.barcode && <span>This field is required</span>}
+            </div>
+            <div>
+            <Input
+              type="number"
+              label="Quantity"
+              variant="faded" 
+              placeholder="Type product quantity"
+              labelPlacement="outside"
+              {...register("quantity", { required: true })}
+            />
             {errors.quantity && <span>This field is required</span>}
-            
-            <Input {...register("minOrderQuantity", { required: true })} label="Minimum Order Quantity" placeholder="Enter minimum order quantity" fullWidth type="number" />
-            {errors.minOrderQuantity && <span>This field is required</span>}
+            </div>
+              
           </div>
         </div>
         
