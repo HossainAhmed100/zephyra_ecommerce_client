@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Input, Button, Select, SelectItem } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import { FaPercent } from "react-icons/fa6";
+import TextEditor from "../../../components/Editior/TextEditor";
 
 function AddProductPage() {
   // Destructure useForm hook to handle form state and validation
@@ -121,38 +122,38 @@ function AddProductPage() {
         </div>
         
         {/* General Information Form Section */}
-          <div className="border-1 border-gray-200 rounded-md">
-          <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
-            <h1>General Information</h1>
-            <p className="text-xs text-gray-500">Fill in the product details below</p>
-          </div>
-          <div className="p-4 space-y-4">
-            <Input {...register("productName", { required: true })} labelPlacement="outside" variant="faded" radius="sm" label="Product Name" placeholder="Enter product name" fullWidth />
-            {errors.productName && <span>This field is required</span>}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-              <Select {...register("brand", { required: true })} label="Brand" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a brand" fullWidth>
-                {brandNameList.map((brand) => (
-                  <SelectItem key={brand.value} value={brand.value}>
-                    {brand.label}
-                  </SelectItem>
-                ))}
-              </Select>
-              {errors.brand && <span>This field is required</span>}
-              </div>
-              <div>
-              <Select {...register("category", { required: true })} label="Product Category" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Category" fullWidth>
-                {categoryList.map((category) => (
-                  <SelectItem key={category.id} value={category.id}>
-                    {category.label}
-                  </SelectItem>
-                ))}
-              </Select>
-              {errors.category && <span>This field is required</span>}
-              </div>
+        <div className="border-1 border-gray-200 rounded-md">
+        <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
+          <h1>General Information</h1>
+          <p className="text-xs text-gray-500">Fill in the product details below</p>
+        </div>
+        <div className="p-4 space-y-4">
+          <Input {...register("productName", { required: true })} labelPlacement="outside" variant="faded" radius="sm" label="Product Name" placeholder="Enter product name" fullWidth />
+          {errors.productName && <span className="text-tiny text-red-500">This field is required</span>}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+            <Select {...register("brand", { required: true })} label="Brand" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a brand" fullWidth>
+              {brandNameList.map((brand) => (
+                <SelectItem key={brand.value} value={brand.value}>
+                  {brand.label}
+                </SelectItem>
+              ))}
+            </Select>
+            {errors.brand && <span className="text-tiny text-red-500">This field is required</span>}
+            </div>
+            <div>
+            <Select {...register("category", { required: true })} label="Product Category" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Category" fullWidth>
+              {categoryList.map((category) => (
+                <SelectItem key={category.id} value={category.id}>
+                  {category.label}
+                </SelectItem>
+              ))}
+            </Select>
+            {errors.category && <span className="text-tiny text-red-500">This field is required</span>}
             </div>
           </div>
-          </div>
+        </div>
+        </div>
         
         {/* Pricing Section */}
         <div className="border-1 border-gray-200 rounded-md">
@@ -174,12 +175,12 @@ function AddProductPage() {
                 </div>
               }
             />
-            {errors.productPrice && <span>This field is required</span>}
+            {errors.productPrice && <span className="text-tiny text-red-500">This field is required</span>}
               
             <div className="grid grid-cols-2 gap-4">
               <div>
               <Input type="number" endContent={<FaPercent />} {...register("discountPercentage", { required: true })} labelPlacement="outside" variant="faded" radius="sm" label="Discount Percentage" placeholder="0.00" fullWidth />
-              {errors.discountPercentage && <span>This field is required</span>}
+              {errors.discountPercentage && <span className="text-tiny text-red-500">This field is required</span>}
               </div>
               <div>
               <Select {...register("discountType", { required: true })} label="Discount Type" labelPlacement="outside" variant="faded" radius="sm" placeholder="Select a Discount Type" fullWidth>
@@ -189,7 +190,7 @@ function AddProductPage() {
                   </SelectItem>
                 ))}
               </Select>
-              {errors.discountType && <span>This field is required</span>}
+              {errors.discountType && <span className="text-tiny text-red-500">This field is required</span>}
               </div>
             </div>
           </div>
@@ -211,7 +212,7 @@ function AddProductPage() {
               labelPlacement="outside"
               {...register("sku", { required: true })}
             />
-            {errors.sku && <span>This field is required</span>}
+            {errors.sku && <span className="text-tiny text-red-500">This field is required</span>}
             </div>
             <div>
             <Input
@@ -222,7 +223,7 @@ function AddProductPage() {
               labelPlacement="outside"
               {...register("barcode", { required: true })}
             />
-            {errors.barcode && <span>This field is required</span>}
+            {errors.barcode && <span className="text-tiny text-red-500">This field is required</span>}
             </div>
             <div>
             <Input
@@ -233,22 +234,23 @@ function AddProductPage() {
               labelPlacement="outside"
               {...register("quantity", { required: true })}
             />
-            {errors.quantity && <span>This field is required</span>}
+            {errors.quantity && <span className="text-tiny text-red-500">This field is required</span>}
             </div>
               
           </div>
         </div>
-        
-        {/* Variation Section */}
+
+        {/* Description Section */}
         <div className="border-1 border-gray-200 rounded-md">
           <div className="px-4 border-b-1 gap-2 py-2 flex flex-col md:flex-row items-center justify-between">
-            <h1>Variation</h1>
-            <p className="text-xs text-gray-500">Enter the product variations</p>
+            <h1>Product Description</h1>
+            <p className="text-xs text-gray-500">Type product details</p>
           </div>
-          <div className="p-4 space-y-4">
-            {/* Placeholder for product variations inputs */}
+          <div className="p-4">
+            <TextEditor />
           </div>
         </div>
+
         <Button type="submit" color="primary">Add Product</Button>
         </div>
       </form>

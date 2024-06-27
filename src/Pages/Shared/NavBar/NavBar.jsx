@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Badge, Button, DropdownSection, Link} from "@nextui-org/react";
-import { useNavigate, NavLink as RouterLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
 import { VscSignOut, VscFeedback } from "react-icons/vsc";
@@ -82,16 +82,16 @@ function NavBar() {
     {/* Main navigation links, hidden on small screens */}
     <NavbarContent className="hidden sm:flex gap-4" justify="center">
       <NavbarItem>
-        <RouterLink to="/all-products">Product</RouterLink>
+        <NavLink to="/all-products">Product</NavLink>
       </NavbarItem>
       <NavbarItem>
-        <RouterLink to="/blog">Blogs</RouterLink>
+        <NavLink to="/blog">Blogs</NavLink>
       </NavbarItem>
       <NavbarItem>
-        <RouterLink to="/about">About</RouterLink>
+        <NavLink to="/about">About</NavLink>
       </NavbarItem>
       <NavbarItem>
-        <RouterLink to="/contact">Contact</RouterLink>
+        <NavLink to="/contact">Contact</NavLink>
       </NavbarItem>
     </NavbarContent>
     {/* User-specific content */}
