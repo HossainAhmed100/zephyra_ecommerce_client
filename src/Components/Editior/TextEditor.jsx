@@ -17,12 +17,15 @@ const TextEditor = () => {
   const htmlContent = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
   // Log the HTML content to the console (for debugging)
-  console.log(htmlContent);
+  // console.log(htmlContent);
 
   return (
     <div>
       {/* Render the WYSIWYG editor */}
       <Editor
+        toolbar={{
+          options: ['inline', 'list', 'textAlign',  'embedded', 'remove', 'history']
+        }}
         editorState={editorState}
         toolbarClassName="toolbarClassName"
         wrapperClassName="wrapperClassName"

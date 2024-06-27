@@ -50,32 +50,10 @@ function DashboardLayout() {
               </Link>
             </div>
             <div className="flex items-center">
-            <Dropdown placement="bottom-end">
-              <DropdownTrigger>
-                <Avatar isBordered as="button" className="transition-transform" color="default" 
-                  name={user?.displayName} size="sm"
-                  src={user?.photoURL}
-                />
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownItem textValue="userNameandEmail" key="userDetails" className="h-14 gap-2">
-                  <p className="font-semibold">Signed in as</p>
-                  <p className="font-semibold">{user?.email}</p>
-                </DropdownItem>
-                <DropdownItem textValue="profile" key="profile">
-                  <Link className="inline-block w-full" href="/dashboard/myProfile">Profile</Link>
-                </DropdownItem>
-                <DropdownItem textValue="dashboard" key="dashboard">
-                  <Link className="inline-block w-full" href="/dashboard">Dashboard</Link>
-                </DropdownItem>
-                <DropdownItem textValue="logout" onClick={handleLogOut} key="logout" color="danger" className="flex items-center justify-center flex-row gap-2">
-                  <span className="flex items-center gap-1 justify-start">
-                  <VscSignOut />
-                  Log Out
-                  </span>
-                </DropdownItem>
-              </DropdownMenu>
-              </Dropdown>  
+              <Avatar isBordered as="button" className="transition-transform" color="default" 
+                name={user?.displayName} size="sm"
+                src="https://avatar.iran.liara.run/public"
+              /> 
             </div>
           </div>
         </div>
