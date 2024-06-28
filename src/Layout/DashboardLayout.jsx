@@ -1,9 +1,8 @@
-import { Avatar, DropdownMenu, DropdownItem, DropdownTrigger, Dropdown, Button, NextUIProvider, Link} from "@nextui-org/react";
+import { Avatar, Button, NextUIProvider, Link} from "@nextui-org/react";
 import { useNavigate, Outlet, NavLink } from "react-router-dom";
 import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
-import { VscSignOut } from "react-icons/vsc";
 import Swal from "sweetalert2";
-import auth from "../firebase/firebase.config";
+import {auth} from "../firebase/firebase.config";
 import ThreeLineIcon from "../assets/SVGIcons/ThreeLineIcon";
 import { useState } from "react";
 import { FaChartPie, FaArrowRightFromBracket } from "react-icons/fa6";
@@ -21,19 +20,6 @@ function DashboardLayout() {
   // Hook to sign out user
   const [signOut] = useSignOut(auth);
   
-  // Function to handle user logout
-  const handleLogOut = async () => {
-  const success = await signOut();
-    if (success) {
-    navigate("/login")
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Logout Successfull",
-      showConfirmButton: false,
-      timer: 1500
-    });
-  }};
   return (
     <div>
       <NextUIProvider navigate={navigate}>

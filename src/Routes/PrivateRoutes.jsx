@@ -1,7 +1,7 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from "react-router-dom";
 import { Spinner } from "@nextui-org/react";
-import auth from "../firebase/firebase.config";
+import {auth} from "../firebase/firebase.config";
 
 
 function PrivateRoutes({children}) {

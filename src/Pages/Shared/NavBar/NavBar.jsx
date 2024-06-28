@@ -5,7 +5,7 @@ import { useSignOut, useAuthState } from "react-firebase-hooks/auth";
 import { FaCartShopping } from "react-icons/fa6";
 import { VscSignOut, VscFeedback } from "react-icons/vsc";
 import Swal from "sweetalert2";
-import auth from "../../../firebase/firebase.config";
+import {auth} from "../../../firebase/firebase.config";
 import "./NavBar.css";
 
 

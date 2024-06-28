@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import { BdFlags } from "../../assets/icons/BdFlags";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import auth from "../../firebase/firebase.config";
+import {auth} from "../../firebase/firebase.config";
 
 const Register = () => {
   // State to manage the visibility of the password input

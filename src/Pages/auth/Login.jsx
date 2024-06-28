@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import auth from "../../firebase/firebase.config";
+import {auth} from "../../firebase/firebase.config";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
